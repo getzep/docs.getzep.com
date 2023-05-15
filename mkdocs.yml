@@ -22,8 +22,6 @@ nav:
   - Extractors:
       - extractors/index.md
   - Vector Search: memory_search.md
-  - API:
-      - api/index.md
 theme:
   name: material
   features:
