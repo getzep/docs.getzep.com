@@ -1,0 +1,68 @@
+site_name: Zep - A long-term memory store for LLM applications
+repo_url: https://github.com/getzep/zep
+site_description: Zep stores, summarizes, embeds, indexes, and enriches LLM app / AI chatbot histories.
+copyright: Copyright &copy; 2023 - Daniel Chalef and Sharath Rajasekar
+nav:
+  - About:
+      - index.md
+      - Concepts: about/concepts.md
+  - Quick Start:
+      - deployment/quickstart.md
+  - SDKs:
+      - sdk/index.md
+      - Langchain ❤️: sdk/langchain.md
+  - API:
+      - api/index.md
+  - Deployment:
+      - deployment/index.md
+      - Config: config/index.md
+  - Vector Search: memory_search.md
+  - API:
+      - api/index.md
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - search
+    - search.suggest
+    - content.tabs.link
+    - content.code.copy
+    - content.code.annotate
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      primary: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  icon:
+    repo: fontawesome/brands/github
+    logo: fontawesome/solid/robot
+
+markdown_extensions:
+  - attr_list
+  - admonition
+  - abbr
+  - def_list
+  - tables
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
