@@ -12,6 +12,10 @@ Zep's Extractor model is easily extensible, with a simple, clean interface avail
 - **Auto-token counting** of memories and summaries, allowing finer-grained control over prompt assembly.
 - **[Python](https://github.com/getzep/zep-python)** and **[Javascript](https://github.com/getzep/zep-js)** SDKs.
 
+!!! info "Quick Start"
+
+    Looking to get going? The [Zep Quick Start Guide](/deployment/quickstart) has what you need.
+
 ## Why Zep?
 
 Chat history storage is an infrastructure challenge all developers and enterprises face as they look to move from prototypes to deploying LLM/ AI Chat applications that provide rich and intimate experiences to users.

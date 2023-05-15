@@ -1,0 +1,15 @@
+.language-text {
+  word-wrap: normal;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.language-text pre {
+  white-space: pre-wrap;
+  word-break: break-all;
+  overflow-x: hidden;
+}
+.language-text code {
+  white-space: pre-wrap;
+}

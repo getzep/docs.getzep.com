@@ -2,7 +2,7 @@
 
 ### Starting a Zep server locally is simple.
 
-1\. Clone this repo
+1\. Clone the [Zep repo](https://github.com/getzep/zep)
 
 ```bash
 git clone https://github.com/getzep/zep.git
@@ -15,7 +15,8 @@ ZEP_OPENAI_API_KEY=<your key here>
 ```
 
 !!! note "Important"
-You must have an OpenAI API key to use Zep. You can get one [here](https://openai.com/).
+
+    You must have an OpenAI API key to use Zep. You can get one [here](https://openai.com/).
 
 3\. Start the Zep server:
 
@@ -56,4 +57,6 @@ Install the **[Python](https://github.com/getzep/zep-python)** or **[Javascript]
 
 ### Next Steps
 
-- Learn [Key Concepts](/about/concepts.md)
+- Learn about [Extractors](/extractors)
+- Setting Zep [Configuration options](/deployment/config)
+- Learn about [deploying to production](/deployment)

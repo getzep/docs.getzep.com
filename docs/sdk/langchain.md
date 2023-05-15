@@ -114,7 +114,8 @@ The `ZepRetriever` class is able to take advantage of `zep-python`'s `async` API
 from langchain.retrievers import ZepRetriever
 
 zep_retriever = ZepRetriever(
-    session_id=session_id,  # Ensure that you provide the session_id when instantiating the Retriever
+    # Ensure that you provide the session_id when instantiating the Retriever
+    session_id=session_id,
     url=ZEP_API_URL,
     top_k=5,
 )
