@@ -8,11 +8,10 @@ nav:
       - Concepts: about/concepts.md
   - Quick Start:
       - deployment/quickstart.md
+  - Langchain ❤️: sdk/langchain.md
   - SDKs:
       - sdk/index.md
       - Langchain ❤️: sdk/langchain.md
-  - API:
-      - api/index.md
   - Deployment:
       - deployment/index.md
       - Config: config/index.md

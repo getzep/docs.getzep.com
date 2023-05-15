@@ -1,6 +1,6 @@
 # Quick Start
 
-### Starting a Zep server locally is simple. 
+### Starting a Zep server locally is simple.
 
 1\. Clone this repo
 
@@ -13,14 +13,16 @@ git clone https://github.com/getzep/zep.git
 ```bash
 ZEP_OPENAI_API_KEY=<your key here>
 ```
+
 !!! note "Important"
-    You must have an OpenAI API key to use Zep. You can get one [here](https://openai.com/).
+You must have an OpenAI API key to use Zep. You can get one [here](https://openai.com/).
 
 3\. Start the Zep server:
 
 ```bash
 docker-compose up
 ```
+
 This will start a Zep server on port `8000`, and a Postgres database on port `5432`.
 
 4\. Access Zep via the Python or Javascript SDKs:
@@ -54,4 +56,4 @@ Install the **[Python](https://github.com/getzep/zep-python)** or **[Javascript]
 
 ### Next Steps
 
-- Learn [Key Concepts](concepts.md)
+- Learn [Key Concepts](/about/concepts.md)
