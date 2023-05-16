@@ -11,6 +11,7 @@ Zep's Extractor model is easily extensible, with a simple, clean interface avail
 - **Vector search** over memories, with messages automatically embedded on creation.
 - **Auto-token counting** of memories and summaries, allowing finer-grained control over prompt assembly.
 - **[Python](https://github.com/getzep/zep-python)** and **[Javascript](https://github.com/getzep/zep-js)** SDKs.
+- [**Langchain**](/sdk/langchain) integration, enabling long-term memory and vector search over memory for Langchain projects.
 
 !!! info "Quick Start"
 
@@ -38,4 +39,5 @@ The Zep server and client SDKs are designed to address these challenges.
 ## Next Steps
 
 - [Quick Start](deployment/quickstart.md): Run a Zep server locally and a primer on the Python or Javascript SDKs.
-- Learn [Key Concepts](about/concepts.md)
+- Using Zep's [Python and Javascript SDKs](/sdk)
+- Developing with [Langchain and Zep](/sdk/langchain)

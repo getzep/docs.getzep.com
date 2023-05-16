@@ -7,7 +7,6 @@ extra_css:
 nav:
   - About:
       - index.md
-      - Concepts: about/concepts.md
   - Quick Start:
       - deployment/quickstart.md
   - Langchain ❤️: sdk/langchain.md

@@ -12,4 +12,5 @@
 }
 .language-text code {
   white-space: pre-wrap;
+  font-size: small;
 }
