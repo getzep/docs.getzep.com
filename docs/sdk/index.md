@@ -162,7 +162,7 @@ Sessions are created automatically when adding Memories. The SessionID is a stri
     } else {
         newMemories.forEach((memory) => {
             memory.messages.forEach((message) => {
-                console.debug(message.toDict());
+                console.debug(JSON.stringify(message));
             });
         });
     }
@@ -196,7 +196,7 @@ Zep supports vector similarity search for Messages in the long-term memory stora
     search_results = await client.asearch_memory(session_id, search_payload)
 
     for search_result in search_results:
-        print(search_result.message.to_dict())
+        print(search_result.message.dict())
     ```
     ```text
     {"message":{"uuid":"377ba3dd-d95c-4692-8713-888a2c48d90a","created_at":"2023-05-16T22:35:56.734814Z","role":"ai","content":"Parable of the Sower is a science fiction novel by Octavia Butler, published in 1993. It follows the story of Lauren Olamina, a young woman living in a dystopian future where society has collapsed due to environmental disasters, poverty, and violence.","token_count":56},"meta":{},"summary":null,"dist":0.8006004947773657}
@@ -226,3 +226,64 @@ Zep supports vector similarity search for Messages in the long-term memory stora
     ```
 
 ## Exploring Auto-Summarization, Token Counts, and Zep Enrichment
+
+You've likely noticed that alongside the role and content you provided to Zep when presisting a memory, Zep also returns a unique identifier, a UUID, a timestamp, and a token count. The token count is a useful tool to use when constructing prompts, while the other metadata may be useful for other applications.
+
+Zep performs auto-summarization when a session exceeds the message window. This is returned in the `summary` field of the memory when you call `get_memory` and may be used when constructing prompts in order to provide your agent or chain with a longer-term memory of the conversation. Read more about the [Summarizer Extractor](/extractors/#summarizer-extractor).
+
+```json
+{
+  "summary": {
+    "uuid": "afe3957b-032f-47e0-8317-ed2953a2fb49",
+    "created_at": "2023-05-16T22:59:22.979937Z",
+    "content": "The AI provides a summary of Octavia Butler's Parable of the Sower, detailing the story of Lauren Olamina in a dystopian future. When the human asks for recommendations for other women sci-fi writers, the AI suggests Ursula K. Le Guin and Joanna Russ. The human follows up by asking about Butler's awards, and the AI lists the Hugo Award, Nebula Award, and MacArthur Fellowship. They also discuss Butler's contemporaries, the FX adaptation of Kindred, and Butler's background as an American science fiction author.",
+    "recent_message_uuid": "8834423d-9388-4a6a-bee2-091754407241",
+    "token_count": 644
+  },
+  "messages": [
+    {
+      "uuid": "96c2597e-7c13-48ee-bb5e-1f4f4663b2d2",
+      "created_at": "2023-05-16T22:59:33.612956Z",
+      "role": "ai",
+      "content": "Parable of the Sower is a science fiction novel by Octavia Butler, published in 1993. It follows the story of Lauren Olamina, a young woman living in a dystopian future where society has collapsed due to environmental disasters, poverty, and violence.",
+      "token_count": 0
+    },
+    {
+      "uuid": "b235e682-75b3-44b2-b083-4572cdbc86b1",
+      "created_at": "2023-05-16T22:59:33.612956Z",
+      "role": "human",
+      "content": "Write a short synopsis of Butler's book, Parable of the Sower. What is it about?",
+      "token_count": 0
+    },
+    {
+      "uuid": "fa209c5e-3937-4d33-b659-1aa4fb0d1967",
+      "created_at": "2023-05-16T22:59:33.612956Z",
+      "role": "ai",
+      "content": "You might want to read Ursula K. Le Guin or Joanna Russ.",
+      "token_count": 0
+    },
+    {
+      "uuid": "d783da86-405f-45c6-862a-16901fbae33e",
+      "created_at": "2023-05-16T22:59:33.612956Z",
+      "role": "human",
+      "content": "Which other women sci-fi writers might I want to read?",
+      "token_count": 0
+    },
+    {
+      "uuid": "5a5433c6-ce1b-48be-9aa4-5782d742d11d",
+      "created_at": "2023-05-16T22:59:33.612956Z",
+      "role": "ai",
+      "content": "Octavia Butler won the Hugo Award, the Nebula Award, and the MacArthur Fellowship.",
+      "token_count": 0
+    },
+    {
+      "uuid": "89e951f2-8156-4a47-b86d-129e9804211d",
+      "created_at": "2023-05-16T22:59:33.612956Z",
+      "role": "human",
+      "content": "What awards did she win?",
+      "token_count": 0
+    }
+  ],
+  "metadata": {}
+}
+```
