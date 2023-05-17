@@ -1,6 +1,6 @@
 # Zep and Langchain
 
-!!! note "Not yet merged"
+!!! note "Coming Soon!"
 
     Zep integration has not yet been merged to Langchain's master branch.
 
