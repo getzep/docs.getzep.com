@@ -25,3 +25,6 @@ Point your browser to http://127.0.0.1:8000/
 The `mkdocs.yml` file contains the config.
 
 You may need to modify the `nav` section if you're adding new files to the documentation.
+
+## Deploying the docs
+Create a PR and push to the main branch. A GitHub Action will compile the docs and push them to the `gh-pages` branch. GitHub automatically updates the site with content from this branch.
