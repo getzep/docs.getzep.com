@@ -119,7 +119,7 @@ Sessions are created automatically when adding Memories. The SessionID is a stri
       );
     const memory = new Memory({ messages });
 
-    await client.addMemoryAsync(sessionID, memory);
+    await client.addMemory(sessionID, memory);
     ```
 
 ## Getting a Session's Memory
@@ -128,10 +128,9 @@ Sessions are created automatically when adding Memories. The SessionID is a stri
 
     ```python
     try:
-        memories = await client.aget_memory(session_id)
-        for memory in memories:
-            for message in memory.messages:
-                print(message.to_dict())
+        memory = await client.aget_memory(session_id)
+        for message in memory.messages:
+            print(message.to_dict())
     except NotFoundError:
         print("Memory not found")
     ```
@@ -155,15 +154,13 @@ Sessions are created automatically when adding Memories. The SessionID is a stri
 === "Javascript"
 
     ```javascript
-    const newMemories = await client.getMemoryAsync(sessionID);
+    const memory = await client.getMemory(sessionID);
 
-    if (newMemories.length === 0) {
-        console.debug("No memory found for session ", sessionID);
+    if (memory.messages.length === 0) {
+        console.debug("No messages found for session ", sessionID);
     } else {
-        newMemories.forEach((memory) => {
-            memory.messages.forEach((message) => {
-                console.debug(JSON.stringify(message));
-            });
+        memory.messages.forEach((message) => {
+            console.debug(JSON.stringify(message));
         });
     }
     ```
@@ -210,7 +207,7 @@ Zep supports vector similarity search for Messages in the long-term memory stora
     const searchText = "Is Lauren Olamina a character in a book?";
 
     const searchPayload = new SearchPayload({ meta: {}, text: searchText });
-    const searchResults = await client.searchMemoryAsync(
+    const searchResults = await client.searchMemory(
         sessionID,
         searchPayload
     );
@@ -246,42 +243,42 @@ Zep performs auto-summarization when a session exceeds the message window. This 
       "created_at": "2023-05-16T22:59:33.612956Z",
       "role": "ai",
       "content": "Parable of the Sower is a science fiction novel by Octavia Butler, published in 1993. It follows the story of Lauren Olamina, a young woman living in a dystopian future where society has collapsed due to environmental disasters, poverty, and violence.",
-      "token_count": 0
+      "token_count": 253
     },
     {
       "uuid": "b235e682-75b3-44b2-b083-4572cdbc86b1",
       "created_at": "2023-05-16T22:59:33.612956Z",
       "role": "human",
       "content": "Write a short synopsis of Butler's book, Parable of the Sower. What is it about?",
-      "token_count": 0
+      "token_count": 21
     },
     {
       "uuid": "fa209c5e-3937-4d33-b659-1aa4fb0d1967",
       "created_at": "2023-05-16T22:59:33.612956Z",
       "role": "ai",
       "content": "You might want to read Ursula K. Le Guin or Joanna Russ.",
-      "token_count": 0
+      "token_count": 18
     },
     {
       "uuid": "d783da86-405f-45c6-862a-16901fbae33e",
       "created_at": "2023-05-16T22:59:33.612956Z",
       "role": "human",
       "content": "Which other women sci-fi writers might I want to read?",
-      "token_count": 0
+      "token_count": 17
     },
     {
       "uuid": "5a5433c6-ce1b-48be-9aa4-5782d742d11d",
       "created_at": "2023-05-16T22:59:33.612956Z",
       "role": "ai",
       "content": "Octavia Butler won the Hugo Award, the Nebula Award, and the MacArthur Fellowship.",
-      "token_count": 0
+      "token_count": 26
     },
     {
       "uuid": "89e951f2-8156-4a47-b86d-129e9804211d",
       "created_at": "2023-05-16T22:59:33.612956Z",
       "role": "human",
       "content": "What awards did she win?",
-      "token_count": 0
+      "token_count": 8
     }
   ],
   "metadata": {}

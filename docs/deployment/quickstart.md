@@ -37,8 +37,7 @@ Install the **[Python](https://github.com/getzep/zep-python)** or **[Javascript]
         role = "user"
         content = "who was the first man to go to space?"
         message = Message(role=role, content=content)
-        memory = Memory()
-        memory.messages = [message]
+        memory = Memory(messages=[message])
         # Add a memory
         result = await client.aadd_memory(session_id, memory)
     ```
@@ -52,7 +51,7 @@ Install the **[Python](https://github.com/getzep/zep-python)** or **[Javascript]
      const message = new Message({ role, content });
      const memory = new Memory();
      memory.messages = [message];
-     const result = await client.addMemoryAsync(session_id, memory);
+     const result = await client.addMemory(session_id, memory);
     ```
 
 ### Next Steps

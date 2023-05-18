@@ -7,6 +7,7 @@ extra_css:
 nav:
   - About:
       - index.md
+      - The Zep Company: https://getzep.com
   - Quick Start:
       - deployment/quickstart.md
   - Langchain ❤️: sdk/langchain.md
