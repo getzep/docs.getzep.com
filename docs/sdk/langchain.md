@@ -1,4 +1,4 @@
-# Zep and Langchain
+# Long-term Memory Persistence, Enrichment, and Search for Langchain Apps
 
 Langchain Python ships with `ZepChatMessageHistory` and `ZepRetriever` classes.
 
