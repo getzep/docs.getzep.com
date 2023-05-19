@@ -4,6 +4,8 @@
 
 Zep offers both [Python](https://github.com/getzep/zep-python) and [Javascript](https://github.com/getzep/zep-js) SDKs.
 
+Python SDK documentation can be [found here](https://getzep.github.io/zep-python/zep_client/).
+
 === "Python"
 
     ``` bash
