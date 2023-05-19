@@ -4,6 +4,9 @@ site_description: Zep stores, summarizes, embeds, indexes, and enriches LLM app 
 copyright: Copyright &copy; 2023 - Daniel Chalef and Sharath Rajasekar
 extra_css:
   - stylesheets/extra.css
+extra:
+  analytics:
+    provider: posthog
 nav:
   - About:
       - index.md
@@ -26,6 +29,7 @@ nav:
   - Vector Search: memory_search.md
 theme:
   name: material
+  custom_dir: overrides
   features:
     - navigation.instant
     - navigation.tracking
