@@ -18,7 +18,7 @@ You can also provide your bot or agent with access to relevant messages in long-
 
 Using Zep as your Langchain app's long-term memory simple: initialize the `ZepChatMessageHistory` with your Zep instance URL and your user's session identifier (see [Zep Concepts](/about/concepts)) and then utilize it as the `chat_memory` for a Langchain `ConversationBufferMemory`.
 
-```python
+```python title="ZepChatMessageHistory instantiation"
 from langchain.memory.chat_message_histories import ZepChatMessageHistory
 from langchain.memory import ConversationBufferMemory
 
@@ -41,7 +41,7 @@ memory = ConversationBufferMemory(
 
 Once you've created the `memory`, use it in your chain or with your agent.
 
-```python
+```python  title="Running an agent with ZepChatMessageHistory"
 agent_chain.run(
     input="What is the book's relevance to the challenges facing contemporary society?"
 )
@@ -57,7 +57,7 @@ AI: Parable of the Sower is a powerful exploration of the challenges facing cont
 
 Inspecting the `zep_chat_history`, we see that a summary was automatically created, and that the history has been enriched with token counts, UUIDs, and timestamps.
 
-```python
+```python  title="Inspecting the Zep chat history"
 def print_messages(messages):
     for m in messages:
         print(m.to_dict())
@@ -86,7 +86,7 @@ Zep supports both vector search using a Langchain `Retriever` as well as via an 
 
 If you don't need to provide a `Retriever` to your chain or agent, you can search the long-term message history for a session directly from an instance of `ZepChatMessageHistory`.
 
-```python
+```python  title="Search for relevant historical messages"
 search_results = zep_chat_history.search("who are some famous women sci-fi authors?")
 for r in search_results:
     print(r.message, r.dist)
@@ -107,7 +107,7 @@ Zep uses cosine distance for search ranking and the distance values are returned
 
 The `ZepRetriever` class is able to take advantage of `zep-python`'s `async` API, as demonstrated below.
 
-```python
+```python title="Use the ZepRetriever to search for relevant historical messages"
 
 from langchain.retrievers import ZepRetriever
 
