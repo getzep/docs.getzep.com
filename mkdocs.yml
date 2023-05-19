@@ -18,6 +18,7 @@ nav:
   - Deployment:
       - deployment/index.md
       - Quick Start: deployment/quickstart.md
+      - Render: deployment/render.md
       - Fly.io: deployment/fly.md
       - Config: deployment/config.md
   - Extractors:
