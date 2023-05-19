@@ -1,20 +1,18 @@
 # Zep and Langchain
 
-!!! note "Coming Soon!"
-
-    Zep integration has not yet been merged to Langchain's master branch.
-
 Langchain Python ships with `ZepChatMessageHistory` and `ZepRetriever` classes.
 
 Zep can be used to provide long-term memory for your Langchain chat apps or agents. Zep will store the entire historical message stream, automatically summarize messages, enrich them with token counts, timestamps, metadata and more.
 
 You can also provide your bot or agent with access to relevant messages in long-term storage by using Zep's built-in vector search.
 
-!!! note "Installing the Zep Python SDK"
+!!! note "Installing Zep"
 
-    You will need to have the Zep Python SDK installed in order to use the Langchain `ZepChatMessageHistory` and `ZepRetriever` classes.
+    A Zep server install is required. You will also need to have the Zep Python SDK installed in order to use the Langchain `ZepChatMessageHistory` and `ZepRetriever` classes.
 
     See the [Zep Quick Start Guide](/deployment/quickstart) for details.
+
+    [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/getzep/zep){:target="_blank"}
 
 ## Using Zep as the Memory Store for your Langchain app
 
