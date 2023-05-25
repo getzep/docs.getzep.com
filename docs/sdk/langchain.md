@@ -14,14 +14,6 @@ You can also provide your bot or agent with access to relevant messages in long-
 
     [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/getzep/zep){:target="_blank"}
 
-
-!!! warning "FastAPI, Langchain, and Zep"
-
-    FastAPI runs an asyncio event loop. So do Zep's non-async methods used by Langchain. You will need to use `nest-asyncio` in order to use Zep, Langchain, and FastAPI together.
-
-    For guidance, take a look at this modified version of the Langchain Chat over Documents example app [that uses Zep Memory](https://github.com/getzep/chat-langchain-with-zep/blob/cc6ec56bb25697acaa9a860d56b28a11eb72eb8a/query_data.py#L15).
-
-
 ## Using Zep as the Memory Store for your Langchain app
 
 Using Zep as your Langchain app's long-term memory simple: initialize the `ZepChatMessageHistory` with your Zep instance URL and your user's session identifier (see [Zep Concepts](/about/concepts)) and then utilize it as the `chat_memory` for a Langchain `ConversationBufferMemory`.
