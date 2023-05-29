@@ -4,7 +4,12 @@ Zep Extractors extract information from messages. Currently, Zep has three extra
 
 - A progressive summarizer
 - An embedding vectorizer
+- A Named Entity Recognizer (NER)
 - A token counter
+
+!!! note
+
+    Extractors run asycronously. This ensures that the chat experience is not impacted by the time it takes to extract information from messages. Howeever, this does mean that the extracted information may not be immediately available after message persistence.
 
 ## Summarizer Extractor
 
@@ -25,6 +30,61 @@ The Message Window is defined in the [Zep config file](/deployment/config).
 ## Embedder Extractor
 
 The Embedder Extractor embeds new messages as they are persisted to the memory store. This makes them available for [semantic vector search](/memory_search). By default, we use OpenAI's 1536-wide AdaV2 embeddings.
+
+## Named Entity Recognizer (NER)
+
+The Entity Extractor extracts named entities from messages and stores them in the message metadata. Zep uses state-of-the-art NLP toolkit, [spaCy](https://spacy.io/), with entity extraction running locally, with no need for LLM access. With the Entity Extractor, developers can:
+
+- Trigger the use of custom prompts or agent branching;
+- Annotate the chat history, enhancing the experience for users with links to additional information, services, or products.
+- Evaluate human and agent messages further to extract dates, currencies, people's names, place names, etc.
+- and much more.
+
+Below is an example out of the Entity Extractor. The message metadata field is populated asynchronously, and may be accessed via the Zep `GetMemory` and Search APIs. The `Matches` field contains the start and end character positions of the entity in the message.
+
+```json
+ {"metadata": {
+    "system": {
+      "entities": [
+        {
+          "Label": "WORK_OF_ART",
+          "Matches": [
+            {
+              "End": 144,
+              "Start": 119,
+              "Text": "The Left Hand of Darkness"
+            }
+          ],
+          "Name": "The Left Hand of Darkness"
+        },
+        {
+          "Label": "PERSON",
+          "Matches": [
+            {
+              "End": 165,
+              "Start": 148,
+              "Text": "Ursula K. Le Guin"
+            }
+          ],
+          "Name": "Ursula K. Le Guin"
+        },
+        {
+          "Label": "PERSON",
+          "Matches": [
+            {
+              "End": 235,
+              "Start": 224,
+              "Text": "Joanna Russ"
+            }
+          ],
+          "Name": "Joanna Russ"
+        },
+...
+```
+
+We're currently using spaCy's smallest English language model, `en_core_web_sm`, for entity extraction. This provides a good balance between accuracy and inference time, with the latter being important for low-latency chat applications. 
+
+The [spaCy source code](https://github.com/explosion/spaCy/blob/9b7a59c325c85f49f8e978c9d9b8b29b42e577cb/spacy/glossary.py#L328) has list of entity labels and their descriptions.
 
 ## Token Count Extractor
 
