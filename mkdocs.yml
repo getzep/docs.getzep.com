@@ -1,5 +1,6 @@
 site_name: Zep - A long-term memory store for LLM applications
 repo_url: https://github.com/getzep/zep
+site_url: https://getzep.github.io
 site_description: Zep stores, summarizes, embeds, indexes, and enriches LLM app / AI chatbot histories.
 copyright: Copyright &copy; 2023 - Daniel Chalef and Sharath Rajasekar
 extra_css:
