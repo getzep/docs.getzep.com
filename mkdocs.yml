@@ -31,6 +31,7 @@ nav:
 theme:
   name: material
   custom_dir: overrides
+  favicon: images/favicon.png
   features:
     - navigation.tracking
     - navigation.tabs
@@ -41,6 +42,7 @@ theme:
     - content.tabs.link
     - content.code.copy
     - content.code.annotate
+    - announce.dismiss
   palette:
     # Palette toggle for light mode
     - scheme: default

@@ -4,6 +4,12 @@
 
     [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](/deployment/render)
 
+!!! question "Need help?"
+
+    [Join our Discord](https://discord.gg/W8Kw6bsgXQ) and ask away!
+
+    [![](https://dcbadge.vercel.app/api/server/W8Kw6bsgXQ?style=flat)](https://discord.gg/W8Kw6bsgXQ)
+
 ### Starting a Zep server locally is simple.
 
 1\. Clone the [Zep repo](https://github.com/getzep/zep)
