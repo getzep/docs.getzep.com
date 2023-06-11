@@ -70,7 +70,7 @@ Sessions are created automatically when adding Memories. The SessionID is a stri
 
 === "Python"
 
-    ```python
+    ```python title="Add Memory to Session"
     from zep_python import Memory, Message, ZepClient
 
     base_url = "http://localhost:8000"  # TODO: Replace with Zep API URL
@@ -99,7 +99,7 @@ Sessions are created automatically when adding Memories. The SessionID is a stri
 
 === "Javascript"
 
-    ```javascript
+    ```javascript title="Add Memory to Session"
     import { ZepClient, Message, Memory } from "zep-js";
 
     const zep = new ZepClient("http://localhost:8000"); // Replace with Zep API URL
@@ -132,7 +132,7 @@ Sessions are created automatically when adding Memories. The SessionID is a stri
 
 === "Python"
 
-    ```python
+    ```python title="Get Memory from Session"
     try:
         memory = await client.aget_memory(session_id)
         for message in memory.messages:
@@ -140,7 +140,7 @@ Sessions are created automatically when adding Memories. The SessionID is a stri
     except NotFoundError:
         print("Memory not found")
     ```
-    ```text
+    ```json title="Output:"
     {
         "uuid": "7291333f-2e01-4b06-9fe0-3efc59b3399c",
         "created_at": "2023-05-16T21:59:11.057919Z",
@@ -159,7 +159,7 @@ Sessions are created automatically when adding Memories. The SessionID is a stri
 
 === "Javascript"
 
-    ```javascript
+    ```javascript title="Get Memory from Session"
     const memory = await client.getMemory(sessionID);
 
     if (memory.messages.length === 0) {
@@ -170,7 +170,7 @@ Sessions are created automatically when adding Memories. The SessionID is a stri
         });
     }
     ```
-    ```text
+    ```json title="Output:"
     {
         uuid: '7291333f-2e01-4b06-9fe0-3efc59b3399c',
         created_at: '2023-05-16T21:59:11.057919Z',
@@ -193,7 +193,7 @@ Zep supports vector similarity search for Messages in the long-term memory stora
 
 === "Python"
 
-    ```python
+    ```python title="Search Memory for Text"
     search_payload = SearchPayload(text="Is Lauren Olamina a character in a book")
 
     search_results = await client.asearch_memory(session_id, search_payload)
@@ -201,15 +201,46 @@ Zep supports vector similarity search for Messages in the long-term memory stora
     for search_result in search_results:
         print(search_result.message.dict())
     ```
-    ```text
-    {"message":{"uuid":"377ba3dd-d95c-4692-8713-888a2c48d90a","created_at":"2023-05-16T22:35:56.734814Z","role":"ai","content":"Parable of the Sower is a science fiction novel by Octavia Butler, published in 1993. It follows the story of Lauren Olamina, a young woman living in a dystopian future where society has collapsed due to environmental disasters, poverty, and violence.","token_count":56},"meta":{},"summary":null,"dist":0.8006004947773657}
-    {"message":{"uuid":"d30094de-f667-43a7-a5d3-d0114bdbed69","created_at":"2023-05-16T22:35:56.734814Z","role":"human","content":"Who was Octavia Butler?","token_count":8},"meta":{},"summary":null,"dist":0.7847872122464123}
-    {"message":{"uuid":"7683218a-5a8e-49c6-9451-a0543a7129b2","created_at":"2023-05-16T22:35:56.734814Z","role":"human","content":"Which books of hers were made into movies?","token_count":11},"meta":{},"summary":null,"dist":0.7816032755893209}
+    ```json title="Output:"
+    {
+        "message": {
+            "uuid": "377ba3dd-d95c-4692-8713-888a2c48d90a",
+            "created_at": "2023-05-16T22:35:56.734814Z",
+            "role": "ai",
+            "content": "Parable of the Sower is a science fiction novel by Octavia Butler, published in 1993. It follows the story of Lauren Olamina, a young woman living in a dystopian future where society has collapsed due to environmental disasters, poverty, and violence.",
+            "token_count": 56
+        },
+        "meta": {},
+        "summary": null,
+        "dist": 0.8006004947773657
+    } {
+        "message": {
+            "uuid": "d30094de-f667-43a7-a5d3-d0114bdbed69",
+            "created_at": "2023-05-16T22:35:56.734814Z",
+            "role": "human",
+            "content": "Who was Octavia Butler?",
+            "token_count": 8
+        },
+        "meta": {},
+        "summary": null,
+        "dist": 0.7847872122464123
+    } {
+        "message": {
+            "uuid": "7683218a-5a8e-49c6-9451-a0543a7129b2",
+            "created_at": "2023-05-16T22:35:56.734814Z",
+            "role": "human",
+            "content": "Which books of hers were made into movies?",
+            "token_count": 11
+        },
+        "meta": {},
+        "summary": null,
+        "dist": 0.7816032755893209
+    }
     ```
 
 === "Javascript"
 
-    ```javascript
+    ```javascript title="Search Memory for Text"
     const searchText = "Is Lauren Olamina a character in a book?";
 
     const searchPayload = new SearchPayload({ meta: {}, text: searchText });
@@ -222,10 +253,41 @@ Zep supports vector similarity search for Messages in the long-term memory stora
         console.debug(JSON.stringify(searchResult));
     });
     ```
-    ```text
-    {"message":{"uuid":"377ba3dd-d95c-4692-8713-888a2c48d90a","created_at":"2023-05-16T22:35:56.734814Z","role":"ai","content":"Parable of the Sower is a science fiction novel by Octavia Butler, published in 1993. It follows the story of Lauren Olamina, a young woman living in a dystopian future where society has collapsed due to environmental disasters, poverty, and violence.","token_count":56},"meta":{},"summary":null,"dist":0.8006004947773657}
-    {"message":{"uuid":"d30094de-f667-43a7-a5d3-d0114bdbed69","created_at":"2023-05-16T22:35:56.734814Z","role":"human","content":"Who was Octavia Butler?","token_count":8},"meta":{},"summary":null,"dist":0.7847872122464123}
-    {"message":{"uuid":"7683218a-5a8e-49c6-9451-a0543a7129b2","created_at":"2023-05-16T22:35:56.734814Z","role":"human","content":"Which books of hers were made into movies?","token_count":11},"meta":{},"summary":null,"dist":0.7816032755893209}
+    ```json title="Output:"
+    {
+        "message": {
+            "uuid": "377ba3dd-d95c-4692-8713-888a2c48d90a",
+            "created_at": "2023-05-16T22:35:56.734814Z",
+            "role": "ai",
+            "content": "Parable of the Sower is a science fiction novel by Octavia Butler, published in 1993. It follows the story of Lauren Olamina, a young woman living in a dystopian future where society has collapsed due to environmental disasters, poverty, and violence.",
+            "token_count": 56
+        },
+        "meta": {},
+        "summary": null,
+        "dist": 0.8006004947773657
+    } {
+        "message": {
+            "uuid": "d30094de-f667-43a7-a5d3-d0114bdbed69",
+            "created_at": "2023-05-16T22:35:56.734814Z",
+            "role": "human",
+            "content": "Who was Octavia Butler?",
+            "token_count": 8
+        },
+        "meta": {},
+        "summary": null,
+        "dist": 0.7847872122464123
+    } {
+        "message": {
+            "uuid": "7683218a-5a8e-49c6-9451-a0543a7129b2",
+            "created_at": "2023-05-16T22:35:56.734814Z",
+            "role": "human",
+            "content": "Which books of hers were made into movies?",
+            "token_count": 11
+        },
+        "meta": {},
+        "summary": null,
+        "dist": 0.7816032755893209
+    }
     ```
 
 ## Hybrid Search for Messages using Message Metadata
@@ -233,7 +295,7 @@ In addition to vector similarity search for Messages in the long-term memory sto
 
 === "Python"
 
-    ```python
+    ```python title="Hybrid Search Memory for Text, Metadata"
     zep_client.search_memory(
         session_id=session_id,
         search_payload=MemorySearchPayload(
@@ -244,7 +306,7 @@ In addition to vector similarity search for Messages in the long-term memory sto
         ),
     )
     ```
-    ```text
+    ```json title="Output:"
     {
         "dist": 0.7170433826192629,
         "message": {
@@ -279,7 +341,7 @@ In addition to vector similarity search for Messages in the long-term memory sto
 
 === "Javascript"
 
-    ```javascript
+    ```javascript title="Hybrid Search Memory for Text, Metadata"
     const searchText = "I enjoy reading science fiction.";
 
     const searchPayload = new MemorySearchPayload({
@@ -292,7 +354,7 @@ In addition to vector similarity search for Messages in the long-term memory sto
     const searchResults = await client.searchMemory(sessionID, searchPayload);
 
     ```
-    ```text
+    ```json title="Output:"
     {
         "dist": 0.7170433826192629,
         "message": {
@@ -331,7 +393,7 @@ You've likely noticed that alongside the role and content you provided to Zep wh
 
 Zep performs auto-summarization when a session exceeds the message window. This is returned in the `summary` field of the memory when you call `get_memory` and may be used when constructing prompts in order to provide your agent or chain with a longer-term memory of the conversation. Read more about the [Summarizer Extractor](/extractors/#summarizer-extractor).
 
-```json
+```json title="Output:"
 {
   "summary": {
     "uuid": "afe3957b-032f-47e0-8317-ed2953a2fb49",
