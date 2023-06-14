@@ -6,6 +6,7 @@ Zep's Extractor model is easily extensible, with a simple, clean interface avail
 
 **Key Features:**
 
+- **Fast!** Zep’s async extractors operate independently of the your chat loop, ensuring a snappy user experience.
 - **Long-term memory persistence**, with access to historical messages irrespective of your summarization strategy.
 - **Auto-summarization** of memory messages based on a configurable message window. A series of summaries are stored, providing flexibility for future summarization strategies.
 - **Hybrid search** over memories and metadata, with messages automatically embedded on creation.
