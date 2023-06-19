@@ -55,11 +55,11 @@ You can also provide your bot or agent with access to relevant messages in long-
     import { ZepMemory } from "langchain/memory/zep";
     import { v4 as uuidv4 } from 'uuid'
 
-    # Set this to your Zep server URL
+    // Set this to your Zep server URL
     const ZEP_API_URL = "http://localhost:8000";
-    const sessionId = uuid4();  # This is a unique identifier for the user
+    const sessionId = uuid4();  // This is a unique identifier for the user
             
-    # Set up Zep Memory
+    // Set up Zep Memory
     const memory = new ZepMemory({
         sessionId,
         baseURL: ZEP_API_URL,
