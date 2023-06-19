@@ -13,7 +13,7 @@ You can also provide your bot or agent with access to relevant messages in long-
 
 !!! note "Installing Zep"
 
-    A Zep server install is required. You will also need to have the Zep Python SDK installed in order to use the Langchain `ZepChatMessageHistory` and `ZepRetriever` classes.
+    A Zep server install is required. You will also need to have the Zep Python SDK or Zep Javascript SDK installed in order to use the Langchain `ZepChatMessageHistory` (python only), `ZepMemory` and `ZepRetriever` classes.
 
     See the [Zep Quick Start Guide](/deployment/quickstart) for details.
 
@@ -47,24 +47,24 @@ You can also provide your bot or agent with access to relevant messages in long-
     ```
 
 === "Javascript"
-Using Zep as your Langchain app's long-term memory simple: initialize the ZepMemory with your Zep instance URL and your user's session identifier (see Zep Concepts) and then utilize it as the chat memory for a Langchain Conversation.
+    Using Zep as your Langchain app's long-term memory simple: initialize the ZepMemory with your Zep instance URL and your user's session identifier (see Zep Concepts) and then utilize it as the chat memory for a Langchain Conversation.
 
-```javascript title="ZepMemory instantiation"
+    ```javascript title="ZepMemory instantiation"
     import { ChatOpenAI } from "langchain/chat_models/openai";
     import { ConversationChain } from "langchain/chains";
     import { ZepMemory } from "langchain/memory/zep";
     import { v4 as uuidv4 } from 'uuid'
 
-    # Set this to your Zep server URL
+    // Set this to your Zep server URL
     const ZEP_API_URL = "http://localhost:8000";
-    const sessionId = uuid4();  # This is a unique identifier for the user
+    const sessionId = uuid4();  // This is a unique identifier for the user
             
-    # Set up Zep Memory
+    // Set up Zep Memory
     const memory = new ZepMemory({
         sessionId,
         baseURL: ZEP_API_URL,
     });
-```
+    ```
 
 Once you've created the `memory`, use it in your chain or with your agent.
 
