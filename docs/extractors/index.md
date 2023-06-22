@@ -6,6 +6,7 @@ Zep Extractors extract information from messages. Currently, Zep has three extra
 - An embedding vectorizer
 - A Named Entity Recognizer (NER)
 - A token counter
+- An intent extractor
 
 !!! note
 
@@ -89,6 +90,28 @@ The [spaCy source code](https://github.com/explosion/spaCy/blob/9b7a59c325c85f49
 ## Token Count Extractor
 
 The Token Count Extractor counts the number of tokens in a message, and stores the count in the message metadata. This allows for finer-grained control over prompt assembly.
+
+## Intent Extractor
+
+The Intent Extractor passes the conversational messages to an LLM and extracts the Intents which are then stored as system metadata along with the Messages. For example,
+
+```json
+    {
+        "uuid": "c26b5afd-1290-4feb-a4ce-306d4612ee7a",
+        "created_at": "2023-06-21T19:33:04.720778Z",
+        "role": "human",
+        "content": "I'm looking for a new skincare product.",
+        "metadata": {
+            "CustomerFirstName": "Alice",
+            "CustomerID": "KDSJFJDSF",
+            "LoyaltyTier": "Loyal",
+            "system": {
+                "intent": "The subject is in search of a new skincare product."
+            }
+        },
+        "token_count": 11
+    },
+```
 
 ## Extending Zep with new Extractors
 
