@@ -14,10 +14,12 @@ nav:
       - The Zep Company: https://getzep.com
   - Quick Start:
       - deployment/quickstart.md
+  - Zep Versus: zep-versus.md
   - Langchain ❤️: sdk/langchain.md
   - SDKs and API:
       - sdk/index.md
       - Langchain ❤️: sdk/langchain.md
+      - Vector Search: memory_search.md
       - REST API: sdk/api.md
   - Deployment:
       - deployment/index.md
@@ -27,7 +29,6 @@ nav:
       - Config: deployment/config.md
   - Extractors:
       - extractors/index.md
-  - Vector Search: memory_search.md
 theme:
   name: material
   custom_dir: overrides
