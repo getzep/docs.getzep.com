@@ -393,6 +393,8 @@ You've likely noticed that alongside the role and content you provided to Zep wh
 
 Zep performs auto-summarization when a session exceeds the message window. This is returned in the `summary` field of the memory when you call `get_memory` and may be used when constructing prompts in order to provide your agent or chain with a longer-term memory of the conversation. Read more about the [Summarizer Extractor](/extractors/#summarizer-extractor).
 
+Zep also automatically extracts Intents from the conversation. The extracted intents are stored in system metadata and available for hybrid searches (see Hybrid Search above). 
+
 ```json title="Output:"
 {
   "summary": {
@@ -408,6 +410,9 @@ Zep performs auto-summarization when a session exceeds the message window. This 
       "created_at": "2023-05-16T22:59:33.612956Z",
       "role": "ai",
       "content": "Parable of the Sower is a science fiction novel by Octavia Butler, published in 1993. It follows the story of Lauren Olamina, a young woman living in a dystopian future where society has collapsed due to environmental disasters, poverty, and violence.",
+      "system": {
+            "intent": "The subject is providing information about a science fiction novel called \"Parable of the Sower\" by Octavia Butler, including a brief summary of its plot and setting."
+        }
       "token_count": 253
     },
     {
@@ -415,6 +420,11 @@ Zep performs auto-summarization when a session exceeds the message window. This 
       "created_at": "2023-05-16T22:59:33.612956Z",
       "role": "human",
       "content": "Write a short synopsis of Butler's book, Parable of the Sower. What is it about?",
+      "metadata": {
+          "system": {
+                "intent": "The subject is requesting a brief explanation or summary of Octavia Butler's book, \"Parable of the Sower.\""
+            }
+        }
       "token_count": 21
     },
     {
@@ -422,13 +432,23 @@ Zep performs auto-summarization when a session exceeds the message window. This 
       "created_at": "2023-05-16T22:59:33.612956Z",
       "role": "ai",
       "content": "You might want to read Ursula K. Le Guin or Joanna Russ.",
-      "token_count": 18
+      "metadata": {
+          "system": {
+              "intent": "The subject is suggesting books or authors to read."
+            }
+        },
+"token_count": 18
     },
     {
       "uuid": "d783da86-405f-45c6-862a-16901fbae33e",
       "created_at": "2023-05-16T22:59:33.612956Z",
       "role": "human",
       "content": "Which other women sci-fi writers might I want to read?",
+      "metadata": {
+          "system": {
+              "intent": "The subject is asking for recommendations on women science-fiction writers besides the one they have already read."
+            }
+        },
       "token_count": 17
     },
     {
@@ -436,6 +456,11 @@ Zep performs auto-summarization when a session exceeds the message window. This 
       "created_at": "2023-05-16T22:59:33.612956Z",
       "role": "ai",
       "content": "Octavia Butler won the Hugo Award, the Nebula Award, and the MacArthur Fellowship.",
+      "metadata": {
+          "system": {
+              "intent": "The subject is making a statement about the achievements and recognition received by Octavia Butler."
+            }
+        },
       "token_count": 26
     },
     {
@@ -443,6 +468,11 @@ Zep performs auto-summarization when a session exceeds the message window. This 
       "created_at": "2023-05-16T22:59:33.612956Z",
       "role": "human",
       "content": "What awards did she win?",
+      "metadata": {
+        "system": {
+            "intent": "The subject is inquiring about the awards won by a specific person."
+            }
+        },
       "token_count": 8
     }
   ],
