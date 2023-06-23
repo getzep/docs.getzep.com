@@ -14,7 +14,13 @@ nav:
       - The Zep Company: https://getzep.com
   - Quick Start:
       - deployment/quickstart.md
-  - Zep Versus: zep-versus.md
+  - Zep Versus:
+      - zep-versus.md
+      - Zep vs Pinecone: zep-versus#vectorstore
+      - Zep vs Weaviate: zep-versus#vectorstore
+      - Zep vs Langchain: zep-versus#langchain
+      - Zep vs Postgres: zep-versus#postgres
+      - Zep vs Redis: zep-versus#redis
   - Langchain ❤️: sdk/langchain.md
   - SDKs and API:
       - sdk/index.md
