@@ -32,7 +32,6 @@ nav:
       - Quick Start: deployment/quickstart.md
       - Authentication: deployment/auth.md
       - Render: deployment/render.md
-      - Fly.io: deployment/fly.md
       - Config: deployment/config.md
   - Extractors:
       - extractors/index.md
