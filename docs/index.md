@@ -10,8 +10,10 @@ Zep's Extractor model is easily extensible, with a simple, clean interface avail
 - **Long-term memory persistence**, with access to historical messages irrespective of your summarization strategy.
 - **Auto-summarization** of memory messages based on a configurable message window. A series of summaries are stored, providing flexibility for future summarization strategies.
 - **Hybrid search** over memories and metadata, with messages automatically embedded on creation.
+- **Intent Extraction** that automatically identifies the human's intent and stores this in the message metadata.
 - **Entity Extractor** that automatically extracts named entities from messages and stores them in the message metadata.
 - **Auto-token counting** of memories and summaries, allowing finer-grained control over prompt assembly.
+- **JWT Authentication** for secure API access.
 - **[Python](https://github.com/getzep/zep-python)** and **[Javascript](https://github.com/getzep/zep-js)** SDKs.
 - [**Langchain**](/sdk/langchain) integration, enabling long-term memory and vector search over memory for Langchain projects.
 

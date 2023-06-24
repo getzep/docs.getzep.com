@@ -16,7 +16,7 @@ The Docker compose setup mounts a `config.yaml` file in the current working dire
 The following table lists the available configuration options.
 
 | Config Key                       | Environment Variable             | Default                                                      |
-| -------------------------------- | -------------------------------- | ------------------------------------------------------------ |
+|----------------------------------|----------------------------------|--------------------------------------------------------------|
 | llm.model                        | ZEP_LLM_MODEL                    | gpt-3.5-turbo                                                |
 | memory.message_window            | ZEP_MEMORY_MESSAGE_WINDOW        | 12                                                           |
 | extractors.summarizer.enabled    | ZEP_EXTRACTORS_SUMMARIZER_ENABLE | true                                                         |
@@ -26,4 +26,6 @@ The following table lists the available configuration options.
 | memory_store.type                | ZEP_MEMORY_STORE_TYPE            | postgres                                                     |
 | memory_store.postgres.dsn        | ZEP_MEMORY_STORE_POSTGRES_DSN    | postgres://postgres:postgres@localhost:5432/?sslmode=disable |
 | server.port                      | ZEP_SERVER_PORT                  | 8000                                                         |
+| auth.required                    | ZEP_AUTH_REQUIRED                | false                                                        |
+| auth.secret                      | ZEP_AUTH_SECRET                  | Requires configuration                                       |
 | log.level                        | ZEP_LOG_LEVEL                    | info                                                         |
