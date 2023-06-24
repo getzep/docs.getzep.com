@@ -1,14 +1,17 @@
 # Deploying Zep
-## Production
-Dockerfiles for both the Zep server and a Postgres database with `pgvector` installed may be found in this repo.
 
-Prebuilt containers for both `amd64` and `arm64` may be installed as follows:
-```bash
-docker pull ghcr.io/getzep/zep:latest
-```
+1. Using [docker-compose](/deployment/quickstart).
+2. Deploying to the [Render platform](/deployment/render).
+3. Deploying to [production environments.](#production)
+4. [Configuring authentication.](/deployment/auth)
+5. [Configuring the Zep service](/deployment/config).
+
+## Production
+Dockerfiles for the Zep server, Zep NLP server, and a Postgres database with `pgvector` installed may be found in the [Zep repo](https://github.com/getzep/zep).
 
 Many cloud providers, including AWS, now offer managed Postgres services with `pgvector` installed.
 
-## Local Development
+The [Zep docker-compose file](https://github.com/getzep/zep/blob/main/docker-compose.yaml) may be used as a deployment template for other environments.
 
-See the [Quickstart guide](deployment/quickstart) for instructions on how to run Zep locally.
+Prebuilt containers for both `amd64` and `arm64` architectures may be found on the [Zep Package Repo](https://github.com/orgs/getzep/packages?repo_name=zep).
+
