@@ -4,8 +4,9 @@ Zep is configured via a yaml configuration file and/or environment variables. Th
 zep --config /path/to/config.yaml
 ```
 
-!!! note "OpenAI API key"
-The OpenAI API key is not expected to be in the config file, rather the environment variable `ZEP_OPENAI_API_KEY` should be set. This can also be configured in a `.env` file in the current working directory.
+!!! warning "OpenAI API key and Auth Secret"
+    The OpenAI API key and Auth Secret should not be set in the config file, rather the environment variables 
+    below should be set. These can also be configured in a `.env` file in the current working directory.
 
 ### Docker Compose
 
