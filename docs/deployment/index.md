@@ -4,6 +4,7 @@
 2. Deploying to the [Render platform](/deployment/render).
 3. Deploying to [production environments.](#production)
 4. [Configuring authentication.](/deployment/auth)
+5. [Data management](/deployment/data) with Zep.
 5. [Configuring the Zep service](/deployment/config).
 6. OpenAI API and Azure [OpenAI API configuration](/deployment/openai).
 

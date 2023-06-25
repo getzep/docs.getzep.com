@@ -33,7 +33,8 @@ nav:
       - Authentication: deployment/auth.md
       - Render: deployment/render.md
       - OpenAI API Config: deployment/openai.md
-      - Config: deployment/config.md
+      - Data Management: deployment/data.md
+      - Config Options: deployment/config.md
   - Extractors:
       - extractors/index.md
 theme:

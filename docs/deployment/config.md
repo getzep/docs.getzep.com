@@ -31,4 +31,5 @@ The following table lists the available configuration options.
 | server.port                      | ZEP_SERVER_PORT                  | 8000                                                         |
 | auth.required                    | ZEP_AUTH_REQUIRED                | false                                                        |
 | auth.secret                      | ZEP_AUTH_SECRET                  | Requires configuration                                       |
+| data.purge_every                 | ZEP_DATA_PURGE_EVERY             | 60 (minutes)                                                 |
 | log.level                        | ZEP_LOG_LEVEL                    | info                                                         |
