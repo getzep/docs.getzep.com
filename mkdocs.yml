@@ -44,8 +44,11 @@ theme:
   features:
     - navigation.tracking
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.sections
     - navigation.indexes
+    - toc.follow
+    - navigation.top
     - search
     - search.suggest
     - content.tabs.link
