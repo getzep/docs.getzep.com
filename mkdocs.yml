@@ -47,6 +47,7 @@ theme:
     - navigation.tabs.sticky
     - navigation.sections
     - navigation.indexes
+    - navigation.footer
     - toc.follow
     - navigation.top
     - search
