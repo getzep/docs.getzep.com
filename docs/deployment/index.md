@@ -5,6 +5,7 @@
 3. Deploying to [production environments.](#production)
 4. [Configuring authentication.](/deployment/auth)
 5. [Configuring the Zep service](/deployment/config).
+6. OpenAI API and Azure [OpenAI API configuration](/deployment/openai).
 
 ## Production
 Dockerfiles for the Zep server, Zep NLP server, and a Postgres database with `pgvector` installed may be found in the [Zep repo](https://github.com/getzep/zep).

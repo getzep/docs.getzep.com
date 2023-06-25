@@ -49,7 +49,8 @@ Install the **[Python](https://github.com/getzep/zep-python)** or **[Javascript]
 === "Python"
 
     ``` py title="Add a memory using the Python SDK"
-    async with ZepClient(base_url) as client:
+
+    async with ZepClient(base_url, api_key) as client:
         role = "user"
         content = "who was the first man to go to space?"
         message = Message(role=role, content=content)

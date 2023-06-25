@@ -19,6 +19,8 @@ The following table lists the available configuration options.
 | Config Key                       | Environment Variable             | Default                                                      |
 |----------------------------------|----------------------------------|--------------------------------------------------------------|
 | llm.model                        | ZEP_LLM_MODEL                    | gpt-3.5-turbo                                                |
+| llm.openai_org_id                | ZEP_LLM_OPENAI_ORG_ID            | undefined                                                    |
+| llm.azure_openai_endpoint        | ZEP_LLM_AZURE_OPENAI_ENDPOINT    | undefined                                                    |
 | memory.message_window            | ZEP_MEMORY_MESSAGE_WINDOW        | 12                                                           |
 | extractors.summarizer.enabled    | ZEP_EXTRACTORS_SUMMARIZER_ENABLE | true                                                         |
 | extractors.embeddings.enabled    | ZEP_EMBEDDINGS_ENABLED           | true                                                         |

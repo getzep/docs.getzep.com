@@ -38,7 +38,7 @@ Retrieve your Zep server URL from the Render web console.
     ```python
     from zep_python import ZepClient
 
-    zep = ZepClient("https://zepXXXXX.onrender.com") # Replace with Zep API URL
+    zep = ZepClient("https://zepXXXXX.onrender.com", api_key) # Replace with Zep API URL
     ```
 
 === "Javascript"
