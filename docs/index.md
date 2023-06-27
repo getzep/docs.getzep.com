@@ -4,6 +4,8 @@ Zep stores, summarizes, embeds, indexes, and enriches LLM app / chatbot historie
 
 Zep's Extractor model is easily extensible, with a simple, clean interface available to build new enrichment functionality, such as summarizers, entity extractors, embedders, and more.
 
+<br />
+
 **Key Features:**
 
 - **Fast!** Zep’s async extractors operate independently of the your chat loop, ensuring a snappy user experience.
