@@ -36,6 +36,12 @@ docker-compose up
 
 This will start a Zep server on port `8000`, and a Postgres database on port `5432`.
 
+!!! Warning "Configure Server Authentication"
+
+    If you are deploying Zep to a production environemnt or where Zep APIs are exposed to the public internet, 
+    please ensure that you secure your Zep server by [configuring authentication](/deployment/auth).
+    Failing to do so will leave your server open to the public.
+
 4\. Access Zep via the Python or Javascript SDKs:
 
 Install the **[Python](https://github.com/getzep/zep-python)** or **[Javascript](https://github.com/getzep/zep-js)** SDKs.
@@ -43,7 +49,8 @@ Install the **[Python](https://github.com/getzep/zep-python)** or **[Javascript]
 === "Python"
 
     ``` py title="Add a memory using the Python SDK"
-    async with ZepClient(base_url) as client:
+
+    async with ZepClient(base_url, api_key) as client:
         role = "user"
         content = "who was the first man to go to space?"
         message = Message(role=role, content=content)
@@ -66,6 +73,7 @@ Install the **[Python](https://github.com/getzep/zep-python)** or **[Javascript]
 
 ### Next Steps
 
+- Setting up [authentication](/deployment/auth)
 - Learn about [Extractors](/extractors)
 - Setting Zep [Configuration options](/deployment/config)
 - Learn about [deploying to production](/deployment)

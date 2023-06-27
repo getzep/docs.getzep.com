@@ -21,6 +21,11 @@ You can also provide your bot or agent with access to relevant messages in long-
 
 ## Using Zep as the Memory Store for your Langchain app
 
+!!! note "Zep supports optional JWT authentication."
+    
+        The examples below assume that you have enabled JWT authentication.
+        See the [Authentication Configuration Guide](/deployment/auth) for more information.
+
 === "Python"
 
     Using Zep as your Langchain app's long-term memory simple: initialize the `ZepChatMessageHistory` with your Zep instance URL and your user's session identifier (see [Zep Concepts](/about/concepts)) and then utilize it as the `chat_memory` for a Langchain `ConversationBufferMemory`.
@@ -31,6 +36,7 @@ You can also provide your bot or agent with access to relevant messages in long-
 
     # Set this to your Zep server URL
     ZEP_API_URL = "http://localhost:8000"
+    ZEP_API_KEY = "<your JWT token>" # optional
 
     session_id = str(uuid4())  # This is a unique identifier for the user
 
@@ -38,6 +44,7 @@ You can also provide your bot or agent with access to relevant messages in long-
     zep_chat_history = ZepChatMessageHistory(
         session_id=session_id,
         url=ZEP_API_URL,
+        api_key=ZEP_API_KEY,
     )
 
     # Use a standard ConversationBufferMemory to encapsulate the Zep chat history
@@ -56,13 +63,15 @@ You can also provide your bot or agent with access to relevant messages in long-
     import { v4 as uuidv4 } from 'uuid'
 
     // Set this to your Zep server URL
-    const ZEP_API_URL = "http://localhost:8000";
+    const zepApiURL = "http://localhost:8000";
+    const zepApiKey = "<your JWT token>"; // optional
     const sessionId = uuid4();  // This is a unique identifier for the user
             
     // Set up Zep Memory
     const memory = new ZepMemory({
         sessionId,
-        baseURL: ZEP_API_URL,
+        baseURL: zepApiURL,
+        apiKey: zepApiKey,
     });
     ```
 

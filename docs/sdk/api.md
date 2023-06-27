@@ -17,14 +17,14 @@ get memory by session id
 ##### Parameters
 
 | Name       | Located in | Description                                            | Required | Schema  |
-| ---------- | ---------- | ------------------------------------------------------ | -------- | ------- |
+|------------|------------|--------------------------------------------------------|----------|---------|
 | session_id | path       | Session ID                                             | Yes      | string  |
 | lastn      | query      | Last N messages. Overrides memory_window configuration | No       | integer |
 
 ##### Responses
 
 | Code | Description           | Schema                             |
-| ---- | --------------------- | ---------------------------------- |
+|------|-----------------------|------------------------------------|
 | 200  | OK                    | [ [models.Memory](#modelsmemory) ] |
 | 404  | Not Found             | [server.APIError](#serverapierror) |
 | 500  | Internal Server Error | [server.APIError](#serverapierror) |
@@ -42,14 +42,14 @@ add memory messages by session id
 ##### Parameters
 
 | Name           | Located in | Description     | Required | Schema                         |
-| -------------- | ---------- | --------------- | -------- | ------------------------------ |
+|----------------|------------|-----------------|----------|--------------------------------|
 | session_id     | path       | Session ID      | Yes      | string                         |
 | memoryMessages | body       | Memory messages | Yes      | [models.Memory](#modelsmemory) |
 
 ##### Responses
 
 | Code | Description           | Schema                             |
-| ---- | --------------------- | ---------------------------------- |
+|------|-----------------------|------------------------------------|
 | 200  | OK                    | string                             |
 | 404  | Not Found             | [server.APIError](#serverapierror) |
 | 500  | Internal Server Error | [server.APIError](#serverapierror) |
@@ -67,13 +67,13 @@ delete memory messages by session id
 ##### Parameters
 
 | Name       | Located in | Description | Required | Schema |
-| ---------- | ---------- | ----------- | -------- | ------ |
+|------------|------------|-------------|----------|--------|
 | session_id | path       | Session ID  | Yes      | string |
 
 ##### Responses
 
 | Code | Description           | Schema                             |
-| ---- | --------------------- | ---------------------------------- |
+|------|-----------------------|------------------------------------|
 | 200  | OK                    | string                             |
 | 404  | Not Found             | [server.APIError](#serverapierror) |
 | 500  | Internal Server Error | [server.APIError](#serverapierror) |
@@ -95,7 +95,7 @@ search memory messages by session id and query
 ##### Parameters
 
 | Name          | Located in | Description                          | Required | Schema                                       |
-| ------------- | ---------- | ------------------------------------ | -------- | -------------------------------------------- |
+|---------------|------------|--------------------------------------|----------|----------------------------------------------|
 | session_id    | path       | Session ID                           | Yes      | string                                       |
 | limit         | query      | Limit the number of results returned | No       | integer                                      |
 | searchPayload | body       | Search query                         | Yes      | [models.SearchPayload](#modelssearchpayload) |
@@ -103,7 +103,7 @@ search memory messages by session id and query
 ##### Responses
 
 | Code | Description           | Schema                                         |
-| ---- | --------------------- | ---------------------------------------------- |
+|------|-----------------------|------------------------------------------------|
 | 200  | OK                    | [ [models.SearchResult](#modelssearchresult) ] |
 | 404  | Not Found             | [server.APIError](#serverapierror)             |
 | 500  | Internal Server Error | [server.APIError](#serverapierror)             |
@@ -115,7 +115,7 @@ search memory messages by session id and query
 #### models.Memory
 
 | Name     | Type                                 | Description | Required |
-| -------- | ------------------------------------ | ----------- | -------- |
+|----------|--------------------------------------|-------------|----------|
 | messages | [ [models.Message](#modelsmessage) ] |             | No       |
 | metadata | object                               |             | No       |
 | summary  | [models.Summary](#modelssummary)     |             | No       |
@@ -123,7 +123,7 @@ search memory messages by session id and query
 #### models.Message
 
 | Name        | Type    | Description | Required |
-| ----------- | ------- | ----------- | -------- |
+|-------------|---------|-------------|----------|
 | content     | string  |             | No       |
 | created_at  | string  |             | No       |
 | metadata    | object  |             | No       |
@@ -134,14 +134,14 @@ search memory messages by session id and query
 #### models.SearchPayload
 
 | Name | Type   | Description             | Required |
-| ---- | ------ | ----------------------- | -------- |
+|------|--------|-------------------------|----------|
 | meta | object | reserved for future use | No       |
 | text | string |                         | No       |
 
 #### models.SearchResult
 
 | Name    | Type                             | Description             | Required |
-| ------- | -------------------------------- | ----------------------- | -------- |
+|---------|----------------------------------|-------------------------|----------|
 | dist    | number                           |                         | No       |
 | message | [models.Message](#modelsmessage) |                         | No       |
 | meta    | object                           | reserved for future use | No       |
@@ -150,7 +150,7 @@ search memory messages by session id and query
 #### models.Summary
 
 | Name                | Type    | Description                                                         | Required |
-| ------------------- | ------- | ------------------------------------------------------------------- | -------- |
+|---------------------|---------|---------------------------------------------------------------------|----------|
 | content             | string  |                                                                     | No       |
 | created_at          | string  |                                                                     | No       |
 | metadata            | object  |                                                                     | No       |
@@ -161,6 +161,6 @@ search memory messages by session id and query
 #### server.APIError
 
 | Name    | Type    | Description | Required |
-| ------- | ------- | ----------- | -------- |
+|---------|---------|-------------|----------|
 | code    | integer |             | No       |
 | message | string  |             | No       |

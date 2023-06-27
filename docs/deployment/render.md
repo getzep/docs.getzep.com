@@ -1,8 +1,9 @@
 # Deploying to Render
 
-!!! Warning "Not for Production Use"
+!!! Warning "Configure Server Authentication"
 
-    This deployment method should be used for development and testing purposes only. The deployment is not secure and set up for high availability. **Do not use this for production.**
+    Ensure that you secure your Zep server by [configuring authentication](/deployment/auth) after deploying. 
+    Failing to do so will leave your server open to the public.
 
 #### 1. Click on the button below to deploy to Render using the Zep blueprint
 
@@ -22,7 +23,11 @@ Click `Apply`.
 
 This takes a few minutes.
 
-#### 4. Point your client SDK to your new Zep server
+#### 4. Configure authentication
+
+Follow the [server authentication instructions here](/deployment/auth). **Do not skip this step.** Failing to do so will leave your server open to the public.
+
+#### 5. Point your client SDK to your new Zep server
 
 Retrieve your Zep server URL from the Render web console.
 
@@ -33,7 +38,7 @@ Retrieve your Zep server URL from the Render web console.
     ```python
     from zep_python import ZepClient
 
-    zep = ZepClient("https://zepXXXXX.onrender.com") # Replace with Zep API URL
+    zep = ZepClient("https://zepXXXXX.onrender.com", api_key) # Replace with Zep API URL
     ```
 
 === "Javascript"
@@ -48,9 +53,10 @@ Next steps: [Using Zep's Python and Javascript SDKs](/sdk)
 
 #### What this blueprint does
 
-Two services are deployed:
+Three services are deployed:
 
 - `zep` - the Zep server
+- `nlp` - a back-end private service responsible for several NLP tasks
 - `zep-postgres` - a Postgres database
 
-The blueprint defaults to the free tier. You can change these settings in the Render web console.
+The blueprint defaults to the standard tier. You can change these settings in the Render web console.

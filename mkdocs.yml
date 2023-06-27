@@ -2,7 +2,7 @@ site_name: Zep - A long-term memory store for LLM applications
 repo_url: https://github.com/getzep/zep
 site_url: https://docs.getzep.com
 site_description: Zep stores, summarizes, embeds, indexes, and enriches LLM app / AI chatbot histories.
-copyright: Copyright &copy; 2023 - Daniel Chalef and Sharath Rajasekar
+copyright: Copyright &copy; 2023 - Zep Software, Inc.
 extra_css:
   - stylesheets/extra.css
 extra:
@@ -30,9 +30,11 @@ nav:
   - Deployment:
       - deployment/index.md
       - Quick Start: deployment/quickstart.md
+      - Authentication: deployment/auth.md
       - Render: deployment/render.md
-      - Fly.io: deployment/fly.md
-      - Config: deployment/config.md
+      - OpenAI API Config: deployment/openai.md
+      - Data Management: deployment/data.md
+      - Config Options: deployment/config.md
   - Extractors:
       - extractors/index.md
 theme:
@@ -42,8 +44,12 @@ theme:
   features:
     - navigation.tracking
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.sections
     - navigation.indexes
+    - navigation.footer
+    - toc.follow
+    - navigation.top
     - search
     - search.suggest
     - content.tabs.link

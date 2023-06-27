@@ -6,6 +6,7 @@ Zep offers both [Python](https://github.com/getzep/zep-python) and [Javascript](
 
 Python SDK documentation can be [found here](https://getzep.github.io/zep-python/zep_client/).
 
+
 === "Python"
 
     ``` bash
@@ -32,12 +33,18 @@ Python SDK documentation can be [found here](https://getzep.github.io/zep-python
 
 ## Initializing the Client
 
+!!! note "Zep supports optional JWT authentication."
+    
+        The examples below assume that you have enabled JWT authentication.
+        See the [Authentication Configuration Guide](/deployment/auth) for more information.
+
 === "Python"
 
     ```python
     from zep_python import ZepClient
 
-    zep = ZepClient("http://localhost:8000") # Replace with Zep API URL
+    # Replace with Zep API URL and (optionally) API key
+    zep = ZepClient("http://localhost:8000", api_key="optional_key") 
     ```
 
 === "Javascript"
@@ -45,7 +52,8 @@ Python SDK documentation can be [found here](https://getzep.github.io/zep-python
     ```javascript
     import { ZepClient } from "zep-js";
 
-    const zep = new ZepClient("http://localhost:8000"); // Replace with Zep API URL
+    // Replace with Zep API URL and (optionally) API key
+    const zep = new ZepClient("http://localhost:8000", apiKey="optional_key"); 
     ```
 
 ## Key Concepts
