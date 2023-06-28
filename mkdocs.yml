@@ -59,7 +59,7 @@ theme:
   palette:
     # Palette toggle for light mode
     - scheme: default
-      primary: teal
+      primary: deep purple
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
