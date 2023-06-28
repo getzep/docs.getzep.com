@@ -17,7 +17,7 @@ You can also provide your bot or agent with access to relevant messages in long-
 
     See the [Zep Quick Start Guide](/deployment/quickstart) for details.
 
-    [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/getzep/zep){:target="_blank"}
+    [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](/deployment/render)
 
 ## Using Zep as the Memory Store for your Langchain app
 
