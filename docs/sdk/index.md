@@ -20,11 +20,11 @@ Python SDK documentation can be [found here](https://getzep.github.io/zep-python
 === "Javascript"
 
     ``` bash
-    npm install zep-js
+    npm install @getzep/zep-js
 
     # or
 
-    yarn add zep-js
+    yarn add @getzep/zep-js
     ```
 
 !!! note "Running the Zep Server"
