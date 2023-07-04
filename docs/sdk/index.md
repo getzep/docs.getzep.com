@@ -4,8 +4,7 @@
 
 Zep offers both [Python](https://github.com/getzep/zep-python) and [Javascript](https://github.com/getzep/zep-js) SDKs.
 
-Python SDK documentation can be [found here](https://getzep.github.io/zep-python/zep_client/).
-
+Python SDK documentation can be [found here](https://getzep.github.io/zep-python/zep_client/) and Typescript/Javascript documentation can be [found here](https://docs.getzep.com/zep-js/)
 
 === "Python"
 
@@ -44,7 +43,7 @@ Python SDK documentation can be [found here](https://getzep.github.io/zep-python
     from zep_python import ZepClient
 
     # Replace with Zep API URL and (optionally) API key
-    zep = ZepClient("http://localhost:8000", api_key="optional_key") 
+    zep = ZepClient("http://localhost:8000", api_key="optional_api_key") 
     ```
 
 === "Javascript"
@@ -53,14 +52,14 @@ Python SDK documentation can be [found here](https://getzep.github.io/zep-python
     import { ZepClient } from "zep-js";
 
     // Replace with Zep API URL and (optionally) API key
-    const zep = new ZepClient("http://localhost:8000", apiKey="optional_key"); 
+    const zep = new ZepClient("http://localhost:8000", "optional_api_key"); 
     ```
 
 ## Key Concepts
 
 ### Sessions
 
-**Sessions** represent your users. The Session ID is a string key that accepts arbitrary identifiers. Metadata can be set alongside the Session ID. Explicit creation of Sessions is unnecessary, as they are created automatically when adding Memories.
+**Sessions** represent your users. The Session ID is a string key that accepts arbitrary identifiers. Metadata can be set alongside the Session ID. Explicit creation of Sessions is unnecessary, as they are created automatically when adding Memories. A common usage pattern is to use a Session ID to represent all conversations with a specific User (i.e., Session ID == User ID), this will allow you to collect historical context of all conversations with a specific User. 
 
 Related to sessions, a time series of **Memories** and **Summaries** is captured and stored.
 
@@ -108,9 +107,9 @@ Sessions are created automatically when adding Memories. The SessionID is a stri
 === "Javascript"
 
     ```javascript title="Add Memory to Session"
-    import { ZepClient, Message, Memory } from "zep-js";
+    import { ZepClient, Message, Memory } from @getzep/zep-js;
 
-    const zep = new ZepClient("http://localhost:8000"); // Replace with Zep API URL
+    const zepClient = new ZepClient("http://localhost:8000"); // Replace with Zep API URL
     const sessionID = "1a1a1a"; // an identifier for your user
 
     const history = [
@@ -133,7 +132,7 @@ Sessions are created automatically when adding Memories. The SessionID is a stri
       );
     const memory = new Memory({ messages });
 
-    await client.addMemory(sessionID, memory);
+    await zepClient.addMemory(sessionID, memory);
     ```
 
 ## Getting a Session's Memory
@@ -168,7 +167,7 @@ Sessions are created automatically when adding Memories. The SessionID is a stri
 === "Javascript"
 
     ```javascript title="Get Memory from Session"
-    const memory = await client.getMemory(sessionID);
+    const memory = await zepClient.getMemory(sessionID);
 
     if (memory.messages.length === 0) {
         console.debug("No messages found for session ", sessionID);
@@ -251,8 +250,8 @@ Zep supports vector similarity search for Messages in the long-term memory stora
     ```javascript title="Search Memory for Text"
     const searchText = "Is Lauren Olamina a character in a book?";
 
-    const searchPayload = new SearchPayload({ meta: {}, text: searchText });
-    const searchResults = await client.searchMemory(
+    const searchPayload = new MemorySearchPayload({ meta: {}, text: searchText });
+    const searchResults = await zepClient.searchMemory(
         sessionID,
         searchPayload
     );
@@ -359,7 +358,7 @@ In addition to vector similarity search for Messages in the long-term memory sto
         text: searchText,
     });
 
-    const searchResults = await client.searchMemory(sessionID, searchPayload);
+    const searchResults = await zepClient.searchMemory(sessionID, searchPayload);
 
     ```
     ```json title="Output:"
