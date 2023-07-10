@@ -1,5 +1,8 @@
+article p {
+  margin: 1em 0;
+}
+
 .language-text {
-  word-wrap: normal;
   max-width: 100%;
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -10,7 +13,7 @@
   word-break: break-all;
   overflow-x: hidden;
 }
-.language-text code {
+code {
   white-space: pre-wrap;
   font-size: small;
 }
