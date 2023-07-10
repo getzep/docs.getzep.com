@@ -1,10 +1,6 @@
 # Long-term Memory Persistence, Enrichment, and Search for Langchain Apps
 
-=== "Python"
-    Langchain Python ships with `ZepChatMessageHistory` and `ZepRetriever` classes.
-
-=== "Javascript"
-    Langchain Javascript ships with `ZepMemory` and `ZepRetriever` classes.
+Langchain Python and LangchainJS ship with `ZepMemory` and `ZepRetriever` classes.
 
 Zep can be used to provide long-term memory for your Langchain chat apps or agents. Zep will store the entire historical message stream, automatically summarize messages, enrich them with token counts, timestamps, metadata and more.
 
@@ -28,11 +24,10 @@ You can also provide your bot or agent with access to relevant messages in long-
 
 === "Python"
 
-    Using Zep as your Langchain app's long-term memory simple: initialize the `ZepChatMessageHistory` with your Zep instance URL and your user's session identifier (see [Zep Concepts](/about/concepts)) and then utilize it as the `chat_memory` for a Langchain `ConversationBufferMemory`.
+    Using Zep as your Langchain app's long-term memory simple: initialize the `ZepMemory` with your Zep instance URL, API key, and your user's session identifier (see [Zep Concepts](/about/concepts)).
 
-    ```python title="ZepChatMessageHistory instantiation"
-    from langchain.memory.chat_message_histories import ZepChatMessageHistory
-    from langchain.memory import ConversationBufferMemory
+    ```python title="ZepMemory instantiation"
+    from langchain.memory import ZepMemory
 
     # Set this to your Zep server URL
     ZEP_API_URL = "http://localhost:8000"
@@ -40,16 +35,12 @@ You can also provide your bot or agent with access to relevant messages in long-
 
     session_id = str(uuid4())  # This is a unique identifier for the user
 
-    # Set up Zep Chat History
-    zep_chat_history = ZepChatMessageHistory(
+    # Set up ZepMemory instance
+    memory = ZepMemory(
         session_id=session_id,
         url=ZEP_API_URL,
-        api_key=ZEP_API_KEY,
-    )
-
-    # Use a standard ConversationBufferMemory to encapsulate the Zep chat history
-    memory = ConversationBufferMemory(
-        memory_key="chat_history", chat_memory=zep_chat_history
+        api_key=zep_api_key,
+        memory_key="chat_history",
     )
     ```
 
@@ -78,7 +69,7 @@ You can also provide your bot or agent with access to relevant messages in long-
 Once you've created the `memory`, use it in your chain or with your agent.
 
 === "Python"
-    ```python  title="Running an agent with ZepChatMessageHistory"
+    ```python  title="Running an agent with ZepMemory"
     agent_chain.run(
         input="What is the book's relevance to the challenges facing contemporary society?"
     )
@@ -93,24 +84,28 @@ Once you've created the `memory`, use it in your chain or with your agent.
 
     Inspecting the `zep_chat_history`, we see that a summary was automatically created, and that the history has been enriched with token counts, UUIDs, and timestamps.
 
-    ```python  title="Inspecting the Zep chat history"
+    ```python  title="Inspecting the Zep memory"
     def print_messages(messages):
         for m in messages:
-            print(m.to_dict())
-
-
-    print(zep_chat_history.zep_summary)
+            print(m.type, ":\n", m.dict())
+    
+    
+    print(memory.chat_memory.zep_summary)
     print("\n")
-    print_messages(zep_chat_history.zep_messages)
-    ```
-    ```text title="Output:"
-    The AI provides a synopsis of Parable of the Sower, a science fiction novel by Octavia Butler, about a young woman navigating a dystopian future. The human asks for recommendations for other women sci-fi writers and the AI suggests Ursula K. Le Guin and Joanna Russ. The AI also notes that Butler was a highly acclaimed writer, having won the Hugo Award, the Nebula Award, and the MacArthur Fellowship.
+    print_messages(memory.chat_memory.messages)
 
-
-    {'uuid': 'becfe5f4-d24c-4487-b572-2e836d7cedc8', 'created_at': '2023-05-10T23:28:10.380343Z', 'role': 'human', 'content': "WWhat is the book's relevance to the challenges facing contemporary society?", 'token_count': 16}
-    {'uuid': '8ea4875c-bf42-4092-b3b8-308394963cb7', 'created_at': '2023-05-10T23:28:10.396994Z', 'role': 'ai', 'content': 'Parable of the Sower is a powerful exploration of the challenges facing contemporary society, such as environmental disasters, poverty, and violence. It examines how these issues can lead to the breakdown of society and how individuals can take action to create a better future. The novel also explores themes of faith, hope, and resilience in the face of adversity.', 'token_count': 0}
-    ...
-    {'uuid': '2d95ff94-b52d-49bd-ade4-5e1e553e8cac', 'created_at': '2023-05-10T23:28:02.704311Z', 'role': 'ai', 'content': 'Octavia Estelle Butler (June 22, 1947 – February 24, 2006) was an American science fiction author.', 'token_count': 31}
+    The human inquires about Octavia Butler. The AI identifies her as an American science fiction author. The human then asks which books of hers were made into movies. The AI responds by mentioning the FX series Kindred, based on her novel of the same name. The human then asks about her contemporaries, and the AI lists Ursula K. Le Guin, Samuel R. Delany, and Joanna Russ.
+    
+    
+    system :
+     {'content': 'The human inquires about Octavia Butler. The AI identifies her as an American science fiction author. The human then asks which books of hers were made into movies. The AI responds by mentioning the FX series Kindred, based on her novel of the same name. The human then asks about her contemporaries, and the AI lists Ursula K. Le Guin, Samuel R. Delany, and Joanna Russ.', 'additional_kwargs': {}}
+    human :
+     {'content': 'What awards did she win?', 'additional_kwargs': {'uuid': '6b733f0b-6778-49ae-b3ec-4e077c039f31', 'created_at': '2023-07-09T19:23:16.611232Z', 'token_count': 8, 'metadata': {'system': {'entities': [], 'intent': 'The subject is inquiring about the awards that someone, whose identity is not specified, has won.'}}}, 'example': False}
+    ai :
+     {'content': 'Octavia Butler won the Hugo Award, the Nebula Award, and the MacArthur Fellowship.', 'additional_kwargs': {'uuid': '2f6d80c6-3c08-4fd4-8d4e-7bbee341ac90', 'created_at': '2023-07-09T19:23:16.618947Z', 'token_count': 21, 'metadata': {'system': {'entities': [{'Label': 'PERSON', 'Matches': [{'End': 14, 'Start': 0, 'Text': 'Octavia Butler'}], 'Name': 'Octavia Butler'}, {'Label': 'WORK_OF_ART', 'Matches': [{'End': 33, 'Start': 19, 'Text': 'the Hugo Award'}], 'Name': 'the Hugo Award'}, {'Label': 'EVENT', 'Matches': [{'End': 81, 'Start': 57, 'Text': 'the MacArthur Fellowship'}], 'Name': 'the MacArthur Fellowship'}], 'intent': 'The subject is stating that Octavia Butler received the Hugo Award, the Nebula Award, and the MacArthur Fellowship.'}}}, 'example': False}
+    human :
+     {'content': 'Which other women sci-fi writers might I want to read?', 'additional_kwargs': {'uuid': 'ccdcc901-ea39-4981-862f-6fe22ab9289b', 'created_at': '2023-07-09T19:23:16.62678Z', 'token_count': 14, 'metadata': {'system': {'entities': [], 'intent': 'The subject is seeking recommendations for additional women science fiction writers to explore.'}}}, 'example': False}
+    <snip />
     ```
 
 === "Javascript"
@@ -147,34 +142,35 @@ Once you've created the `memory`, use it in your chain or with your agent.
     {'uuid': '2d95ff94-b52d-49bd-ade4-5e1e553e8cac', 'created_at': '2023-05-10T23:28:02.704311Z', 'role': 'ai', 'content': 'Octavia Estelle Butler (June 22, 1947 – February 24, 2006) was an American science fiction author.', 'token_count': 31}
     ```
 ## Search Zep's message history from your Langchain app
+
+Zep supports both vector search using a Langchain `Retriever` as well as via an instance of `ZepMemory`.
+
+### Using a ZepMemory instance
+
+If you don't need to provide a `Retriever` to your chain or agent, you can search the long-term message history for a session directly from an instance of `ZepMemory`.
+
 === "Python"
-
-    Zep supports both vector search using a Langchain `Retriever` as well as via an instance of `ZepChatMessageHistory`.
-
-    ### Using a ZepChatMessageHistory instance
-
-    If you don't need to provide a `Retriever` to your chain or agent, you can search the long-term message history for a session directly from an instance of `ZepChatMessageHistory`.
-
     ```python  title="Search for relevant historical messages"
-    search_results = zep_chat_history.search("who are some famous women sci-fi authors?")
+    search_results = memory.chat_memory.search("who are some famous women sci-fi authors?")
     for r in search_results:
-        print(r.message, r.dist)
+        if r.dist > 0.8:  # Only print results with similarity of 0.8 or higher
+            print(r.message, r.dist)
     ```
     ```text title="Output:"
-    {'uuid': '622b41cb-5821-45d2-8026-67163b826a73', 'created_at': '2023-05-10T23:28:02.78107Z', 'role': 'human', 'content': 'Which other women sci-fi writers might I want to read?', 'token_count': 0} 0.9118298949424545
-    {'uuid': 'e957973c-d2e6-4e61-b760-0d8138471331', 'created_at': '2023-05-10T23:28:02.784666Z', 'role': 'ai', 'content': 'You might want to read Ursula K. Le Guin or Joanna Russ.', 'token_count': 0} 0.8533024416448016
-    {'uuid': 'c2542d2e-2110-45e9-ace2-94923080ab70', 'created_at': '2023-05-10T23:28:02.755448Z', 'role': 'ai', 'content': "Octavia Butler's contemporaries included Ursula K. Le Guin, Samuel R. Delany, and Joanna Russ.", 'token_count': 0} 0.852352466457884
-    {'uuid': '85e6b9b1-8f5e-4503-8549-18a148f255e5', 'created_at': '2023-05-10T23:28:02.689483Z', 'role': 'human', 'content': 'Who was Octavia Butler?', 'token_count': 0} 0.823569608637507
+    {'uuid': 'ccdcc901-ea39-4981-862f-6fe22ab9289b', 'created_at': '2023-07-09T19:23:16.62678Z', 'role': 'human', 'content': 'Which other women sci-fi writers might I want to read?', 'metadata': {'system': {'entities': [], 'intent': 'The subject is seeking recommendations for additional women science fiction writers to explore.'}}, 'token_count': 14} 0.9119619869747062
+    {'uuid': '7977099a-0c62-4c98-bfff-465bbab6c9c3', 'created_at': '2023-07-09T19:23:16.631721Z', 'role': 'ai', 'content': 'You might want to read Ursula K. Le Guin or Joanna Russ.', 'metadata': {'system': {'entities': [{'Label': 'ORG', 'Matches': [{'End': 40, 'Start': 23, 'Text': 'Ursula K. Le Guin'}], 'Name': 'Ursula K. Le Guin'}, {'Label': 'PERSON', 'Matches': [{'End': 55, 'Start': 44, 'Text': 'Joanna Russ'}], 'Name': 'Joanna Russ'}], 'intent': 'The subject is suggesting that the person should consider reading the works of Ursula K. Le Guin or Joanna Russ.'}}, 'token_count': 18} 0.8534346954749745
+    {'uuid': 'b05e2eb5-c103-4973-9458-928726f08655', 'created_at': '2023-07-09T19:23:16.603098Z', 'role': 'ai', 'content': "Octavia Butler's contemporaries included Ursula K. Le Guin, Samuel R. Delany, and Joanna Russ.", 'metadata': {'system': {'entities': [{'Label': 'PERSON', 'Matches': [{'End': 16, 'Start': 0, 'Text': "Octavia Butler's"}], 'Name': "Octavia Butler's"}, {'Label': 'ORG', 'Matches': [{'End': 58, 'Start': 41, 'Text': 'Ursula K. Le Guin'}], 'Name': 'Ursula K. Le Guin'}, {'Label': 'PERSON', 'Matches': [{'End': 76, 'Start': 60, 'Text': 'Samuel R. Delany'}], 'Name': 'Samuel R. Delany'}, {'Label': 'PERSON', 'Matches': [{'End': 93, 'Start': 82, 'Text': 'Joanna Russ'}], 'Name': 'Joanna Russ'}], 'intent': "The subject is stating that Octavia Butler's contemporaries included Ursula K. Le Guin, Samuel R. Delany, and Joanna Russ."}}, 'token_count': 27} 0.8523831524040919
     ```
 
     Zep uses cosine distance for search ranking and the distance values are returned in the search results.
 
-    ### Using the `ZepRetriever` class
+### Using the `ZepRetriever` class
 
-    `Retrievers` are a powerful tool for in-context learning. That is, providing LLM models with context from external sources. Long-term chat message history is a valuable source of context for bots or agents that interact with humans over multiple engagements, potentially over months or years.
+`Retrievers` are a powerful tool for in-context learning. That is, providing LLM models with context from external sources. Long-term chat message history is a valuable source of context for bots or agents that interact with humans over multiple engagements, potentially over months or years.
 
-    The `ZepRetriever` class is able to take advantage of `zep-python`'s `async` API, as demonstrated below.
+You wouldn't ordinarily call the `Retriever` directly, but we've done so as a simple illustration as to how Langchain `documents` returned by the `ZepRetriever` are enriched with metadata from the Zep service. In particular, token countx are useful when constructing prompts.
 
+=== "Python"
     ```python title="Use the ZepRetriever to search for relevant historical messages"
 
     from langchain.retrievers import ZepRetriever
@@ -195,19 +191,7 @@ Once you've created the `memory`, use it in your chain or with your agent.
     Document(page_content="Octavia Butler's contemporaries included Ursula K. Le Guin, Samuel R. Delany, and Joanna Russ.", metadata={'source': 'aff1b45d-1e14-427d-a5a2-2b5a9dade294', 'score': 0.760286350496536, 'role': 'ai', 'token_count': 17, 'created_at': '2023-05-11T16:29:35.052896Z'}),
     Document(page_content='You might want to read Ursula K. Le Guin or Joanna Russ.', metadata={'source': '0dd8cde5-860e-4d8b-975f-50f55028177d', 'score': 0.7595191167162665, 'role': 'ai', 'token_count': 15, 'created_at': '2023-05-11T16:29:35.080817Z'})]
     ```
-
-    You wouldn't ordinarily call the `Retriever` directly, but we've done so as a simple illustration as to how Langchain `documents` returned by the `ZepRetriever` are enriched with metadata from the Zep service. In particular, token countx are useful when constructing prompts.
-
 === "Javascript"
-
-    Zep supports vector search using a Langchain `Retriever`.
-
-    ### Using the `ZepRetriever` class
-
-    `Retrievers` are a powerful tool for in-context learning. That is, providing LLM models with context from external sources. Long-term chat message history is a valuable source of context for bots or agents that interact with humans over multiple engagements, potentially over months or years.
-
-    The `ZepRetriever` class is able to take advantage of `zep-js`'s API, as demonstrated below.
-
     ```javascript title="Use the ZepRetriever to search for relevant historical messages"
 
     import { ZepRetriever } from "langchain/retrievers/zep";
@@ -230,5 +214,3 @@ Once you've created the `memory`, use it in your chain or with your agent.
     Document(page_content="Octavia Butler's contemporaries included Ursula K. Le Guin, Samuel R. Delany, and Joanna Russ.", metadata={'source': 'aff1b45d-1e14-427d-a5a2-2b5a9dade294', 'score': 0.760286350496536, 'role': 'ai', 'token_count': 17, 'created_at': '2023-05-11T16:29:35.052896Z'}),
     Document(page_content='You might want to read Ursula K. Le Guin or Joanna Russ.', metadata={'source': '0dd8cde5-860e-4d8b-975f-50f55028177d', 'score': 0.7595191167162665, 'role': 'ai', 'token_count': 15, 'created_at': '2023-05-11T16:29:35.080817Z'})]
     ```
-
-     Langchain `documents` returned by the `ZepRetriever` are enriched with metadata from the Zep service. In particular, token counts are useful when constructing prompts.
