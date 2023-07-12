@@ -32,6 +32,7 @@ nav:
       - Quick Start: deployment/quickstart.md
       - Authentication: deployment/auth.md
       - Render: deployment/render.md
+      - Kubernetes: deployment/kubernetes.md
       - OpenAI API Config: deployment/openai.md
       - Data Management: deployment/data.md
       - Config Options: deployment/config.md
