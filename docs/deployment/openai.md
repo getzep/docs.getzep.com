@@ -19,3 +19,12 @@ Azure OpenAI API support can be enabled by setting the
 [`llm.azure_openai_endpoint` config key or `ZEP_LLM_AZURE_OPENAI_ENDPOINT`](/deployment/config) environment variable.
 
 Your Azure OpenAI API key should be set as described above.
+
+## Custom OpenAI API Endpoint 
+Zep uses OpenAI LLM models for summarization and intent analysis tasks. The OpenAI API Endpoint URL can now be customized, allowing Zep to connect to alternative APIs provided by OpenAI and other software vendors and products. 
+[llm:
+  # gpt-3.5-turbo or gpt-4
+  model: "gpt-3.5-turbo"
+  # Use only with an alternate OpenAI-compatible API endpoint
+  openai_endpoint:
+  openai_org_id:
