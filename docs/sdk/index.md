@@ -59,7 +59,7 @@ Python SDK documentation can be [found here](https://getzep.github.io/zep-python
 
 ### Sessions
 
-**Sessions** represent your users. The Session ID is a string key that accepts arbitrary identifiers. Metadata can be set alongside the Session ID. Explicit creation of Sessions is unnecessary, as they are created automatically when adding Memories. A common usage pattern is to use a Session ID to represent all conversations with a specific User (i.e., Session ID == User ID), this will allow you to collect historical context of all conversations with a specific User. 
+**Sessions** represent your users. The Session ID is a string key that accepts arbitrary identifiers. Metadata can be set alongside the Session ID. A common usage pattern is to use a Session ID to represent all conversations with a specific User (i.e., Session ID == User ID), this will allow you to collect historical context of all conversations with a specific User. 
 
 Related to sessions, a time series of **Memories** and **Summaries** is captured and stored.
 
@@ -67,21 +67,60 @@ Related to sessions, a time series of **Memories** and **Summaries** is captured
 
 A **Memory** is the core data structure in Zep. It contains a list of **Messages** and a **Summary** (if created). The Memory and Summary are returned with UUIDs, token counts, timestamps, and other metadata, allowing for a rich set of application-level functionality.
 
+
+## Adding a Session
+Explicit creation of Sessions is unnecessary, as they are created automatically when adding Memories. However, there may be instances where you want to create a Session and store metadata about your Session before beginning any conversations. You can do this by adding a `Session` explicitly.   
+
+=== "Python"
+     ```python title="Add a Session"
+    
+        from zep_python import Memory, Message, ZepClient
+        
+        async with ZepClient(base_url, api_key) as client:
+            session_id = uuid.uuid4().hex // A new session identifier
+
+            try:
+                session = Session(session_id=session_id, metadata={"foo" : "bar"}) 
+                client.aadd_session(session)
+            except APIError as e:
+                print(f"Unable to create session {session_id} got error: {e}")
+     ```
+
+### Adding Session Metadata
+If the Session already exists, then adding a Session works as an upsert operation for the Session metadata. 
+
+## Getting a Session
+
+=== "Python"
+     ```python title="Get a Session"
+    
+        async with ZepClient(base_url, api_key) as client:
+            session_id = "AlphaCustomer"
+            session = Session(session_id=session_id, metadata={"bar": "foo"})
+
+            session = client.aget_session(session_id)
+            print(session.dict())
+    
+     ```
+
+     ```json title="Output:"
+        {'uuid': '944045d3-82ea-41c3-9228-13df83960eba', 'created_at': '2023-07-12T16:49:53.00569Z', 'updated_at': '2023-07-12T16:49:53.00569Z', 'deleted_at': '0001-01-01T00:00:00Z', 'session_id': '487012daa30b45ab94c5d086fa8942ec', 'metadata': {'bar': 'foo', 'foo': 'bar'}}
+     ```
+
 ## Persisting a Memory to a Session
 
 A `Memory` may include a single message or a series of messages. Each `Message` has a `role` and `content` field, with role being the identifiers for your human and AI/agent users and content being the text of the message.
 
 Additionally, you can even store custom metadata with each Message. 
 
-Sessions are created automatically when adding Memories. The SessionID is a string key that accepts arbitrary identifiers.
+Sessions are created automatically when adding Memories. If the SessionID is already exists, then the Memory is upserted into the Session. 
 
 === "Python"
 
     ```python title="Add Memory to Session"
     from zep_python import Memory, Message, ZepClient
 
-    base_url = "http://localhost:8000"  # TODO: Replace with Zep API URL
-    session_id = "2a2a2a" # an identifier for your user
+    session_id = "2a2a2a" # the identifier for your user
 
     history = [
          { role: "human", content: "Who was Octavia Butler?" },
@@ -98,7 +137,7 @@ Sessions are created automatically when adding Memories. The SessionID is a stri
          }
     ]
 
-    async with ZepClient(base_url) as client:
+    async with ZepClient(base_url, api_key) as client:
         messages = [Message(role=m.role, content=m.content) for m in history]
         memory = Memory(messages=messages)
         result = await client.aadd_memory(session_id, memory)
@@ -140,12 +179,15 @@ Sessions are created automatically when adding Memories. The SessionID is a stri
 === "Python"
 
     ```python title="Get Memory from Session"
-    try:
-        memory = await client.aget_memory(session_id)
-        for message in memory.messages:
-            print(message.to_dict())
-    except NotFoundError:
-        print("Memory not found")
+    from zep_python import Memory, Message, ZepClient
+
+    async with ZepClient(base_url, api_key) as client:
+        try:
+            memory = await client.aget_memory(session_id)
+            for message in memory.messages:
+                print(message.to_dict())
+        except NotFoundError:
+            print("Memory not found")
     ```
     ```json title="Output:"
     {
@@ -193,7 +235,6 @@ Sessions are created automatically when adding Memories. The SessionID is a stri
         token_count: 23
     }
     ```
-
 ## Searching for Messages
 
 Zep supports vector similarity search for Messages in the long-term memory storage. This allows you to find Messages that are contextually similar to a given query, with the results sorted by a similarity or `distance`. See [Vector Search](/memory_search) for more details.
