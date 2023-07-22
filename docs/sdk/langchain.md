@@ -69,8 +69,11 @@ You can also provide your bot or agent with access to relevant messages in long-
 Once you've created the `memory`, use it in your chain or with your agent.
 
 === "Python"
-    ```python  title="Running an agent with ZepMemory"
-    agent_chain.run(
+    ```python  title="Running a chain with ZepMemory"
+
+    llm = ChatOpenAI(model_name="gpt-3.5-turbo")
+    chain = ConversationChain(llm=llm, verbose=True, memory=memory)
+    chain.run(
         input="What is the book's relevance to the challenges facing contemporary society?"
     )
     ```
@@ -109,7 +112,7 @@ Once you've created the `memory`, use it in your chain or with your agent.
     ```
 
 === "Javascript"
-    ```javascript  title="Running an agent with ZepMemory"
+    ```javascript  title="Running a chain with ZepMemory"
     const chain = new ConversationChain({ llm: model, memory });
     const response = await chain.run(
         {
