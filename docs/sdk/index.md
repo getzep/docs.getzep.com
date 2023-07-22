@@ -69,7 +69,7 @@ A **Memory** is the core data structure in Zep. It contains a list of **Messages
 
 
 ## Adding a Session
-Explicit creation of Sessions is unnecessary, as they are created automatically when adding Memories. However, there may be instances where you want to create a Session and store metadata about your Session before beginning any conversations. You can do this by adding a  `Session` explicitly.   
+Explicit creation of Sessions is unnecessary, as they are created automatically when adding Memories. However, there may be instances where you want to create a Session and store metadata about your Session before beginning any conversations. You can do this by adding a `Session` explicitly.   
 
 === "Python"
      ```python title="Add a Session"
@@ -113,7 +113,7 @@ A `Memory` may include a single message or a series of messages. Each `Message` 
 
 Additionally, you can even store custom metadata with each Message. 
 
-Sessions are created automatically when adding Memories. If SessionID is passed, then the Memory is upserted into an existing Session. 
+Sessions are created automatically when adding Memories. If the SessionID is already exists, then the Memory is upserted into the Session. 
 
 === "Python"
 
