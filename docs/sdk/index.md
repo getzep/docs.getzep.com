@@ -242,7 +242,7 @@ Zep supports vector similarity search for Messages in the long-term memory stora
 === "Python"
 
     ```python title="Search Memory for Text"
-    search_payload = SearchPayload(text="Is Lauren Olamina a character in a book")
+    search_payload = MemorySearchPayload(text="Is Lauren Olamina a character in a book")
 
     search_results = await client.asearch_memory(session_id, search_payload)
 
