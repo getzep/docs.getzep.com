@@ -2,6 +2,7 @@
 
 1. Using [docker-compose](/deployment/quickstart).
 2. Deploying to the [Render platform](/deployment/render).
+3. Deploying to [Kubernetes](/deployment/kubernetes).
 3. Deploying to [production environments.](#production)
 4. [Configuring authentication.](/deployment/auth)
 5. [Data management](/deployment/data) with Zep.

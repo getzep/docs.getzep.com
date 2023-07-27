@@ -11,7 +11,7 @@ extra:
 nav:
   - About:
       - index.md
-      - The Zep Company: https://getzep.com
+      - Zep Website: https://getzep.com
   - Quick Start:
       - deployment/quickstart.md
   - Zep Versus:
@@ -26,7 +26,7 @@ nav:
       - sdk/index.md
       - Langchain ❤️: sdk/langchain.md
       - Vector Search: memory_search.md
-      - REST API: sdk/api.md
+      - REST API: https://getzep.github.io/zep/
   - Deployment:
       - deployment/index.md
       - Quick Start: deployment/quickstart.md
