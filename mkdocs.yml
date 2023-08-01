@@ -24,8 +24,8 @@ nav:
   - Langchain ❤️: sdk/langchain.md
   - SDKs and API:
       - sdk/index.md
+      - Chat History: sdk/chat_history.md
       - Langchain ❤️: sdk/langchain.md
-      - Vector Search: memory_search.md
       - REST API: https://getzep.github.io/zep/
   - Deployment:
       - deployment/index.md
