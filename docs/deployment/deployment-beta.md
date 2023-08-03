@@ -7,25 +7,6 @@ The following instructions will guide you through deploying Zep v0.9.0-beta. For
 
     **Configuration options have changes signficiantly between Zep v0.8.1 Stable and Zep v0.9.0-beta.** Please carefuly review the guide below before upgrading. _And make a database backup!_
 
-## Prerequisites
-
-The following guide assumes familiarity with Docker, some basic networking experience, and a level of comfort at the command line. 
-
-## Hardware Requirements
-
-For production deployment planning, please be mindful of the following.
-
-### Memory requirements
-
-You will need adequate memory for Zep's NLP and Postgres containers. The amount of memory required will be dictated by:
-  
-- **NLP Server**: The number of different embedding models you will be using and the size of these models. See [Selecting Embedding Models](#selecting-embedding-models) below.
-- **Postgres** As the number of documents in your Collections grow and you create indexes over these collections, you will need to ensure that you have adequate memory available. Please see Postgres best practice deployment guides for more information.
-
-### Database storage requirements
-
-Zep's Postgres database will require adequate storage for your documents, document vectors, chat message histories, and chat message history vectors. The amount of storage required will be dictated by your use case, the width of your embedding vectors, and other variables.
-
 ## Deploying Zep
 ### Docker Compose
 
@@ -154,6 +135,22 @@ For the local option, you may choose from the following models:
 ## When and how to Create a Collection Index
 
 Please see the [Collection Indexing](/sdk/documents/#indexing-a-collection) section of the Zep SDK documentation for more information.
+
+
+## Hardware Requirements
+
+For production deployment planning, please be mindful of the following.
+
+### Memory requirements
+
+You will need adequate memory for Zep's NLP and Postgres containers. The amount of memory required will be dictated by:
+  
+- **NLP Server**: The number of different embedding models you will be using and the size of these models. See [Selecting Embedding Models](#selecting-embedding-models) below.
+- **Postgres** As the number of documents in your Collections grow and you create indexes over these collections, you will need to ensure that you have adequate memory available. Please see Postgres best practice deployment guides for more information.
+
+### Database storage requirements
+
+Zep's Postgres database will require adequate storage for your documents, document vectors, chat message histories, and chat message history vectors. The amount of storage required will be dictated by your use case, the width of your embedding vectors, and other variables.
 
 ### Next Steps
 
