@@ -30,6 +30,8 @@ Zep's Postgres database will require adequate storage for your documents, docume
 ### Docker Compose
 
 ```bash
+git clone https://github.com/getzep/zep.git
+cd zep
 docker compose -f docker-compose-beta.yaml up
 ```
 

@@ -73,7 +73,7 @@ Now that you have a Zep client, you can start using the Zep APIs:
 
 ### Documents
 
-:octicons-tag-24: **1.9.0-beta.0**
+:octicons-tag-24: **v0.9.0-beta**
 
 Zep's document vector store is exposed via the [`documents` API](/sdk/documents). With Zep's document vector store, you can build 
 collections of documents useful for grounding your prompts. Run semantic search over a collection using either Zep's 
@@ -82,7 +82,7 @@ own SDKs, or with Langchain.
 [Document API :material-file-document:](/sdk/documents){ .md-button .md-button--primary } 
 
 ### Chat History
-:octicons-tag-24: **1.8.1** &nbsp; :octicons-tag-24: **1.9.0-beta.0**
+:octicons-tag-24: **1.8.1** &nbsp; :octicons-tag-24: **v0.9.0-beta**
 
 Zep's chat history store is exposed via the [`chat_history` API](/sdk/chat_history). With Zep's chat history store, you can
 capture your app's chat history, enrich it with metadata, and run semantic search over it. Ground your prompts with 
