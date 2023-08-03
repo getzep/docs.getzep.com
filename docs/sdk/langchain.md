@@ -18,7 +18,7 @@ You can also provide your bot or agent with access to relevant messages in long-
 
 ## Using Zep as a LangChain VectorStore and Document Retriever
 
-:octicons-tag-24: **1.9.0-beta.0**
+:octicons-tag-24: **v0.9.0-beta**
 
 See the examples in the inline [Document Vector Store documentation](/sdk/documents).
 
