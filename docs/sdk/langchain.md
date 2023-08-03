@@ -15,12 +15,16 @@ You can also provide your bot or agent with access to relevant messages in long-
 
     [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](/deployment/render)
 
-## Using Zep as the Memory Store for your Langchain app
 
-!!! note "Zep supports optional JWT authentication."
-    
-        The examples below assume that you have enabled JWT authentication.
-        See the [Authentication Configuration Guide](/deployment/auth) for more information.
+## Using Zep as a LangChain VectorStore and Document Retriever
+
+:octicons-tag-24: **1.9.0-beta.0**
+
+See the examples in the inline [Document Vector Store documentation](/sdk/documents).
+
+
+
+## Using Zep as a LangChain Memory Store
 
 === "Python"
 

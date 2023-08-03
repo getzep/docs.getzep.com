@@ -1,50 +1,88 @@
-# About
+<p align="center">
+  <a href="https://squidfunk.github.io/mkdocs-material/">
+    <img src="https://github.com/getzep/zep/blob/main/assets/zep-bot-square-200x200.png?raw=true" width="150" alt="Zep Logo">
+  </a>
+</p>
 
-!!! info "Quick Start"
+<h1 align="center">
+A long-term memory store for LLM applications
+</h1>
 
-    Looking to get going? The [Zep Quick Start Guide](/deployment/quickstart) has what you need.
+<p align="center">
+  <a href="https://discord.gg/W8Kw6bsgXQ"><img
+    src="https://dcbadge.vercel.app/api/server/W8Kw6bsgXQ?style=flat"
+    alt="Chat on Discord"
+  /></a>
+  <a href="https://pypi.org/project/zep-python"><img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dw/zep-python?label=pypi%20downloads"></a>
+  <a href="https://www.npmjs.com/package/@getzep/zep-js"><img alt="@getzep/zep-js" src="https://img.shields.io/npm/dw/%40getzep/zep-js?label=npm%20downloads"></a>
+</p>
 
-    [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](/deployment/render)
+<p align="center">
+<a href="/deployment/quickstart/">Quick Start Guide</a> | 
+<a href="/sdk/langchain/">LangChain Support</a> | 
+<a href="https://discord.gg/W8Kw6bsgXQ">Discord</a><br />
+<a href="https://www.getzep.com">www.getzep.com</a>
+</p>
 
-Zep stores, summarizes, embeds, indexes, and enriches LLM app / chatbot histories, and exposes them via simple, low-latency APIs. Zep allows developers to focus on developing their AI apps, rather than on building memory persistence, search, and enrichment infrastructure.
+## Easily add relevant documents, chat history memory & rich user data to your LLM app's prompts.</h2>
 
-Zep's Extractor model is easily extensible, with a simple, clean interface available to build new enrichment functionality, such as summarizers, entity extractors, embedders, and more.
+### Vector Database with Hybrid Search
+Populate your prompts with relevant documents and chat history. Rich metadata and JSONPath query filters offer a powerful hybrid search over texts.
+
+### Batteries Included Embedding & Enrichment
+- Automatically embed texts, or bring your own vectors. 
+- [Enrichment of chat histories](/sdk/extractors) with summaries, named entities, token counts. Use these as search filters. 
+- Associate your own metadata with documents & chat histories.
+
+### Fast, low-latency APIs and stateless deployments
+- Zep’s local embedding models and async enrichment ensure a snappy user experience. 
+- Storing documents and history in Zep and not in memory enables stateless deployment.
+
 
 <br />
 
-**Key Features:**
+<table>
+<tr>
+<td>
 
-- **Fast!** Zep’s async extractors operate independently of the your chat loop, ensuring a snappy user experience.
-- **Long-term memory persistence**, with access to historical messages irrespective of your summarization strategy.
-- **Auto-summarization** of memory messages based on a configurable message window. A series of summaries are stored, providing flexibility for future summarization strategies.
-- **Hybrid search** over memories and metadata, with messages automatically embedded on creation.
-- **Intent Extraction** that automatically identifies the human's intent and stores this in the message metadata.
-- **Entity Extractor** that automatically extracts named entities from messages and stores them in the message metadata.
-- **Auto-token counting** of memories and summaries, allowing finer-grained control over prompt assembly.
-- **JWT Authentication** for secure API access.
-- **[Python](https://github.com/getzep/zep-python)** and **[Javascript](https://github.com/getzep/zep-js)** SDKs.
-- [**Langchain**](/sdk/langchain) integration, enabling long-term memory and vector search over memory for Langchain projects.
+<h4>Document Vector Store</h4>
+
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.75 6.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z"></path><path d="M2.5 1h8.44a1.5 1.5 0 0 1 1.06.44l10.25 10.25a1.5 1.5 0 0 1 0 2.12l-8.44 8.44a1.5 1.5 0 0 1-2.12 0L1.44 12A1.497 1.497 0 0 1 1 10.94V2.5A1.5 1.5 0 0 1 2.5 1Zm0 1.5v8.44l10.25 10.25 8.44-8.44L10.94 2.5Z"></path></svg></span> <strong>1.9.0-beta.0</strong></p>
+
+<p>With Zep's document vector store, you can build collections of documents useful for grounding your prompts. </p>
+<p>Run semantic search over a collection using either Zep's own SDKs, or with Langchain.</p>
+
+<a href="/sdk/documents" class="md-button md-button--primary">
+    Document API
+</a>
+
+</td>
+<td>
+
+
+<h4>Chat History Store</h4>
+
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.75 6.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z"></path><path d="M2.5 1h8.44a1.5 1.5 0 0 1 1.06.44l10.25 10.25a1.5 1.5 0 0 1 0 2.12l-8.44 8.44a1.5 1.5 0 0 1-2.12 0L1.44 12A1.497 1.497 0 0 1 1 10.94V2.5A1.5 1.5 0 0 1 2.5 1Zm0 1.5v8.44l10.25 10.25 8.44-8.44L10.94 2.5Z"></path></svg></span> <strong>1.8.1</strong>
+&nbsp;
+<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.75 6.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z"></path><path d="M2.5 1h8.44a1.5 1.5 0 0 1 1.06.44l10.25 10.25a1.5 1.5 0 0 1 0 2.12l-8.44 8.44a1.5 1.5 0 0 1-2.12 0L1.44 12A1.497 1.497 0 0 1 1 10.94V2.5A1.5 1.5 0 0 1 2.5 1Zm0 1.5v8.44l10.25 10.25 8.44-8.44L10.94 2.5Z"></path></svg></span> <strong>1.9.0-beta.0</strong></p>
+
+<p>
+    <p> With Zep's chat history store, you can capture your app's chat history, enrich it with metadata, and run semantic search over it.</p>
+<p> Ground your prompts with context from prior conversations, both recent and distant past. Use Zep's own SDKs, or with Langchain.
+</p>
+
+<a href="/sdk/chat_history" class="md-button md-button--primary">
+    Chat History API
+</a>
+
+
+</td>
+</tr>
+</table>
 
 
 
-## Why Zep?
 
-Chat history storage is an infrastructure challenge all developers and enterprises face as they look to move from prototypes to deploying LLM/ AI Chat applications that provide rich and intimate experiences to users.
-
-Long-term memory persistence enables a variety of use cases, including:
-
-- Personalized re-engagement of users based on their chat history.
-- Prompt evaluation based on historical data.
-- Training of new models and evaluation of existing models.
-- Analysis of historical data to understand user behavior and preferences.
-
-However:
-
-- Most LLM chat history or memory implementations run in-memory, and are not designed for stateless deployments or long-term persistence.
-- Standing up and managing low-latency infrastructure to store, manage, and enrich memories is non-trivial.
-- When storing messages long-term, developers are exposed to privacy and regulatory obligations around retention and deletion of user data.
-
-The Zep server and client SDKs are designed to address these challenges.
 
 ## Next Steps
 
