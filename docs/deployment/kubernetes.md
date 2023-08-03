@@ -1,7 +1,7 @@
 ## Setting up Zep in a Kubernetes Cluster
 :octicons-tag-24: **1.8.1**
 
-!!! note "Deploying Zep v0.9.0-beta.0 to Kubernetes"
+!!! note "Deploying Zep v0.9.0-beta to Kubernetes"
 
     The instructions below are for deploying Zep v0.8.1 Stable to Kubernetes. 
 

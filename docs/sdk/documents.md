@@ -11,9 +11,9 @@ Want to learn more about Collections, Documents, Embeddings and how Zep does vec
 Check out the [Key Concepts](#key-concepts) section.
 
 
-!!! note "Zep Server v0.9.0-beta.0 or later required"
+!!! note "Zep Server v0.9.0-beta or later required"
     
-    The Zep Document Vector Store requires Zep Server v0.9.0-beta.0 or later.
+    The Zep Document Vector Store requires Zep Server v0.9.0-beta or later.
 
 ## Example Code
 

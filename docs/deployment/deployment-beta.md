@@ -79,29 +79,29 @@ Note the defaults below for the embedding models and review the [Selecting Embed
     below should be set. These can also be configured in a `.env` file in the current working directory.
 
 
-| Config Key                                 | Environment Variable                        | Default                                                      |
-|--------------------------------------------|---------------------------------------------|--------------------------------------------------------------|
-| llm.model                                  | ZEP_LLM_MODEL                               | gpt-3.5-turbo                                                |
-| llm.azure_openai_endpoint                  | ZEP_LLM_AZURE_OPENAI_ENDPOINT               | undefined                                                    |
-| llm.openai_endpoint                        | ZEP_LLM_OPENAI_ENDPOINT                     | undefined                                                    |
-| llm.openai_org_id                          | ZEP_LLM_OPENAI_ORG_ID                       | undefined                                                    |
-| memory.message_window                      | ZEP_MEMORY_MESSAGE_WINDOW                   | 12                                                           |
-| extractors.documents.embeddings.enabled    | ZEP_EXTRACTORS_DOCUMENTS_EMBEDDINGS_ENABLED | true                                                         |
-| extractors.documents.embeddings.dimensions | ZEP_EXTRACTORS_DOCUMENTS_EMBEDDINGS_DIMENSIONS         | 384                                                          |
-| extractors.documents.embeddings.service    | ZEP_EXTRACTORS_DOCUMENTS_EMBEDDINGS_SERVICE            | local                                                        |
-| extractors.messages.summarizer.enabled     | ZEP_EXTRACTORS_MESSAGES_SUMMARIZER_ENABLED             | true                                                         |
-| extractors.messages.entities.enabled       | ZEP_EXTRACTORS_MESSAGES_ENTITIES_ENABLED               | true                                                         |
-| extractors.messages.intent.enabled         | ZEP_EXTRACTORS_MESSAGES_INTENT_ENABLED                 | false                                                        |
-| extractors.messages.embeddings.enabled     | ZEP_EXTRACTORS_MESSAGES_EMBEDDINGS_ENABLED             | true                                                         |
-| extractors.messages.embeddings.dimensions  | ZEP_EXTRACTORS_MESSAGES_EMBEDDINGS_DIMENSIONS          | 384                                                          |
-| extractors.messages.embeddings.service     | ZEP_EXTRACTORS_MESSAGES_EMBEDDINGS_SERVICE             | local                                                        |
-| store.type                                 | ZEP_STORE_TYPE                              | postgres                                                     |
-| store.postgres.dsn                         | ZEP_STORE_POSTGRES_DSN                      | postgres://postgres:postgres@localhost:5432/?sslmode=disable |
-| server.port                                | ZEP_SERVER_PORT                             | 8000                                                         |
-| auth.required                              | ZEP_AUTH_REQUIRED                           | false                                                        |
-| auth.secret                                | ZEP_AUTH_SECRET                             | do-not-use-this-secret-in-production                         |
-| data.purge_every                           | ZEP_DATA_PURGE_EVERY                        | 60                                                           |
-| log.level                                  | ZEP_LOG_LEVEL                               | info                                                         |
+| Config Key                                 | Environment Variable                           | Default                                                      |
+|--------------------------------------------|------------------------------------------------|--------------------------------------------------------------|
+| llm.model                                  | ZEP_LLM_MODEL                                  | gpt-3.5-turbo                                                |
+| llm.azure_openai_endpoint                  | ZEP_LLM_AZURE_OPENAI_ENDPOINT                  | undefined                                                    |
+| llm.openai_endpoint                        | ZEP_LLM_OPENAI_ENDPOINT                        | undefined                                                    |
+| llm.openai_org_id                          | ZEP_LLM_OPENAI_ORG_ID                          | undefined                                                    |
+| memory.message_window                      | ZEP_MEMORY_MESSAGE_WINDOW                      | 12                                                           |
+| extractors.documents.embeddings.enabled    | ZEP_EXTRACTORS_DOCUMENTS_EMBEDDINGS_ENABLED    | true                                                         |
+| extractors.documents.embeddings.dimensions | ZEP_EXTRACTORS_DOCUMENTS_EMBEDDINGS_DIMENSIONS | 384                                                          |
+| extractors.documents.embeddings.service    | ZEP_EXTRACTORS_DOCUMENTS_EMBEDDINGS_SERVICE    | local                                                        |
+| extractors.messages.summarizer.enabled     | ZEP_EXTRACTORS_MESSAGES_SUMMARIZER_ENABLED     | true                                                         |
+| extractors.messages.entities.enabled       | ZEP_EXTRACTORS_MESSAGES_ENTITIES_ENABLED       | true                                                         |
+| extractors.messages.intent.enabled         | ZEP_EXTRACTORS_MESSAGES_INTENT_ENABLED         | false                                                        |
+| extractors.messages.embeddings.enabled     | ZEP_EXTRACTORS_MESSAGES_EMBEDDINGS_ENABLED     | true                                                         |
+| extractors.messages.embeddings.dimensions  | ZEP_EXTRACTORS_MESSAGES_EMBEDDINGS_DIMENSIONS  | 384                                                          |
+| extractors.messages.embeddings.service     | ZEP_EXTRACTORS_MESSAGES_EMBEDDINGS_SERVICE     | local                                                        |
+| store.type                                 | ZEP_STORE_TYPE                                 | postgres                                                     |
+| store.postgres.dsn                         | ZEP_STORE_POSTGRES_DSN                         | postgres://postgres:postgres@localhost:5432/?sslmode=disable |
+| server.port                                | ZEP_SERVER_PORT                                | 8000                                                         |
+| auth.required                              | ZEP_AUTH_REQUIRED                              | false                                                        |
+| auth.secret                                | ZEP_AUTH_SECRET                                | do-not-use-this-secret-in-production                         |
+| data.purge_every                           | ZEP_DATA_PURGE_EVERY                           | 60                                                           |
+| log.level                                  | ZEP_LOG_LEVEL                                  | info                                                         |
 
 
 
