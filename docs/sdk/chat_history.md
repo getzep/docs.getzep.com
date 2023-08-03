@@ -1,5 +1,7 @@
 # Chat History Memory API
 
+:octicons-tag-24: **1.8.1** &nbsp; :octicons-tag-24: **1.9.0-beta.0**
+
 ## Key Concepts
 
 ### Sessions
@@ -489,7 +491,7 @@ Zep returns all messages from a search, up to a default limit. This limit which 
     We're thinking of strategies to address this problem, including hybrid search and enriching messages with metadata.
 
 ### Embedding Models
-:octicons-tag-24: **1.9.0pre**
+:octicons-tag-24: **1.9.0-beta.0**
 
 By default, Zep uses a built-in Sentence Transformers model, `all-MiniLM-L6-v2`, for message embedding. The model offers a very low latency 
 search experience when deployed on suitable infrastructure. Cosine similarity is used for search ranking.

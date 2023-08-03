@@ -1,17 +1,19 @@
 # Document Vector Store
-:octicons-tag-24: **1.9.0pre**
+:octicons-tag-24: **1.9.0-beta.0**
+
+Zep's document vector store allows you to embed and search over documents using hybrid vector search. 
+
+Collection management, document ingestion, and search may be done using either _Zep's Python SDK_ or _Langchain_. 
+
+Most APIs below are also available for async use. See Zep's [Python SDK API](https://getzep.github.io/zep-python/zep_client/) for more.
+
+Want to learn more about Collections, Documents, Embeddings and how Zep does vector search? 
+Check out the [Key Concepts](#key-concepts) section.
 
 
-
-
-Zep's document vector store
-
-!!! note "Zep Server v0.9.0pre or later required"
+!!! note "Zep Server v0.9.0-beta.0 or later required"
     
-    The Zep Document Vector Store requires Zep Server v0.9.0pre or later.
-
-
-
+    The Zep Document Vector Store requires Zep Server v0.9.0-beta.0 or later.
 
 
 ## Initializing the Zep Client
@@ -44,28 +46,56 @@ If you'd like to create the embedding vectors yourself and provide these to Zep,
 
 ## Adding Documents to a Collection
 
-```python
-chunks = read_chunks_from_file(file, max_chunk_size)  # your custom function to read chunks from a file
+=== ":fontawesome-solid-robot: Zep SDK"
 
-documents = [
-    Document(
-        content=chunk,
-        document_id=f"{collection_name}-{i}",  # optional document ID
-        metadata={"bar": i},  # optional metadata
+    ```python
+    chunks = read_chunks_from_file(file, max_chunk_size)  # your custom function to read chunks from a file
+    
+    documents = [
+        Document(
+            content=chunk,
+            document_id=f"{collection_name}-{i}",  # optional document ID
+            metadata={"bar": i},  # optional metadata
+        )
+        for i, chunk in enumerate(chunks)
+    ]
+    
+    uuids = collection.add_documents(documents)
+    ```
+    
+    `document_id` is an optional ID for your document. You can use this to associate the document chunk of a document with
+    your own identifier.
+    
+    `metadata` is an optional dictionary of metadata associated with your document. Zep offers hybrid search over a collectiom,
+    where metadata can be used to filter search results.
+    
+    `collection.add_documents` returns a list of Zep UUIDs for the documents you've added to the collection.
+
+=== ":parrot: :chains: Langchain"
+    
+    Zep's document vector store has experimental VectorStore support for Langchain. 
+
+    While Zep's Memory and Retriever may be found in the Langchain codebase, Zep's VectorStore 
+    is not yet available in Langchain itself. 
+
+    Note the import path below is `zep_python.experimental.langchain`.
+
+    ```python
+    from langchain.docstore.base import Document
+    from langchain.text_splitter import RecursiveCharacterTextSplitter
+    from zep_python.experimental.langchain import ZepVectorStore
+
+    vectorstore = ZepVectorStore(collection)
+
+    text_splitter = RecursiveCharacterTextSplitter(
+        chunk_size=400,
+        chunk_overlap=50,
+        length_function=len,
     )
-    for i, chunk in enumerate(chunks)
-]
 
-uuids = collection.add_documents(documents)
-```
-
-`document_id` is an optional ID for your document. You can use this to associate the document chunk of a document with
-your own identifier.
-
-`metadata` is an optional dictionary of metadata associated with your document. Zep offers hybrid search over a collectiom,
-where metadata can be used to filter search results.
-
-`collection.add_documents` returns a list of Zep UUIDs for the documents you've added to the collection.
+    docs = text_splitter.create_documents([raw_text])
+    uuids = vectorstore.add_documents(docs)
+    ```
 
 Your _chunking strategy_ will depend on your use case. There are a number of 3rd-party libraries, including Langchain, 
 that support ingesting documents from a variety of sources and chunking them into smaller pieces for embedding.
@@ -93,28 +123,57 @@ Zep supports hybrid vector search over a collection. The most relevant documents
 
 Either a text query or an embedding vector can be used to search a collection.
 
-```python
-# search for documents using only a query string
-query = "the moon"
-results = collection.search(text=query, limit=5)
+=== ":fontawesome-solid-robot: Zep SDK"
 
-# hybrid search for documents using a query string and metadata filter
-metadata_query = {
-    "where": {"jsonpath": '$[*] ? (@.baz == "qux")'},
-}
-results = collection.search(text=query, metadata=metadata_query, limit=5)
+    ```python
+    # search for documents using only a query string
+    query = "the moon"
+    results = collection.search(text=query, limit=5)
+    
+    # hybrid search for documents using a query string and metadata filter
+    metadata_query = {
+        "where": {"jsonpath": '$[*] ? (@.baz == "qux")'},
+    }
+    results = collection.search(text=query, metadata=metadata_query, limit=5)
+    
+    # Search by embedding vector, rather than text query
+    # embedding is a list of floats
+    results = collection.search(
+        embedding=embedding, limit=5
+    )
+    ```
+    
+    `metadata` is an optional dictionary of [JSONPath filters](https://www.ietf.org/archive/id/draft-goessner-dispatch-jsonpath-00.html) used to match on metadata associated with your documents.
+    
+    `limit` is an optional integer indicating the maximum number of results to return.
 
-# Search by embedding vector, rather than text query
-# embedding is a list of floats
-results = collection.search(
-    embedding=embedding, limit=5
-)
-```
+=== ":parrot: :chains: Langchain"
 
-`metadata` is an optional dictionary of [JSONPath filters](https://www.ietf.org/archive/id/draft-goessner-dispatch-jsonpath-00.html) used to match on metadata associated with your documents.
+    Zep's Langchain VectorStore may be used as a `Retriever` in a Langchain chain, allowing your chain to search over
+    a Zep collection. 
 
-`limit` is an optional integer indicating the maximum number of results to return.
+    Both `similarity` and `mmr` search types are supported.
 
+    ```python
+    query = "What is Charles Babbage best known for?"
+
+    print(f"\nSearching for '{query}'\n")
+    results = vectorstore.search(query, search_type="similarity", k=5)
+    print_results(results)
+
+    print(f"\nSearching for '{query}' with MMR reranking\n")
+    results = vectorstore.search(query, search_type="mmr", k=5)
+    print_results(results)
+
+    print(f"\Using Zep's VectorStore as a Retriever\n")
+    chain = ConversationalRetrievalChain.from_llm(
+        llm=llm,
+        chain_type="stuff",
+        retriever=vectorstore.as_retriever(),
+        memory=memory,
+        verbose=True,
+    )
+    ```
 
 ## Retrieving Documents by UUID
 

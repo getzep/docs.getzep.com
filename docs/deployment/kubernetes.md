@@ -1,4 +1,11 @@
-## Setting up Zep in a Kubernetes Cluster:
+## Setting up Zep in a Kubernetes Cluster
+:octicons-tag-24: **1.8.1**
+
+!!! note "Deploying Zep v0.9.0-beta.0 to Kubernetes"
+
+    The instructions below are for deploying Zep v0.8.1 Stable to Kubernetes. 
+
+    For instructions on deploying beta versions of Zep to Kubernetes, please refer to the `docker-compose-beta.yaml` file in the Zep repo for image tags and configuration params.
 
 1. Setup a Kubernetes Cluster (e.g., using Docker Desktop for local testing on your laptop)
 Make sure cluster is running...

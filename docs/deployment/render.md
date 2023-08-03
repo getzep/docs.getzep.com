@@ -1,4 +1,5 @@
 # Deploying to Render
+:octicons-tag-24: **1.8.1**
 
 !!! Warning "Configure Server Authentication"
 
@@ -6,6 +7,8 @@
     Failing to do so will leave your server open to the public.
 
 #### 1. Click on the button below to deploy to Render using the Zep blueprint
+
+**Note:** This blueprint deploys the latest stable Zep server (currently Zep _v0.8.1_).
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/getzep/zep){:target="_blank"}
 
@@ -60,3 +63,11 @@ Three services are deployed:
 - `zep-postgres` - a Postgres database
 
 The blueprint defaults to the standard tier. You can change these settings in the Render web console.
+
+### Next Steps
+
+- Setting up [authentication](/deployment/auth)
+- Developing with [Zep SDKs](/sdk)
+- Learn about [Extractors](/extractors)
+- Setting Zep [Configuration options](/deployment/config)
+- Learn about [deploying to production](/deployment)

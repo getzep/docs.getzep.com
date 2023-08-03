@@ -2,21 +2,37 @@
 
 ## Installation
 
-Zep offers both [Python](https://github.com/getzep/zep-python) and [Javascript](https://github.com/getzep/zep-js) SDKs.
+Zep offers both [Python](https://github.com/getzep/zep-python) and [JavaScript](https://github.com/getzep/zep-js) SDKs.
 
-Python SDK documentation can be [found here](https://getzep.github.io/zep-python/zep_client/) and Typescript/Javascript documentation can be [found here](https://getzep.github.io/zep-js/)
+!!! important "Matching Beta Server and SDK versions"
+
+    Ensure that you install the right version of the SDK for the server you are running.
+
+    If you're running 1.9.0-beta.0, install the beta Python SDK:
+
+    ```bash
+    pip install --pre zep-python
+    ```
+
+    Best practice would be to pin to s specific version of the SDK:
+
+    ```bash
+    pip install zep-python==1.0b0
+    ```
 
 === "Python"
 
     ``` bash
     pip install zep-python
 
-    # or
+    # or for the beta version of the Zep server
 
-    poetry add zep-python
+    pip install --pre zep-python
     ```
 
-=== "Javascript"
+=== "JavaScript"
+
+    **NOTE:** The Zep JavaScript SDK is does not yet support Zep v0.9.0-beta.0.
 
     ``` bash
     npm install @getzep/zep-js
@@ -25,10 +41,6 @@ Python SDK documentation can be [found here](https://getzep.github.io/zep-python
 
     yarn add @getzep/zep-js
     ```
-
-!!! note "Running the Zep Server"
-
-    The Zep SDKs require a running Zep server. See the [Quickstart Guide](deployment/quickstart) for more information.
 
 ## Initializing the Client
 
@@ -61,7 +73,7 @@ Now that you have a Zep client, you can start using the Zep APIs:
 
 ### Documents
 
-:octicons-tag-24: **1.9.0pre**
+:octicons-tag-24: **1.9.0-beta.0**
 
 Zep's document vector store is exposed via the [`documents` API](/sdk/documents). With Zep's document vector store, you can build 
 collections of documents useful for grounding your prompts. Run semantic search over a collection using either Zep's 
@@ -70,6 +82,8 @@ own SDKs, or with Langchain.
 [Document API :material-file-document:](/sdk/documents){ .md-button .md-button--primary } 
 
 ### Chat History
+:octicons-tag-24: **1.8.1** &nbsp; :octicons-tag-24: **1.9.0-beta.0**
+
 Zep's chat history store is exposed via the [`chat_history` API](/sdk/chat_history). With Zep's chat history store, you can
 capture your app's chat history, enrich it with metadata, and run semantic search over it. Ground your prompts with 
 context from prior conversations, both recent and distant past. Use Zep's own SDKs, or with Langchain.
