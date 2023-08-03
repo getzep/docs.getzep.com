@@ -15,6 +15,15 @@ Check out the [Key Concepts](#key-concepts) section.
     
     The Zep Document Vector Store requires Zep Server v0.9.0-beta.0 or later.
 
+## Example Code
+
+The `zep-python` repo has several examples of using Zep's Document Vector Store, both directly with Zep's Python SDK and with LangChain.
+
+- [End-to-end example](https://github.com/getzep/zep-python/blob/main/examples/documents.py): Chunking a document, building a Collection, search, creating an index, and more.
+- [Simple LangChain VectorStore example](https://github.com/getzep/zep-python/blob/main/examples/langchain_simple_demo.py): Chunking a document, building a Collection, and search.
+- Using the [Zep VectorStore with a LangChain `ConversationalRetrievalChain`](https://github.com/getzep/zep-python/blob/main/examples/langchain_qa_chain.py): As the title implies.
+- Using [LangChain's `OpenAIEmbeddings` to embed a document](https://github.com/getzep/zep-python/blob/main/examples/langchain_openai_embeddings.py) and pass the resulting vectors to the Zep VectorStore.
+
 
 ## Initializing the Zep Client
 
