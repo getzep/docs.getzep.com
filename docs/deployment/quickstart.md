@@ -41,7 +41,7 @@ ZEP_OPENAI_API_KEY=<your key here>
     This will start a Zep server on port `8000`, an NLP server on port 8080, and a Postgres database on port `5432`.
 
 
-=== ":fontawesome-solid-robot: Zep v0.9.0-beta.0"
+=== ":fontawesome-solid-robot: Zep v0.9.0-beta"
 
     Looking for Zep's Document Vector Store? Please see the [Zep v0.9.0-beta Deployment Guide](/deployment/deployment-beta).
 

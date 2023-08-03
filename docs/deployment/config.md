@@ -2,7 +2,7 @@
 
     The instructions below are for configuring Zep v0.8.1 Stable. 
 
-    Please see the [Beta Deployment Guide](/deployment/deployment-beta.ms) for instructions on configuring Zep v0.9.0-beta.0.
+    Please see the [Beta Deployment Guide](/deployment/deployment-beta.ms) for instructions on configuring Zep v0.9.0-beta.
 
 
 Zep is configured via a yaml configuration file and/or environment variables. The `zep` server accepts a CLI argument `--config` to specify the location of the config file. If no config file is specified, the server will look for a `config.yaml` file in the current working directory.
