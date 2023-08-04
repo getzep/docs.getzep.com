@@ -13,6 +13,21 @@ The following instructions will guide you through deploying Zep v0.9.0-beta. For
 ```bash
 git clone https://github.com/getzep/zep.git
 cd zep
+```
+
+Add your OpenAI API key to a `.env` file in the root of the repo:
+
+```bash
+ZEP_OPENAI_API_KEY=<your key here>
+```
+
+!!! note "Important"
+
+    You must have an OpenAI API key to use Zep. You can get one [here](https://openai.com/).
+
+
+Start the Zep server:
+```bash
 docker compose -f docker-compose-beta.yaml up
 ```
 
