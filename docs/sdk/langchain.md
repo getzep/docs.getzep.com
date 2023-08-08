@@ -9,16 +9,16 @@ You can also provide your bot or agent with access to relevant messages in long-
 
 !!! note "Installing Zep"
 
-    A Zep server install is required. You will also need to have the Zep Python SDK or Zep Javascript SDK installed in order to use the Langchain `ZepChatMessageHistory` (python only), `ZepMemory` and `ZepRetriever` classes.
+    A Zep server install is required. You will also need to have the Zep Python SDK or Zep Javascript SDK installed in order to use the Langchain `ZepMemory` and `ZepRetriever` classes.
 
-    See the [Zep Quick Start Guide](/deployment/quickstart) for details.
+    See the [Zep Quick Start Guide](../deployment/quickstart.md) for details.
 
     [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](/deployment/render)
 
 
 ## Using Zep as a LangChain VectorStore and Document Retriever
 
-:octicons-tag-24: **v0.9.0-beta**
+:octicons-tag-24: **v0.9.0**
 
 See the examples in the inline [Document Vector Store documentation](/sdk/documents).
 
