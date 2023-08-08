@@ -16,7 +16,7 @@ You can also provide your bot or agent with access to relevant messages in long-
     [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](/deployment/render)
 
 
-## Using Zep as a LangChain VectorStore and Document Retriever
+## Using Zep as a VectorStore and Document Retriever
 
 :octicons-tag-24: **v0.9.0**
 
@@ -25,6 +25,8 @@ See the examples in the inline [Document Vector Store documentation](/sdk/docume
 
 
 ## Using Zep as a LangChain Memory Store
+
+:octicons-tag-24: **v0.8.1**  &nbsp; :octicons-tag-24: **v0.9.0**
 
 === "Python"
 
