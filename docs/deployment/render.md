@@ -1,5 +1,5 @@
 # Deploying to Render
-:octicons-tag-24: **1.8.1**
+:octicons-tag-24: **1.9.0**
 
 !!! Warning "Configure Server Authentication"
 
@@ -7,8 +7,6 @@
     Failing to do so will leave your server open to the public.
 
 #### 1. Click on the button below to deploy to Render using the Zep blueprint
-
-**Note:** This blueprint deploys the latest stable Zep server (currently Zep _v0.8.1_).
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/getzep/zep){:target="_blank"}
 
@@ -44,15 +42,15 @@ Retrieve your Zep server URL from the Render web console.
     zep = ZepClient("https://zepXXXXX.onrender.com", api_key) # Replace with Zep API URL
     ```
 
-=== "Javascript"
+=== "TypeScript/JS"
 
     ```javascript
     import { ZepClient } from "zep-js";
 
-    const zep = new ZepClient("https://zepXXXXX.onrender.com"); // Replace with Zep API URL
+    const zep = new ZepClient.init("https://zepXXXXX.onrender.com", apiKey); // Replace with Zep API URL
     ```
 
-Next steps: [Using Zep's Python and Javascript SDKs](/sdk)
+Next steps: [Using Zep's Python and TypeScript/JS SDKs](../sdk/index.md)
 
 #### What this blueprint does
 
@@ -64,10 +62,19 @@ Three services are deployed:
 
 The blueprint defaults to the standard tier. You can change these settings in the Render web console.
 
+!!! note "This blueprint is not optimized for production"
+
+    This blueprint by default deploys in the smallest possible configuration. 
+
+    Depending on the embedding model you use, you may need to increase the memory and CPU allocated to the `nlp` service. 
+
+    Please see [the production deployment guide](production.md) for more information.
+
+
 ### Next Steps
 
-- Setting up [authentication](/deployment/auth)
-- Developing with [Zep SDKs](/sdk)
-- Learn about [Extractors](/extractors)
-- Setting Zep [Configuration options](/deployment/config)
-- Learn about [deploying to production](/deployment)
+- Setting up [authentication](auth.md)
+- Developing with [Zep SDKs](../sdk/index.md)
+- Learn about [Extractors](../sdk/extractors.md)
+- Setting Zep [Configuration options](config.md)
+- Learn about [deploying to production](production.md)

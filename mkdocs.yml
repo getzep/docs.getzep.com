@@ -11,35 +11,32 @@ extra:
   homepage: https://www.getzep.com
 nav:
   - Home: index.md
-  - Quick Start:
-      - deployment/quickstart.md
-#  - Zep Versus:
-#      - zep-versus.md
-#      - Zep vs Pinecone: zep-versus#vectorstore
-#      - Zep vs Weaviate: zep-versus#vectorstore
-#      - Zep vs Langchain: zep-versus#langchain
-#      - Zep vs Postgres: zep-versus#postgres
-#      - Zep vs Redis: zep-versus#redis
+  - Quick Start ⚡️: deployment/quickstart.md
   - Langchain ❤️: sdk/langchain.md
   - SDKs and API:
       - sdk/index.md
       - Document Store: sdk/documents.md
       - Chat History: sdk/chat_history.md
       - Langchain ❤️: sdk/langchain.md
+      - Examples: sdk/examples.md
+      - Concepts: sdk/concepts.md
       - Extractors: sdk/extractors.md
       - Python SDK API: https://getzep.github.io/zep-python/zep_client/
       - JavaScript SDK API: https://getzep.github.io/zep-js/
       - REST API: https://getzep.github.io/zep/
   - Deployment:
-      - deployment/index.md
-      - Quick Start: deployment/quickstart.md
-      - Zep 0.9.0-beta Guide: deployment/deployment-beta.md
+        - deployment/index.md
+        - Quick Start: deployment/quickstart.md
+        - Production: deployment/production.md
+        - Render: deployment/render.md
+        - Kubernetes: deployment/kubernetes.md
+  - Configuration:
+      - deployment/config.md
+      - Selecting Embedding Models: deployment/embeddings.md
       - Authentication: deployment/auth.md
-      - Render: deployment/render.md
-      - Kubernetes: deployment/kubernetes.md
       - OpenAI API Config: deployment/openai.md
       - Data Management: deployment/data.md
-      - Config Options: deployment/config.md
+
   - Support: support/index.md
 theme:
   name: material
