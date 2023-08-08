@@ -1,23 +1,5 @@
 {% extends "base.html" %}
 
-{% block scripts %}
-  <!-- Add scripts that need to run before here -->
-  {{ super() }}
-  <!-- Add scripts that need to run afterwards here -->
-<script src="https://unpkg.com/@mendable/search@0.0.108/dist/umd/mendable-bundle.min.js"></script>
-<script>
-Mendable.initialize({
-    anon_key: '7e09805a-d88f-40b2-be3d-987ba1cb5548',
-    type:"floatingButton",
-    style: {
-        darkMode: true,
-        accentColor: "#7E56C2",
-    },
-    icon: "/assets/images/zep-bot-square-200.png"
-});
-</script>
-{% endblock %}
-
 {% block announce %}
 <div style=" display: flex; justify-content: center; align-items: center;">
     Looking for support and community? Join the Zep Discord!
