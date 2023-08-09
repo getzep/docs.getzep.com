@@ -12,8 +12,6 @@ Zep offers both [Python](https://github.com/getzep/zep-python) and [JavaScript](
 
 === "JavaScript"
 
-    **NOTE:** The Zep JavaScript SDK is does not yet support Zep v0.9.0-beta.
-
     ``` bash
     npm install @getzep/zep-js
 
