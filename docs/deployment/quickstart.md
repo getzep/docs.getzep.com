@@ -70,7 +70,7 @@ This will start a Zep server on port `8000`, an NLP server on port 8080, and a P
 
 - Install the **[Python](https://github.com/getzep/zep-python)** or **[Javascript](https://github.com/getzep/zep-js)**
   SDKs by following the [SDK Guide](/sdk/).
-- Looking to develop with Langchain? Check out the [Langchain SDK](../sdk/langchain.md).
+- Looking to develop with LangChain or LlamaIndex? Check out Zep's [LangChain](../sdk/langchain.md) and [LlamaIndex](../sdk/llamaindex.md) support.
 
 ### Next Steps
 
