@@ -1,10 +1,17 @@
 # Long-term Memory Persistence, Enrichment, and Search for Langchain Apps
 
-Langchain Python and LangchainJS ship with `ZepMemory` and `ZepRetriever` classes.
+Langchain Python and LangchainJS ship with `ZepMemory` and `ZepRetriever` classes. There are also `ZepVectorStore` classes available for both Python and Javascript.
 
-Zep can be used to provide long-term memory for your Langchain chat apps or agents. Zep will store the entire historical message stream, automatically summarize messages, enrich them with token counts, timestamps, metadata and more.
+### Managing Chat History Memory
+Zep's `ZepMemory` class can be used to provide long-term memory for your Langchain chat apps or agents. Zep will store the entire historical message stream, automatically summarize messages, enrich them with token counts, timestamps, metadata and more.
 
 You can also provide your bot or agent with access to relevant messages in long-term storage by using Zep's built-in vector search.
+
+### Building Retrieval Augmented Generation Apps (Q&A over Docs)
+
+Zep's `ZepVectorStore` class can be used to store a collection of documents, metadata, and related embeddings. Retrieval Augmented Generation (RAG) apps can then use Zep's vector search to surface documents relevant to a prompt. 
+
+Zep will automatically embed the documents using low-latency local models, ensuring that your app is fast and responsive.
 
 
 !!! note "Installing Zep"
@@ -20,7 +27,7 @@ You can also provide your bot or agent with access to relevant messages in long-
 
 :octicons-tag-24: **v0.9.0**
 
-See the examples in the inline [Document Vector Store documentation](/sdk/documents).
+See the examples in the inline [Document Vector Store documentation](/sdk/documents) and the [LangChain.js documentation](https://js.langchain.com/docs/modules/data_connection/vectorstores/integrations/zep). 
 
 
 

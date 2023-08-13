@@ -18,9 +18,10 @@ A long-term memory store for LLM applications
 </p>
 
 <p align="center">
-<a href="/deployment/quickstart/">Quick Start Guide</a> | 
-<a href="/sdk/langchain/">LangChain Support</a> | 
-<a href="https://discord.gg/W8Kw6bsgXQ">Discord</a><br />
+<a href="/deployment/quickstart/">Quick Start Guide</a> &nbsp; | &nbsp; 
+<a href="/sdk/langchain/">Zep X LangChain 🦜⛓</a> &nbsp; | &nbsp; 
+<a href="/sdk/llamaindex/">Zep X LlamaIndex 🦙</a> &nbsp; | &nbsp;
+<a href="https://discord.gg/W8Kw6bsgXQ">Discord 💬</a><br />
 <a href="https://www.getzep.com">www.getzep.com</a>
 </p>
 

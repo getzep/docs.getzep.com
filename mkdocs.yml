@@ -12,12 +12,12 @@ extra:
 nav:
   - Home: index.md
   - Quick Start ⚡️: deployment/quickstart.md
-  - Langchain ❤️: sdk/langchain.md
   - SDKs and API:
       - sdk/index.md
       - Document Store: sdk/documents.md
       - Chat History: sdk/chat_history.md
-      - Langchain ❤️: sdk/langchain.md
+      - LangChain 🦜⛓️: sdk/langchain.md
+      - LlamaIndex 🦙: sdk/llamaindex.md
       - Examples: sdk/examples.md
       - Concepts: sdk/concepts.md
       - Extractors: sdk/extractors.md
