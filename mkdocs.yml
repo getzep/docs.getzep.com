@@ -34,7 +34,7 @@ nav:
       - deployment/config.md
       - Selecting Embedding Models: deployment/embeddings.md
       - Authentication: deployment/auth.md
-      - OpenAI API Config: deployment/openai.md
+      - LLM API Config: deployment/llm_config.md
       - Data Management: deployment/data.md
 
   - Support: support/index.md

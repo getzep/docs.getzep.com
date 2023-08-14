@@ -34,6 +34,7 @@ Populate your prompts with relevant documents and chat history. Rich metadata an
 - Automatically embed texts, or bring your own vectors. 
 - [Enrichment of chat histories](/sdk/extractors) with summaries, named entities, token counts. Use these as search filters. 
 - Associate your own metadata with documents & chat histories.
+- Support for OpenAI, Anthropic, and local LLMs
 
 ### Fast, low-latency APIs and stateless deployments
 - Zep’s local embedding models and async enrichment ensure a snappy user experience. 

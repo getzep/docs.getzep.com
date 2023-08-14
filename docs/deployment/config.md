@@ -7,9 +7,9 @@ If no config file is specified, the server will look for a `config.yaml` file in
 zep --config /path/to/config.yaml
 ```
 
-!!! warning "OpenAI API key and Auth Secret"
+!!! warning "OpenAI / Anthropic API key and Auth Secret"
   
-    The OpenAI API key and Auth Secret should not be set in the config file, rather the environment variables
+    Your OpenAI/Anthropic API key and Auth Secret should not be set in the config file, rather the environment variables
     below should be set. These can also be configured in a `.env` file in the current working directory.
 
 ## Configuring Zep
@@ -19,14 +19,14 @@ The Zep server can be configured via environment variables, a `.env` file, or th
 
 Note the defaults below for the embedding models and review the [Selecting Embedding Models](#selecting-embedding-models) section below for more information.
 
-!!! warning "OpenAI API key and Auth Secret"
+!!! info "Anthropic does not support embeddings"
   
-    The OpenAI API key and Auth Secret should not be set in the config file, rather the environment variables
-    below should be set. These can also be configured in a `.env` file in the current working directory.
+    If configuring Zep to use the Anthropic LLM service, you must configure Zep to use the local embeddings service.
 
 
 | Config Key                                 | Environment Variable                           | Default                                                      |
 |--------------------------------------------|------------------------------------------------|--------------------------------------------------------------|
+| llm.service                                | ZEP_LLM_SERVICE                                | openai                                                       |
 | llm.model                                  | ZEP_LLM_MODEL                                  | gpt-3.5-turbo                                                |
 | llm.azure_openai_endpoint                  | ZEP_LLM_AZURE_OPENAI_ENDPOINT                  | undefined                                                    |
 | llm.openai_endpoint                        | ZEP_LLM_OPENAI_ENDPOINT                        | undefined                                                    |
@@ -49,6 +49,18 @@ Note the defaults below for the embedding models and review the [Selecting Embed
 | data.purge_every                           | ZEP_DATA_PURGE_EVERY                           | 60                                                           |
 | log.level                                  | ZEP_LOG_LEVEL                                  | info                                                         |
 
+### Valid LLM Models
+
+The following table lists the valid LLM models for the `llm.model` configuration option.
+
+| Provider  | Model             |
+|-----------|-------------------|
+| OpenAI    | gpt-3.5-turbo     |
+| OpenAI    | gpt-3.5-turbo-16k |
+| OpenAI    | gpt-4             |
+| OpenAI    | gpt-4-32k         |
+| Anthropic | claude-instant-1  |
+| Anthropic | claude-2          |
 
 
 ### Zep NLP Server
