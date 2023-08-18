@@ -71,11 +71,13 @@ Note that the NLP server's container is not shipped with CUDA nor configured to 
 
 Note the defaults below for the embedding models and review the [Selecting Embedding Models](#selecting-embedding-models) section below for more information.
 
-| Config Key                 | Environment Variable       | Default          |
-|----------------------------|----------------------------|------------------|
-| log_level                  | LOG_LEVEL                  | info             |
-| server.port                | SERVER_PORT                | 5557             |
-| embeddings.device          | EMBEDDINGS_DEVICE          | cpu              |
-| embeddings.messages.model  | EMBEDDINGS_MESSAGES_MODEL  | all-MiniLM-L6-v2 |
-| embeddings.documents.model | EMBEDDINGS_DOCUMENTS_MODEL | all-MiniLM-L6-v2 |
-| nlp.spacy_model            | NLP_SPACY_MODEL            | en_core_web_sm   |
+| Config Key                   | Environment Variable             | Default          |
+|------------------------------|----------------------------------|------------------|
+| log_level                    | ZEP_LOG_LEVEL                    | info             |
+| server.port                  | ZEP_SERVER_PORT                  | 5557             |
+| embeddings.device            | ZEP_EMBEDDINGS_DEVICE            | cpu              |
+| embeddings.messages.enabled  | ZEP_EMBEDDINGS_MESSAGES_ENABLED  | true             |
+| embeddings.messages.model    | ZEP_EMBEDDINGS_MESSAGES_MODEL    | all-MiniLM-L6-v2 |
+| embeddings.documents.enabled | ZEP_EMBEDDINGS_DOCUMENTS_ENABLED | true             |
+| embeddings.documents.model   | ZEP_EMBEDDINGS_DOCUMENTS_MODEL   | all-MiniLM-L6-v2 |
+| nlp.spacy_model              | ZEP_NLP_SPACY_MODEL              | en_core_web_sm   |
