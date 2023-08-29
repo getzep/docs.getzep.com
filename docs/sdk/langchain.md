@@ -3,16 +3,16 @@
 Langchain Python and LangchainJS ship with `ZepMemory` and `ZepRetriever` classes. There are also `ZepVectorStore` classes available for both Python and Javascript.
 
 ### Managing Chat History Memory
+
 Zep's `ZepMemory` class can be used to provide long-term memory for your Langchain chat apps or agents. Zep will store the entire historical message stream, automatically summarize messages, enrich them with token counts, timestamps, metadata and more.
 
 You can also provide your bot or agent with access to relevant messages in long-term storage by using Zep's built-in vector search.
 
 ### Building Retrieval Augmented Generation Apps (Q&A over Docs)
 
-Zep's `ZepVectorStore` class can be used to store a collection of documents, metadata, and related embeddings. Retrieval Augmented Generation (RAG) apps can then use Zep's vector search to surface documents relevant to a prompt. 
+Zep's `ZepVectorStore` class can be used to store a collection of documents, metadata, and related embeddings. Retrieval Augmented Generation (RAG) apps can then use Zep's vector search to surface documents relevant to a prompt.
 
 Zep will automatically embed the documents using low-latency local models, ensuring that your app is fast and responsive.
-
 
 !!! note "Installing Zep"
 
@@ -22,18 +22,11 @@ Zep will automatically embed the documents using low-latency local models, ensur
 
     [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](/deployment/render)
 
-
 ## Using Zep as a VectorStore and Document Retriever
 
-:octicons-tag-24: **v0.9.0**
-
-See the examples in the inline [Document Vector Store documentation](/sdk/documents) and the [LangChain.js documentation](https://js.langchain.com/docs/modules/data_connection/vectorstores/integrations/zep). 
-
-
+See the examples in the inline [Document Vector Store documentation](/sdk/documents) and the [LangChain.js documentation](https://js.langchain.com/docs/modules/data_connection/vectorstores/integrations/zep).
 
 ## Using Zep as a LangChain Memory Store
-
-:octicons-tag-24: **v0.8.1**  &nbsp; :octicons-tag-24: **v0.9.0**
 
 === "Python"
 
@@ -58,7 +51,7 @@ See the examples in the inline [Document Vector Store documentation](/sdk/docume
     ```
 
 === "Javascript"
-    Using Zep as your Langchain app's long-term memory simple: initialize the ZepMemory with your Zep instance URL and your user's session identifier (see Zep Concepts) and then utilize it as the chat memory for a Langchain Conversation.
+Using Zep as your Langchain app's long-term memory simple: initialize the ZepMemory with your Zep instance URL and your user's session identifier (see Zep Concepts) and then utilize it as the chat memory for a Langchain Conversation.
 
     ```javascript title="ZepMemory instantiation"
     import { ChatOpenAI } from "langchain/chat_models/openai";
@@ -70,7 +63,7 @@ See the examples in the inline [Document Vector Store documentation](/sdk/docume
     const zepApiURL = "http://localhost:8000";
     const zepApiKey = "<your JWT token>"; // optional
     const sessionId = uuid4();  // This is a unique identifier for the user
-            
+
     // Set up Zep Memory
     const memory = new ZepMemory({
         sessionId,
@@ -82,7 +75,8 @@ See the examples in the inline [Document Vector Store documentation](/sdk/docume
 Once you've created the `memory`, use it in your chain or with your agent.
 
 === "Python"
-    ```python  title="Running a chain with ZepMemory"
+
+````python title="Running a chain with ZepMemory"
 
     llm = ChatOpenAI(model_name="gpt-3.5-turbo")
     chain = ConversationChain(llm=llm, verbose=True, memory=memory)
@@ -104,15 +98,15 @@ Once you've created the `memory`, use it in your chain or with your agent.
     def print_messages(messages):
         for m in messages:
             print(m.type, ":\n", m.dict())
-    
-    
+
+
     print(memory.chat_memory.zep_summary)
     print("\n")
     print_messages(memory.chat_memory.messages)
 
     The human inquires about Octavia Butler. The AI identifies her as an American science fiction author. The human then asks which books of hers were made into movies. The AI responds by mentioning the FX series Kindred, based on her novel of the same name. The human then asks about her contemporaries, and the AI lists Ursula K. Le Guin, Samuel R. Delany, and Joanna Russ.
-    
-    
+
+
     system :
      {'content': 'The human inquires about Octavia Butler. The AI identifies her as an American science fiction author. The human then asks which books of hers were made into movies. The AI responds by mentioning the FX series Kindred, based on her novel of the same name. The human then asks about her contemporaries, and the AI lists Ursula K. Le Guin, Samuel R. Delany, and Joanna Russ.', 'additional_kwargs': {}}
     human :
@@ -125,17 +119,16 @@ Once you've created the `memory`, use it in your chain or with your agent.
     ```
 
 === "Javascript"
-    ```javascript  title="Running a chain with ZepMemory"
+`javascript  title="Running a chain with ZepMemory"
     const chain = new ConversationChain({ llm: model, memory });
     const response = await chain.run(
         {
             input="What is the book's relevance to the challenges facing contemporary society?"
         },
     )
-    ```
-    ```text title="Output:"
-    > Entering new AgentExecutor chain...
-    AI: Parable of the Sower is a powerful exploration of the challenges facing contemporary society, such as environmental disasters, poverty, and violence. It examines how these issues can lead to the breakdown of society and how individuals can take action to create a better future. The novel also explores themes of faith, hope, and resilience in the face of adversity.
+    `
+```text title="Output:" > Entering new AgentExecutor chain...
+AI: Parable of the Sower is a powerful exploration of the challenges facing contemporary society, such as environmental disasters, poverty, and violence. It examines how these issues can lead to the breakdown of society and how individuals can take action to create a better future. The novel also explores themes of faith, hope, and resilience in the face of adversity.
 
     > Finished chain.
     'Parable of the Sower is a powerful exploration of the challenges facing contemporary society, such as environmental disasters, poverty, and violence. It examines how these issues can lead to the breakdown of society and how individuals can take action to create a better future. The novel also explores themes of faith, hope, and resilience in the face of adversity.'
@@ -157,6 +150,7 @@ Once you've created the `memory`, use it in your chain or with your agent.
     ...
     {'uuid': '2d95ff94-b52d-49bd-ade4-5e1e553e8cac', 'created_at': '2023-05-10T23:28:02.704311Z', 'role': 'ai', 'content': 'Octavia Estelle Butler (June 22, 1947 – February 24, 2006) was an American science fiction author.', 'token_count': 31}
     ```
+
 ## Search Zep's message history from your Langchain app
 
 Zep supports both vector search using a Langchain `Retriever` as well as via an instance of `ZepMemory`.
@@ -166,17 +160,17 @@ Zep supports both vector search using a Langchain `Retriever` as well as via an 
 If you don't need to provide a `Retriever` to your chain or agent, you can search the long-term message history for a session directly from an instance of `ZepMemory`.
 
 === "Python"
-    ```python  title="Search for relevant historical messages"
+`python  title="Search for relevant historical messages"
     search_results = memory.chat_memory.search("who are some famous women sci-fi authors?")
     for r in search_results:
         if r.dist > 0.8:  # Only print results with similarity of 0.8 or higher
             print(r.message, r.dist)
-    ```
-    ```text title="Output:"
+    `
+`text title="Output:"
     {'uuid': 'ccdcc901-ea39-4981-862f-6fe22ab9289b', 'created_at': '2023-07-09T19:23:16.62678Z', 'role': 'human', 'content': 'Which other women sci-fi writers might I want to read?', 'metadata': {'system': {'entities': [], 'intent': 'The subject is seeking recommendations for additional women science fiction writers to explore.'}}, 'token_count': 14} 0.9119619869747062
     {'uuid': '7977099a-0c62-4c98-bfff-465bbab6c9c3', 'created_at': '2023-07-09T19:23:16.631721Z', 'role': 'ai', 'content': 'You might want to read Ursula K. Le Guin or Joanna Russ.', 'metadata': {'system': {'entities': [{'Label': 'ORG', 'Matches': [{'End': 40, 'Start': 23, 'Text': 'Ursula K. Le Guin'}], 'Name': 'Ursula K. Le Guin'}, {'Label': 'PERSON', 'Matches': [{'End': 55, 'Start': 44, 'Text': 'Joanna Russ'}], 'Name': 'Joanna Russ'}], 'intent': 'The subject is suggesting that the person should consider reading the works of Ursula K. Le Guin or Joanna Russ.'}}, 'token_count': 18} 0.8534346954749745
     {'uuid': 'b05e2eb5-c103-4973-9458-928726f08655', 'created_at': '2023-07-09T19:23:16.603098Z', 'role': 'ai', 'content': "Octavia Butler's contemporaries included Ursula K. Le Guin, Samuel R. Delany, and Joanna Russ.", 'metadata': {'system': {'entities': [{'Label': 'PERSON', 'Matches': [{'End': 16, 'Start': 0, 'Text': "Octavia Butler's"}], 'Name': "Octavia Butler's"}, {'Label': 'ORG', 'Matches': [{'End': 58, 'Start': 41, 'Text': 'Ursula K. Le Guin'}], 'Name': 'Ursula K. Le Guin'}, {'Label': 'PERSON', 'Matches': [{'End': 76, 'Start': 60, 'Text': 'Samuel R. Delany'}], 'Name': 'Samuel R. Delany'}, {'Label': 'PERSON', 'Matches': [{'End': 93, 'Start': 82, 'Text': 'Joanna Russ'}], 'Name': 'Joanna Russ'}], 'intent': "The subject is stating that Octavia Butler's contemporaries included Ursula K. Le Guin, Samuel R. Delany, and Joanna Russ."}}, 'token_count': 27} 0.8523831524040919
-    ```
+    `
 
     Zep uses cosine distance for search ranking and the distance values are returned in the search results.
 
@@ -187,7 +181,7 @@ If you don't need to provide a `Retriever` to your chain or agent, you can searc
 You wouldn't ordinarily call the `Retriever` directly, but we've done so as a simple illustration as to how Langchain `documents` returned by the `ZepRetriever` are enriched with metadata from the Zep service. In particular, token countx are useful when constructing prompts.
 
 === "Python"
-    ```python title="Use the ZepRetriever to search for relevant historical messages"
+```python title="Use the ZepRetriever to search for relevant historical messages"
 
     from langchain.retrievers import ZepRetriever
 
@@ -207,8 +201,9 @@ You wouldn't ordinarily call the `Retriever` directly, but we've done so as a si
     Document(page_content="Octavia Butler's contemporaries included Ursula K. Le Guin, Samuel R. Delany, and Joanna Russ.", metadata={'source': 'aff1b45d-1e14-427d-a5a2-2b5a9dade294', 'score': 0.760286350496536, 'role': 'ai', 'token_count': 17, 'created_at': '2023-05-11T16:29:35.052896Z'}),
     Document(page_content='You might want to read Ursula K. Le Guin or Joanna Russ.', metadata={'source': '0dd8cde5-860e-4d8b-975f-50f55028177d', 'score': 0.7595191167162665, 'role': 'ai', 'token_count': 15, 'created_at': '2023-05-11T16:29:35.080817Z'})]
     ```
+
 === "Javascript"
-    ```javascript title="Use the ZepRetriever to search for relevant historical messages"
+```javascript title="Use the ZepRetriever to search for relevant historical messages"
 
     import { ZepRetriever } from "langchain/retrievers/zep";
 
@@ -220,7 +215,7 @@ You wouldn't ordinarily call the `Retriever` directly, but we've done so as a si
         const docs = await retriever.getRelevantDocuments(query);
 
         console.log(docs);
-    };        
+    };
     ```
 
     ```text title="Output:"
@@ -230,3 +225,4 @@ You wouldn't ordinarily call the `Retriever` directly, but we've done so as a si
     Document(page_content="Octavia Butler's contemporaries included Ursula K. Le Guin, Samuel R. Delany, and Joanna Russ.", metadata={'source': 'aff1b45d-1e14-427d-a5a2-2b5a9dade294', 'score': 0.760286350496536, 'role': 'ai', 'token_count': 17, 'created_at': '2023-05-11T16:29:35.052896Z'}),
     Document(page_content='You might want to read Ursula K. Le Guin or Joanna Russ.', metadata={'source': '0dd8cde5-860e-4d8b-975f-50f55028177d', 'score': 0.7595191167162665, 'role': 'ai', 'token_count': 15, 'created_at': '2023-05-11T16:29:35.080817Z'})]
     ```
+````

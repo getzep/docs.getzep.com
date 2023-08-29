@@ -1,14 +1,13 @@
 # Deploying to Render
-:octicons-tag-24: **1.9.0**
 
 !!! Warning "Configure Server Authentication"
 
-    Ensure that you secure your Zep server by [configuring authentication](/deployment/auth) after deploying. 
+    Ensure that you secure your Zep server by [configuring authentication](/deployment/auth) after deploying.
     Failing to do so will leave your server open to the public.
 
 #### 1. Click on the button below to deploy to Render using the Zep blueprint
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/getzep/zep){:target="_blank"}
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/getzep/zep){:target="\_blank"}
 
 #### 2. Configure your deploy
 
@@ -18,7 +17,7 @@ Click `Apply`.
 
 !!! note "OpenAI API Key Required"
 
-    An OpenAI API key is required to run Zep. Please ensure that you enter it in the step above. 
+    An OpenAI API key is required to run Zep. Please ensure that you enter it in the step above.
 
 #### 3. Wait for your deploy to complete
 
@@ -64,12 +63,11 @@ The blueprint defaults to the standard tier. You can change these settings in th
 
 !!! note "This blueprint is not optimized for production"
 
-    This blueprint by default deploys in the smallest possible configuration. 
+    This blueprint by default deploys in the smallest possible configuration.
 
-    Depending on the embedding model you use, you may need to increase the memory and CPU allocated to the `nlp` service. 
+    Depending on the embedding model you use, you may need to increase the memory and CPU allocated to the `nlp` service.
 
     Please see [the production deployment guide](production.md) for more information.
-
 
 ### Next Steps
 

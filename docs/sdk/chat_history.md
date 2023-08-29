@@ -1,17 +1,14 @@
 # Chat History Memory API
 
-:octicons-tag-24: **1.8.1** &nbsp; :octicons-tag-24: **v0.9.0**
-
-[Key Concepts](concepts.md) &nbsp; | &nbsp;  [Example Code](examples.md) &nbsp; | &nbsp; [Python API](https://getzep.github.io/zep-python/zep_client/) &nbsp; | &nbsp; [TypeScript/JS API](https://getzep.github.io/zep-js/) 
+[Key Concepts](concepts.md) &nbsp; | &nbsp; [Example Code](examples.md) &nbsp; | &nbsp; [Python API](https://getzep.github.io/zep-python/zep_client/) &nbsp; | &nbsp; [TypeScript/JS API](https://getzep.github.io/zep-js/)
 
 !!! info "Python SDK offers both async and sync APIs"
-    
-    The examples below use the async API. A sync API is also available.
 
+    The examples below use the async API. A sync API is also available.
 
 ## Adding a Session
 
-Session IDs are arbitrary identifiers that you can map to relevant business objects in your app, such as users or a conversation a user might have with your app. 
+Session IDs are arbitrary identifiers that you can map to relevant business objects in your app, such as users or a conversation a user might have with your app.
 
 You can therefore map them either 1:1 with your users or in a 1:M relationship with your users.
 
@@ -20,34 +17,36 @@ Sessions don't need to be explicitly created. They are created automatically whe
 Manually creating a session can be useful if you want to add metadata to a session.
 
 === "Python"
-     ```python title="Add a Session"
-     async with ZepClient(base_url, api_key) as client:
-          session_id = uuid.uuid4().hex // A new session identifier
-          
-          session = Session(session_id=session_id, metadata={"foo" : "bar"}) 
+
+````python title="Add a Session"
+async with ZepClient(base_url, api_key) as client:
+session_id = uuid.uuid4().hex // A new session identifier
+
+          session = Session(session_id=session_id, metadata={"foo" : "bar"})
           client.aadd_session(session)
      ```
 
-=== "TypeScript" 
-     ```typescript title="Add a Session"
+=== "TypeScript"
+`typescript title="Add a Session"
      const sessionData: ISession = {
           session_id: sessionID,
           metadata: { foo: "bar" },
-     }; 
+     };
      const session = new Session(sessionData);
      await client.memory.addSession(session);
-     ```
+     `
 
 ### Adding or Updating Session Metadata
-If the Session already exists, then adding a Session works as an upsert operation for the Session metadata. 
+
+If the Session already exists, then adding a Session works as an upsert operation for the Session metadata.
 
 ## Getting a Session
 
 === "Python"
-     ```python title="Get a Session"
-     session = client.aget_session(session_id)
-     print(session.dict())
-    
+```python title="Get a Session"
+session = client.aget_session(session_id)
+print(session.dict())
+
      ```
      ```json title="Output:"
      {
@@ -64,11 +63,11 @@ If the Session already exists, then adding a Session works as an upsert operatio
      ```
 
 === "TypeScript"
-     ```typescript title="Get a Session"
-     const session = await client.memory.getSession(sessionID); 
+`typescript title="Get a Session"
+     const session = await client.memory.getSession(sessionID);
      console.debug("Retrieved session ", session.toDict());
-     ```
-     ```json title="Output:"
+     `
+`json title="Output:"
      {
          "uuid": "944045d3-82ea-41c3-9228-13df83960eba",
          "created_at": "2023-07-12T16:49:53.00569Z",
@@ -80,20 +79,20 @@ If the Session already exists, then adding a Session works as an upsert operatio
              "foo": "bar"
          }
      }
-     ```
+     `
 
 ## Persisting a Memory to a Session
 
 A `Memory` may include a single message or a series of messages. Each `Message` has a `role` and `content` field, with role being the identifiers for your human and AI/agent users and content being the text of the message.
 
-Additionally, you can even store custom metadata with each Message. 
+Additionally, you can even store custom metadata with each Message.
 
-Sessions are created automatically when adding Memories. If the SessionID is already exists, then the Memory is upserted into the Session. 
+Sessions are created automatically when adding Memories. If the SessionID is already exists, then the Memory is upserted into the Session.
 
 === "Python"
 
     ```python title="Add Memory to Session"
-    session_id = "2a2a2a" 
+    session_id = "2a2a2a"
 
     history = [
          { role: "human", content: "Who was Octavia Butler?" },
@@ -119,7 +118,7 @@ Sessions are created automatically when adding Memories. If the SessionID is alr
 === "TypeScript"
 
     ```javascript title="Add Memory to Session"
-    const sessionID = "1a1a1a"; 
+    const sessionID = "1a1a1a";
 
     const history = [
          { role: "human", content: "Who was Octavia Butler?" },
@@ -203,6 +202,7 @@ Sessions are created automatically when adding Memories. If the SessionID is alr
         token_count: 23
     }
     ```
+
 ## Searching for Messages
 
 Zep supports vector similarity search for Messages in the long-term memory storage. This allows you to find Messages that are contextually similar to a given query, with the results sorted by a similarity or `distance`. See [Vector Search](/memory_search) for more details.
@@ -307,7 +307,8 @@ Zep supports vector similarity search for Messages in the long-term memory stora
     ```
 
 ## Hybrid Search for Messages using Message Metadata
-In addition to vector similarity search for Messages in the long-term memory storage, Zep also allows you to search for Messages based on a metadata filter. This allows you to find Messages that match a combination of Message text and  metadata filter. You can also query solely by specifying Message metadata. 
+
+In addition to vector similarity search for Messages in the long-term memory storage, Zep also allows you to search for Messages based on a metadata filter. This allows you to find Messages that match a combination of Message text and metadata filter. You can also query solely by specifying Message metadata.
 
 === "Python"
 
@@ -409,7 +410,7 @@ You've likely noticed that alongside the role and content you provided to Zep wh
 
 Zep performs auto-summarization when a session exceeds the message window. This is returned in the `summary` field of the memory when you call `get_memory` and may be used when constructing prompts in order to provide your agent or chain with a longer-term memory of the conversation. Read more about the [Summarizer Extractor](/extractors/#summarizer-extractor).
 
-Zep also automatically extracts Intents from the conversation. The extracted intents are stored in system metadata and available for hybrid searches (see Hybrid Search above). 
+Zep also automatically extracts Intents from the conversation. The extracted intents are stored in system metadata and available for hybrid searches (see Hybrid Search above).
 
 ```json title="Output:"
 {
@@ -494,7 +495,7 @@ Zep also automatically extracts Intents from the conversation. The extracted int
   ],
   "metadata": {}
 }
-```
+````
 
 ## Vector Search over Chat History
 
@@ -512,15 +513,15 @@ Zep returns all messages from a search, up to a default limit. This limit which 
 
     We're thinking of strategies to address this problem, including hybrid search and enriching messages with metadata.
 
-### Embedding Models
-:octicons-tag-24: **v0.9.0**
+### Default Embedding Models
 
-By default, Zep uses a built-in Sentence Transformers model, `all-MiniLM-L6-v2`, for message embedding. The model offers a very low latency 
-search experience when deployed on suitable infrastructure. Cosine similarity is used for search ranking.
-
-Other embedding models and services, such as OpenAI, may be configured. See the Zep NLP Service configuration.
-
----
-:octicons-tag-24: **1.8.1**
+#### Docker Container Deployments
 
 By default, Zep uses OpenAI's 1536-wide AdaV2 embeddings and cosine similarity for search ranking.
+
+#### All other deployments
+
+By default, Zep uses a built-in Sentence Transformers model, `all-MiniLM-L6-v2`, for message embedding. The model offers a very low latency
+search experience when deployed on suitable infrastructure. Cosine similarity is used for search ranking.
+
+Other embedding models and services, such as OpenAI, may be configured. See the [Zep NLP Service](../deployment/config.md) configuration.
