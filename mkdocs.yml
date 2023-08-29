@@ -17,15 +17,19 @@ nav:
       - sdk/index.md
       - Users: sdk/users.md
       - Document Store: sdk/documents.md
-      - Chat History: sdk/chat_history.md
-      - LangChain 🦜⛓️: sdk/langchain.md
-      - LlamaIndex 🦙: sdk/llamaindex.md
+      - Chat History:
+          - sdk/chat_history/index.md
+          - Sessions: sdk/chat_history/sessions.md
+      - Frameworks:
+          - LangChain 🦜⛓️: sdk/langchain.md
+          - LlamaIndex 🦙: sdk/llamaindex.md
       - Examples: sdk/examples.md
       - Concepts: sdk/concepts.md
       - Extractors: sdk/extractors.md
-      - Python SDK API: https://getzep.github.io/zep-python/zep_client/
-      - JavaScript SDK API: https://getzep.github.io/zep-js/
-      - REST API: https://getzep.github.io/zep/
+      - APIs:
+          - Python SDK API: https://getzep.github.io/zep-python/zep_client/
+          - JavaScript SDK API: https://getzep.github.io/zep-js/
+          - REST API: https://getzep.github.io/zep/
   - Deployment:
       - deployment/index.md
       - Quick Start: deployment/quickstart.md
@@ -60,6 +64,9 @@ theme:
     - content.code.copy
     - content.code.annotate
     - announce.dismiss
+    - navigation.path
+    - navigation.instant
+    - navigation.instant.prefetch
   logo: images/zep-bot-square-50x50.png
   palette:
     # Palette toggle for light mode
@@ -80,6 +87,7 @@ theme:
 
 markdown_extensions:
   - attr_list
+  - md_in_html
   - admonition
   - abbr
   - def_list
@@ -95,3 +103,8 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+
+plugins:
+  - typeset
+  - git-revision-date-localized:
+      enable_creation_date: true

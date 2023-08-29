@@ -1,6 +1,7 @@
+# Configuring Zep
 
-Zep is configured via a yaml configuration file and/or environment variables. 
-The `zep` server accepts a CLI argument `--config` to specify the location of the config file. 
+Zep is configured via a yaml configuration file and/or environment variables.
+The `zep` server accepts a CLI argument `--config` to specify the location of the config file.
 If no config file is specified, the server will look for a `config.yaml` file in the current working directory.
 
 ```bash
@@ -8,24 +9,22 @@ zep --config /path/to/config.yaml
 ```
 
 !!! warning "OpenAI / Anthropic API key and Auth Secret"
-  
+
     Your OpenAI/Anthropic API key and Auth Secret should not be set in the config file, rather the environment variables
     below should be set. These can also be configured in a `.env` file in the current working directory.
 
-## Configuring Zep
-### Zep Server
+## Zep Server
 
 The Zep server can be configured via environment variables, a `.env` file, or the `config.yaml` file. The following table lists the available configuration options.
 
 Note the defaults below for the embedding models and review the [Selecting Embedding Models](#selecting-embedding-models) section below for more information.
 
 !!! info "Anthropic does not support embeddings"
-  
+
     If configuring Zep to use the Anthropic LLM service, you must configure Zep to use the local embeddings service.
 
-
 | Config Key                                 | Environment Variable                           | Default                                                      |
-|--------------------------------------------|------------------------------------------------|--------------------------------------------------------------|
+| ------------------------------------------ | ---------------------------------------------- | ------------------------------------------------------------ |
 | llm.service                                | ZEP_LLM_SERVICE                                | openai                                                       |
 | llm.model                                  | ZEP_LLM_MODEL                                  | gpt-3.5-turbo                                                |
 | llm.azure_openai_endpoint                  | ZEP_LLM_AZURE_OPENAI_ENDPOINT                  | undefined                                                    |
@@ -54,7 +53,7 @@ Note the defaults below for the embedding models and review the [Selecting Embed
 The following table lists the valid LLM models for the `llm.model` configuration option.
 
 | Provider  | Model             |
-|-----------|-------------------|
+| --------- | ----------------- |
 | OpenAI    | gpt-3.5-turbo     |
 | OpenAI    | gpt-3.5-turbo-16k |
 | OpenAI    | gpt-4             |
@@ -62,17 +61,16 @@ The following table lists the valid LLM models for the `llm.model` configuration
 | Anthropic | claude-instant-1  |
 | Anthropic | claude-2          |
 
+## Zep NLP Server
 
-### Zep NLP Server
-
-The Zep NLP Server may be configured via a `.env` file or environment variables. 
-The following table lists the available configuration options. 
+The Zep NLP Server may be configured via a `.env` file or environment variables.
+The following table lists the available configuration options.
 Note that the NLP server's container is not shipped with CUDA nor configured to use GPU acceleration.
 
 Note the defaults below for the embedding models and review the [Selecting Embedding Models](#selecting-embedding-models) section below for more information.
 
 | Config Key                   | Environment Variable             | Default          |
-|------------------------------|----------------------------------|------------------|
+| ---------------------------- | -------------------------------- | ---------------- |
 | log_level                    | ZEP_LOG_LEVEL                    | info             |
 | server.port                  | ZEP_SERVER_PORT                  | 5557             |
 | embeddings.device            | ZEP_EMBEDDINGS_DEVICE            | cpu              |

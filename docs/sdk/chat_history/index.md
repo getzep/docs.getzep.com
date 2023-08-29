@@ -18,23 +18,25 @@ Manually creating a session can be useful if you want to add metadata to a sessi
 
 === "Python"
 
-````python title="Add a Session"
-async with ZepClient(base_url, api_key) as client:
-session_id = uuid.uuid4().hex // A new session identifier
+    ```python title="Add a Session"
 
-          session = Session(session_id=session_id, metadata={"foo" : "bar"})
-          client.aadd_session(session)
-     ```
+    async with ZepClient(base_url, api_key) as client:
+    session_id = uuid.uuid4().hex // A new session identifier
+
+    session = Session(session_id=session_id, metadata={"foo" : "bar"})
+    client.aadd_session(session)
+    ```
 
 === "TypeScript"
-`typescript title="Add a Session"
-     const sessionData: ISession = {
-          session_id: sessionID,
-          metadata: { foo: "bar" },
-     };
-     const session = new Session(sessionData);
-     await client.memory.addSession(session);
-     `
+
+    ```typescript title="Add a Session"
+    const sessionData: ISession = {
+        session_id: sessionID,
+        metadata: { foo: "bar" },
+    };
+    const session = new Session(sessionData);
+    await client.memory.addSession(session);
+    ```
 
 ### Adding or Updating Session Metadata
 
@@ -43,43 +45,45 @@ If the Session already exists, then adding a Session works as an upsert operatio
 ## Getting a Session
 
 === "Python"
-```python title="Get a Session"
-session = client.aget_session(session_id)
-print(session.dict())
 
-     ```
-     ```json title="Output:"
-     {
-         "uuid": "944045d3-82ea-41c3-9228-13df83960eba",
-         "created_at": "2023-07-12T16:49:53.00569Z",
-         "updated_at": "2023-07-12T16:49:53.00569Z",
-         "deleted_at": "0001-01-01T00:00:00Z",
-         "session_id": "487012daa30b45ab94c5d086fa8942ec",
-         "metadata": {
-             "bar": "foo",
-             "foo": "bar"
-         }
-     }
-     ```
+    ```python title="Get a Session"
+    session = client.aget_session(session_id)
+    print(session.dict())
+
+    ```
+    ```json title="Output:"
+    {
+        "uuid": "944045d3-82ea-41c3-9228-13df83960eba",
+        "created_at": "2023-07-12T16:49:53.00569Z",
+        "updated_at": "2023-07-12T16:49:53.00569Z",
+        "deleted_at": "0001-01-01T00:00:00Z",
+        "session_id": "487012daa30b45ab94c5d086fa8942ec",
+        "metadata": {
+            "bar": "foo",
+            "foo": "bar"
+        }
+    }
+    ```
 
 === "TypeScript"
-`typescript title="Get a Session"
-     const session = await client.memory.getSession(sessionID);
-     console.debug("Retrieved session ", session.toDict());
-     `
-`json title="Output:"
-     {
-         "uuid": "944045d3-82ea-41c3-9228-13df83960eba",
-         "created_at": "2023-07-12T16:49:53.00569Z",
-         "updated_at": "2023-07-12T16:49:53.00569Z",
-         "deleted_at": "0001-01-01T00:00:00Z",
-         "session_id": "487012daa30b45ab94c5d086fa8942ec",
-         "metadata": {
-             "bar": "foo",
-             "foo": "bar"
-         }
-     }
-     `
+
+    ```typescript title="Get a Session"
+    const session = await client.memory.getSession(sessionID);
+    console.debug("Retrieved session ", session.toDict());
+    ```
+    ```json title="Output:"
+    {
+        "uuid": "944045d3-82ea-41c3-9228-13df83960eba",
+        "created_at": "2023-07-12T16:49:53.00569Z",
+        "updated_at": "2023-07-12T16:49:53.00569Z",
+        "deleted_at": "0001-01-01T00:00:00Z",
+        "session_id": "487012daa30b45ab94c5d086fa8942ec",
+        "metadata": {
+            "bar": "foo",
+            "foo": "bar"
+        }
+    }
+    ```
 
 ## Persisting a Memory to a Session
 
@@ -110,9 +114,9 @@ Sessions are created automatically when adding Memories. If the SessionID is alr
     ]
 
 
-     messages = [Message(role=m.role, content=m.content) for m in history]
-     memory = Memory(messages=messages)
-     result = await client.aadd_memory(session_id, memory)
+    messages = [Message(role=m.role, content=m.content) for m in history]
+    memory = Memory(messages=messages)
+    result = await client.aadd_memory(session_id, memory)
     ```
 
 === "TypeScript"
@@ -408,7 +412,7 @@ In addition to vector similarity search for Messages in the long-term memory sto
 
 You've likely noticed that alongside the role and content you provided to Zep when presisting a memory, Zep also returns a unique identifier, a UUID, a timestamp, and a token count. The token count is a useful tool to use when constructing prompts, while the other metadata may be useful for other applications.
 
-Zep performs auto-summarization when a session exceeds the message window. This is returned in the `summary` field of the memory when you call `get_memory` and may be used when constructing prompts in order to provide your agent or chain with a longer-term memory of the conversation. Read more about the [Summarizer Extractor](/extractors/#summarizer-extractor).
+Zep performs auto-summarization when a session exceeds the message window. This is returned in the `summary` field of the memory when you call `get_memory` and may be used when constructing prompts in order to provide your agent or chain with a longer-term memory of the conversation. Read more about the [Summarizer Extractor](extractors.md/#summarizer-extractor).
 
 Zep also automatically extracts Intents from the conversation. The extracted intents are stored in system metadata and available for hybrid searches (see Hybrid Search above).
 
@@ -495,7 +499,7 @@ Zep also automatically extracts Intents from the conversation. The extracted int
   ],
   "metadata": {}
 }
-````
+```
 
 ## Vector Search over Chat History
 
