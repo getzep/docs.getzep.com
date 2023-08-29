@@ -32,8 +32,6 @@ SessionIDs are arbitrary identifiers that you can map to relevant business objec
         await client.memory.aadd_session(session)
     ```
 
-    **Note** All methods are available with both synchronous and asynchronous implementations. The asynchronous methods are prefixed withan  `a` (e.g., `add` vs `aadd`).
-
 === ":simple-typescript: TypeScript"
 
     ```typescript title="Add a Session"

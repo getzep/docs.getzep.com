@@ -1,4 +1,4 @@
-# User API
+# Users
 
 The User API allows developers to manage users and their sessions. This includes adding, getting, updating, deleting, and listing users, as well as retrieving a user's sessions.
 

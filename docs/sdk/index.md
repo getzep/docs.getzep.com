@@ -1,8 +1,10 @@
 # Developing with Zep
 
+[Example Code](examples.md) &nbsp; | &nbsp; [Python API](https://getzep.github.io/zep-python/zep_client/) &nbsp; | &nbsp; [TypeScript API](https://getzep.github.io/zep-js/)
+
 ## Installation
 
-Zep offers both [Python](https://github.com/getzep/zep-python) and [JavaScript](https://github.com/getzep/zep-js) SDKs.
+Zep offers both [Python](https://github.com/getzep/zep-python) and [TypeScript](https://github.com/getzep/zep-js) SDKs.
 
 === ":fontawesome-brands-python: Python"
 
@@ -10,7 +12,7 @@ Zep offers both [Python](https://github.com/getzep/zep-python) and [JavaScript](
     pip install zep-python
     ```
 
-=== ":simple-typescript: TypeScript/JavaScript"
+=== ":simple-typescript: TypeScript"
 
     ``` bash
     npm install @getzep/zep-js
@@ -36,7 +38,7 @@ Zep offers both [Python](https://github.com/getzep/zep-python) and [JavaScript](
     zep = ZepClient("http://localhost:8000", api_key="optional_api_key")
     ```
 
-=== ":simple-typescript: TypeScript/JavaScript"
+=== ":simple-typescript: TypeScript"
 
     ```javascript
     import { ZepClient } from "zep-js";
@@ -45,24 +47,43 @@ Zep offers both [Python](https://github.com/getzep/zep-python) and [JavaScript](
     const zep = ZepClient.init("http://localhost:8000", "optional_api_key");
     ```
 
+!!! info "`zep-python` supports async use"
+
+        `zep-python` supports async use. All methods are available as both sync and async, with the async methods
+        prefixed with `a`. For example, `zep-python` has both `zep_client.memory.add_memory` 
+        and `zep_client.memory.aadd_memory` methods.
+
+
 ## Next Steps
 
-[Key Concepts](concepts.md) &nbsp; | &nbsp; [Example Code](examples.md) &nbsp; | &nbsp; [Python API](https://getzep.github.io/zep-python/zep_client/) &nbsp; | &nbsp; [TypeScript/JS API](https://getzep.github.io/zep-js/)
+Now that you have a Zep client, you can start using the Zep APIs.
 
-Now that you have a Zep client, you can start using the Zep APIs:
+<div class="grid cards" markdown>
 
-### Documents
+-   :material-magnify:{ .lg .middle } __Working with Documents__
 
-Zep's document vector store is exposed via the [`documents` API](documents.md). With Zep's document vector store, you can build
-collections of documents useful for grounding your prompts. Run semantic search over a collection using either Zep's
-own SDKs, or with Langchain.
+    ---
 
-[Document API :material-file-document:](documents.md){ .md-button .md-button--primary }
+    Populate your prompts with relevant [documents using similarity search](documents.md)
 
-### Chat History
 
-Zep's chat history store is exposed via the [`chat_history` API](chat_history.md). With Zep's chat history store, you can
-capture your app's chat history, enrich it with metadata, and run semantic search over it. Ground your prompts with
-context from prior conversations, both recent and distant past. Use Zep's own SDKs, or with Langchain.
+-   :material-chat-outline:{ .lg .middle } __Working with Chat History__
 
-[Chat History API :material-chat:](chat_history.md){ .md-button .md-button--primary }
+    ---
+
+    Store [Chat History](chat_history/index.md), enrich it with metadata, and run semantic search over it
+
+-   :octicons-rocket-16:{ .lg .middle } __Enrich it all__
+
+    ---
+
+    Learn about [Zep's Extractors](extractors.md) that generate [embeddings](../deployment/embeddings.md), summaries, named entities, token counts, and more.
+
+
+-   :black_heart:{ .lg .middle } __Use the tools you love__
+
+    ---
+
+    Working with [LangChain 🦜⛓️](langchain.md) and [LlamaIndex 🦙](llamaindex.md)
+
+</div>

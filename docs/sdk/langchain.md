@@ -1,6 +1,6 @@
 # Long-term Memory Persistence, Enrichment, and Search for Langchain Apps
 
-Langchain Python and LangchainJS ship with `ZepMemory` and `ZepRetriever` classes. There are also `ZepVectorStore` classes available for both Python and Javascript.
+Langchain Python and LangchainJS ship with `ZepMemory` and `ZepRetriever` classes. There are also `ZepVectorStore` classes available for both Python and typescript.
 
 ### Managing Chat History Memory
 
@@ -16,7 +16,7 @@ Zep will automatically embed the documents using low-latency local models, ensur
 
 !!! note "Installing Zep"
 
-    A Zep server install is required. You will also need to have the Zep Python SDK or Zep Javascript SDK installed in order to use the Langchain `ZepMemory` and `ZepRetriever` classes.
+    A Zep server install is required. You will also need to have the Zep Python SDK or Zep typescript SDK installed in order to use the Langchain `ZepMemory` and `ZepRetriever` classes.
 
     See the [Zep Quick Start Guide](../deployment/quickstart.md) for details.
 
@@ -24,11 +24,11 @@ Zep will automatically embed the documents using low-latency local models, ensur
 
 ## Using Zep as a VectorStore and Document Retriever
 
-See the examples in the inline [Document Vector Store documentation](/sdk/documents) and the [LangChain.js documentation](https://js.langchain.com/docs/modules/data_connection/vectorstores/integrations/zep).
+See the examples in the inline [Document Vector Store documentation](documents.md) and the [LangChain.js documentation](https://js.langchain.com/docs/modules/data_connection/vectorstores/integrations/zep).
 
 ## Using Zep as a LangChain Memory Store
 
-=== "Python"
+=== ":fontawesome-brands-python: Python"
 
     Using Zep as your Langchain app's long-term memory simple: initialize the `ZepMemory` with your Zep instance URL, API key, and your user's session identifier (see [Zep Concepts](/about/concepts)).
 
@@ -50,10 +50,10 @@ See the examples in the inline [Document Vector Store documentation](/sdk/docume
     )
     ```
 
-=== "Javascript"
-Using Zep as your Langchain app's long-term memory simple: initialize the ZepMemory with your Zep instance URL and your user's session identifier (see Zep Concepts) and then utilize it as the chat memory for a Langchain Conversation.
+=== ":simple-typescript: TypeScript"
+    Using Zep as your Langchain app's long-term memory simple: initialize the ZepMemory with your Zep instance URL and your user's session identifier (see Zep Concepts) and then utilize it as the chat memory for a Langchain Conversation.
 
-    ```javascript title="ZepMemory instantiation"
+    ```typescript title="ZepMemory instantiation"
     import { ChatOpenAI } from "langchain/chat_models/openai";
     import { ConversationChain } from "langchain/chains";
     import { ZepMemory } from "langchain/memory/zep";
@@ -74,9 +74,9 @@ Using Zep as your Langchain app's long-term memory simple: initialize the ZepMem
 
 Once you've created the `memory`, use it in your chain or with your agent.
 
-=== "Python"
+=== ":fontawesome-brands-python: Python"
 
-````python title="Running a chain with ZepMemory"
+    ```python title="Running a chain with ZepMemory"
 
     llm = ChatOpenAI(model_name="gpt-3.5-turbo")
     chain = ConversationChain(llm=llm, verbose=True, memory=memory)
@@ -85,6 +85,7 @@ Once you've created the `memory`, use it in your chain or with your agent.
     )
     ```
     ```text title="Output:"
+
     > Entering new AgentExecutor chain...
     AI: Parable of the Sower is a powerful exploration of the challenges facing contemporary society, such as environmental disasters, poverty, and violence. It examines how these issues can lead to the breakdown of society and how individuals can take action to create a better future. The novel also explores themes of faith, hope, and resilience in the face of adversity.
 
@@ -118,17 +119,19 @@ Once you've created the `memory`, use it in your chain or with your agent.
     <snip />
     ```
 
-=== "Javascript"
-`javascript  title="Running a chain with ZepMemory"
+=== ":simple-typescript: TypeScript"
+
+    ```typescript  title="Running a chain with ZepMemory"
     const chain = new ConversationChain({ llm: model, memory });
     const response = await chain.run(
         {
             input="What is the book's relevance to the challenges facing contemporary society?"
         },
     )
-    `
-```text title="Output:" > Entering new AgentExecutor chain...
-AI: Parable of the Sower is a powerful exploration of the challenges facing contemporary society, such as environmental disasters, poverty, and violence. It examines how these issues can lead to the breakdown of society and how individuals can take action to create a better future. The novel also explores themes of faith, hope, and resilience in the face of adversity.
+    ```
+    ```text title="Output:" 
+    > Entering new AgentExecutor chain...
+    AI: Parable of the Sower is a powerful exploration of the challenges facing contemporary society, such as environmental disasters, poverty, and violence. It examines how these issues can lead to the breakdown of society and how individuals can take action to create a better future. The novel also explores themes of faith, hope, and resilience in the face of adversity.
 
     > Finished chain.
     'Parable of the Sower is a powerful exploration of the challenges facing contemporary society, such as environmental disasters, poverty, and violence. It examines how these issues can lead to the breakdown of society and how individuals can take action to create a better future. The novel also explores themes of faith, hope, and resilience in the face of adversity.'
@@ -136,7 +139,7 @@ AI: Parable of the Sower is a powerful exploration of the challenges facing cont
 
     Inspecting the `ZepMemory`, we see that a summary was automatically created, and that the history has been enriched with token counts, UUIDs, and timestamps.
 
-    ```javascript  title="Inspecting the Zep Memory"
+    ```typescript  title="Inspecting the Zep Memory"
     const memoryVariables = await zepMemory.loadMemoryVariables({});
     console.log(memoryVariables);
 
@@ -159,18 +162,18 @@ Zep supports both vector search using a Langchain `Retriever` as well as via an 
 
 If you don't need to provide a `Retriever` to your chain or agent, you can search the long-term message history for a session directly from an instance of `ZepMemory`.
 
-=== "Python"
-`python  title="Search for relevant historical messages"
+=== ":fontawesome-brands-python: Python"
+    ```python  title="Search for relevant historical messages"
     search_results = memory.chat_memory.search("who are some famous women sci-fi authors?")
     for r in search_results:
         if r.dist > 0.8:  # Only print results with similarity of 0.8 or higher
             print(r.message, r.dist)
-    `
-`text title="Output:"
+    ```
+    ```text title="Output:"
     {'uuid': 'ccdcc901-ea39-4981-862f-6fe22ab9289b', 'created_at': '2023-07-09T19:23:16.62678Z', 'role': 'human', 'content': 'Which other women sci-fi writers might I want to read?', 'metadata': {'system': {'entities': [], 'intent': 'The subject is seeking recommendations for additional women science fiction writers to explore.'}}, 'token_count': 14} 0.9119619869747062
     {'uuid': '7977099a-0c62-4c98-bfff-465bbab6c9c3', 'created_at': '2023-07-09T19:23:16.631721Z', 'role': 'ai', 'content': 'You might want to read Ursula K. Le Guin or Joanna Russ.', 'metadata': {'system': {'entities': [{'Label': 'ORG', 'Matches': [{'End': 40, 'Start': 23, 'Text': 'Ursula K. Le Guin'}], 'Name': 'Ursula K. Le Guin'}, {'Label': 'PERSON', 'Matches': [{'End': 55, 'Start': 44, 'Text': 'Joanna Russ'}], 'Name': 'Joanna Russ'}], 'intent': 'The subject is suggesting that the person should consider reading the works of Ursula K. Le Guin or Joanna Russ.'}}, 'token_count': 18} 0.8534346954749745
     {'uuid': 'b05e2eb5-c103-4973-9458-928726f08655', 'created_at': '2023-07-09T19:23:16.603098Z', 'role': 'ai', 'content': "Octavia Butler's contemporaries included Ursula K. Le Guin, Samuel R. Delany, and Joanna Russ.", 'metadata': {'system': {'entities': [{'Label': 'PERSON', 'Matches': [{'End': 16, 'Start': 0, 'Text': "Octavia Butler's"}], 'Name': "Octavia Butler's"}, {'Label': 'ORG', 'Matches': [{'End': 58, 'Start': 41, 'Text': 'Ursula K. Le Guin'}], 'Name': 'Ursula K. Le Guin'}, {'Label': 'PERSON', 'Matches': [{'End': 76, 'Start': 60, 'Text': 'Samuel R. Delany'}], 'Name': 'Samuel R. Delany'}, {'Label': 'PERSON', 'Matches': [{'End': 93, 'Start': 82, 'Text': 'Joanna Russ'}], 'Name': 'Joanna Russ'}], 'intent': "The subject is stating that Octavia Butler's contemporaries included Ursula K. Le Guin, Samuel R. Delany, and Joanna Russ."}}, 'token_count': 27} 0.8523831524040919
-    `
+    ```
 
     Zep uses cosine distance for search ranking and the distance values are returned in the search results.
 
@@ -180,8 +183,9 @@ If you don't need to provide a `Retriever` to your chain or agent, you can searc
 
 You wouldn't ordinarily call the `Retriever` directly, but we've done so as a simple illustration as to how Langchain `documents` returned by the `ZepRetriever` are enriched with metadata from the Zep service. In particular, token countx are useful when constructing prompts.
 
-=== "Python"
-```python title="Use the ZepRetriever to search for relevant historical messages"
+=== ":fontawesome-brands-python: Python"
+    
+    ```python title="Use the ZepRetriever to search for relevant historical messages"
 
     from langchain.retrievers import ZepRetriever
 
@@ -202,8 +206,9 @@ You wouldn't ordinarily call the `Retriever` directly, but we've done so as a si
     Document(page_content='You might want to read Ursula K. Le Guin or Joanna Russ.', metadata={'source': '0dd8cde5-860e-4d8b-975f-50f55028177d', 'score': 0.7595191167162665, 'role': 'ai', 'token_count': 15, 'created_at': '2023-05-11T16:29:35.080817Z'})]
     ```
 
-=== "Javascript"
-```javascript title="Use the ZepRetriever to search for relevant historical messages"
+=== ":simple-typescript: TypeScript"
+
+    ```typescript title="Use the ZepRetriever to search for relevant historical messages"
 
     import { ZepRetriever } from "langchain/retrievers/zep";
 
