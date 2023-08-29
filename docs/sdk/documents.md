@@ -1,7 +1,5 @@
 # Document Vector Store
 
-:octicons-tag-24: **v0.9.0**
-
 Zep's document vector store allows you to embed and search over documents using hybrid vector search.
 
 Collection management, document ingestion, and search may be done using either _Zep's SDKs_ or _Langchain_.
