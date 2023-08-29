@@ -15,17 +15,21 @@ nav:
   - Quick Start ⚡️: deployment/quickstart.md
   - SDKs and API:
       - sdk/index.md
-      - Users: sdk/users.md
-      - Document Store: sdk/documents.md
+      - Document Store: 
+          - sdk/documents.md
       - Chat History:
           - sdk/chat_history/index.md
+          - Users: sdk/chat_history/users.md
           - Sessions: sdk/chat_history/sessions.md
+          - Memories: sdk/chat_history/memories.md
+          - Search Chat History: sdk/chat_history/search.md
+      - Enrichments: 
+          - sdk/extractors.md
       - Frameworks:
           - LangChain 🦜⛓️: sdk/langchain.md
           - LlamaIndex 🦙: sdk/llamaindex.md
-      - Examples: sdk/examples.md
-      - Concepts: sdk/concepts.md
-      - Extractors: sdk/extractors.md
+      - Examples:
+          - sdk/examples.md
       - APIs:
           - Python SDK API: https://getzep.github.io/zep-python/zep_client/
           - JavaScript SDK API: https://getzep.github.io/zep-js/

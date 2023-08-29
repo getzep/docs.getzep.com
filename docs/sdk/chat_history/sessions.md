@@ -1,10 +1,10 @@
 # Sessions
 
-**Sessions** represent a conversation. Sessions can be associated with [**Users**](../users.md) in a 1:M relationship. 
+`Sessions` represent a conversation. Sessions can be associated with [`Users`](../users.md) in a 1:M relationship. 
 
-Chat messages are added to sessions in the form of [**Memories**](memories.md). Each session can have many messages associated with it. 
+Chat messages are added to sessions in the form of [`Memories`](memories.md). Each session can have many messages associated with it. 
 
-The SessionID is a string key that accepts arbitrary identifiers. Related data you'd like to store can be persisted as metadata.
+The `SessionID` is a string key that accepts arbitrary identifiers. Related data you'd like to store can be persisted as metadata.
 
 ## Adding a Session
 
@@ -18,7 +18,7 @@ SessionIDs are arbitrary identifiers that you can map to relevant business objec
     **Manually creating a session can be useful if you want to associate it with a user or add metadata**
 
 
-=== "Python"
+=== ":fontawesome-brands-python: Python"
 
     ```python title="Add a Session"
 
@@ -34,7 +34,7 @@ SessionIDs are arbitrary identifiers that you can map to relevant business objec
 
     **Note** All methods are available with both synchronous and asynchronous implementations. The asynchronous methods are prefixed withan  `a` (e.g., `add` vs `aadd`).
 
-=== "TypeScript"
+=== ":simple-typescript: TypeScript"
 
     ```typescript title="Add a Session"
     const sessionData: ISession = {
@@ -51,7 +51,7 @@ SessionIDs are arbitrary identifiers that you can map to relevant business objec
 You can update a session's metadata by providing a Session object with new metadata. Note that
 metadata is merged, so any existing metadata will be preserved.
 
-=== "Python"
+=== ":fontawesome-brands-python: Python"
 
     ```python title="Update a Session"
 
@@ -59,7 +59,7 @@ metadata is merged, so any existing metadata will be preserved.
     await client.memory.aupdate_session(session)
     ```
 
-=== "TypeScript"
+=== ":simple-typescript: TypeScript"
 
     ```typescript title="Add a Session"
     const sessionData: ISession = {
@@ -73,7 +73,7 @@ metadata is merged, so any existing metadata will be preserved.
 
 ## Getting a Session
 
-=== "Python"
+=== ":fontawesome-brands-python: Python"
 
     ```python title="Get a Session"
     session = await client.memory.aget_session(session_id)
@@ -82,7 +82,7 @@ metadata is merged, so any existing metadata will be preserved.
     ```
 
 
-=== "TypeScript"
+=== ":simple-typescript: TypeScript"
 
     ```typescript title="Get a Session"
     const session = await client.memory.getSession(sessionID);
@@ -98,14 +98,14 @@ They will be purged on the next run of the [Zep Purge Process](../../deployment/
 
 If you persist memory to a deleted Session, it will be undeleted. Deleted Memories will, however, remain deleted.
 
-=== "Python"
+=== ":fontawesome-brands-python: Python"
 
     ```python title="Delete a Session and Memory"
     await client.memory.adelete_memory(session_id)
     ```
 
 
-=== "TypeScript"
+=== ":simple-typescript: TypeScript"
 
     ```typescript title="Delete a Session and Memory"
 
@@ -117,7 +117,7 @@ If you persist memory to a deleted Session, it will be undeleted. Deleted Memori
 You can list all Sessions in the Zep Memory Store with optional limit and cursor parameters for pagination. We also provider a helper generator function making it simple to iterate over all Sessions.
 
 
-=== "Python"
+=== ":fontawesome-brands-python: Python"
 
     ```python
     # List the first 10 Sessions
@@ -132,7 +132,7 @@ You can list all Sessions in the Zep Memory Store with optional limit and cursor
             print(session)
     ```
 
-=== "TypeScript"
+=== ":simple-typescript: TypeScript"
 
     ```typescript
     // List the first 10 Sessions

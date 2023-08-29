@@ -22,16 +22,4 @@ Zep supports two types of search: **semantic search** and **hybrid search**. Sem
 You can provide either a text query or an embedding vector when performing a search. If you provide a text query, Zep will embed the query text using the same model that was used to embed the documents in the collection. If you provide an embedding vector, Zep will use that vector directly.
 
 Zep scores search results using **cosine distance** and then **normalizes this distance to a value between 0 and 1**, where 1 is a perfect match. The score is returned as part of the search results.
-
-### Sessions
-
-**Sessions** represent your users. The Session ID is a string key that accepts arbitrary identifiers. Metadata can be set alongside the Session ID. A common usage pattern is to use a Session ID to represent all conversations with a specific User (i.e., Session ID == User ID).
-
-Related to sessions, a time series of **Memories** and **Summaries** is captured and stored.
-
-### Chat History Memory
-
-A **Memory** is the core data structure in Zep. It contains a list of **Messages** and a **Summary** (if created). The Memory and Summary are returned with UUIDs, token counts, timestamps, and other metadata, allowing for a rich set of application-level functionality.
-
-## Adding a Session
-Explicit creation of Sessions is unnecessary, as they are created automatically when adding Memories. However, there may be instances where you want to create a Session and store metadata about your Session before beginning any conversations. You can do this by adding a `Session` explicitly. 
+ 

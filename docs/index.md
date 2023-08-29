@@ -62,7 +62,7 @@ Zep is built for LLM apps from the ground up. Adding relevant documents, chat hi
 
     [:octicons-arrow-right-24: Chat History](sdk/chat_history/index.md)
 
--   :material-cog:{ .lg .middle } __Enrich it all__
+-   :octicons-rocket-16:{ .lg .middle } __Enrich it all__
 
     ---
 
