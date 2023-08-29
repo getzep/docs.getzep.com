@@ -15,6 +15,7 @@ nav:
   - Quick Start ⚡️: deployment/quickstart.md
   - SDKs and API:
       - sdk/index.md
+      - Users: sdk/users.md
       - Document Store: sdk/documents.md
       - Chat History: sdk/chat_history.md
       - LangChain 🦜⛓️: sdk/langchain.md
