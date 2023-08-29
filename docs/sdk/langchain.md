@@ -20,7 +20,7 @@ Zep will automatically embed the documents using low-latency local models, ensur
 
     See the [Zep Quick Start Guide](../deployment/quickstart.md) for details.
 
-    [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](/deployment/render)
+    [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](../deployment/render.md)
 
 ## Using Zep as a VectorStore and Document Retriever
 
@@ -30,7 +30,7 @@ See the examples in the inline [Document Vector Store documentation](documents.m
 
 === ":fontawesome-brands-python: Python"
 
-    Using Zep as your Langchain app's long-term memory simple: initialize the `ZepMemory` with your Zep instance URL, API key, and your user's session identifier (see [Zep Concepts](/about/concepts)).
+    Using Zep as your Langchain app's long-term memory simple: initialize the `ZepMemory` with your Zep instance URL, API key, and your user's [session identifier](chat_history/sessions.md).
 
     ```python title="ZepMemory instantiation"
     from langchain.memory import ZepMemory

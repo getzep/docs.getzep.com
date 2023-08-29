@@ -2,7 +2,7 @@
 
 !!! Warning "Configure Server Authentication"
 
-    Ensure that you secure your Zep server by [configuring authentication](/deployment/auth) after deploying.
+    Ensure that you secure your Zep server by [configuring authentication](auth.md) after deploying.
     Failing to do so will leave your server open to the public.
 
 #### 1. Click on the button below to deploy to Render using the Zep blueprint
@@ -25,7 +25,7 @@ This takes a few minutes.
 
 #### 4. Configure authentication
 
-Follow the [server authentication instructions here](/deployment/auth). **Do not skip this step.** Failing to do so will leave your server open to the public.
+Follow the [server authentication instructions here](auth.md). **Do not skip this step.** Failing to do so will leave your server open to the public.
 
 #### 5. Point your client SDK to your new Zep server
 

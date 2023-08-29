@@ -1,6 +1,6 @@
 # Chat History Memory API
 
-[Example Code](examples.md) &nbsp; | &nbsp; [Python API](https://getzep.github.io/zep-python/zep_client/) &nbsp; | &nbsp; [TypeScript/JS API](https://getzep.github.io/zep-js/)
+[Example Code](../examples.md) &nbsp; | &nbsp; [Python API](https://getzep.github.io/zep-python/zep_client/) &nbsp; | &nbsp; [TypeScript/JS API](https://getzep.github.io/zep-js/)
 
 
 ## Overview
@@ -36,7 +36,7 @@ Please see the [SDK documentation](index.md) for more information on initializin
 
 You've likely noticed that alongside the role and content you provided to Zep when presisting a memory, Zep also returns a unique identifier, a summary, UUID, a timestamp, token count, extracted entities, and more. The token count is a useful tool to use when constructing prompts, while the extracted entities and other metadata may be useful for building more sophisticated applications.
 
-Zep performs auto-summarization when a session exceeds the message window. This is returned in the `summary` field of the memory when you call `get_memory` and may be used when constructing prompts in order to provide your agent or chain with a longer-term memory of the conversation. Read more about the [Summarizer Extractor](extractors.md/#summarizer-extractor).
+Zep performs auto-summarization when a session exceeds the message window. This is returned in the `summary` field of the memory when you call `get_memory` and may be used when constructing prompts in order to provide your agent or chain with a longer-term memory of the conversation. Read more about the [Summarizer Extractor](../extractors.md).
 
 Zep also automatically extracts Entities from, and runs an Intent Analysis on, messages in the conversation. The extracted entities and intents are stored in system metadata and available for hybrid searches (see Hybrid Search above).
 

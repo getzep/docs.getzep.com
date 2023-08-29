@@ -4,7 +4,7 @@ Zep allows developers to search the long-term memory store for relevant historic
 
 ## Searching for Messages
 
-Zep supports vector similarity search for Messages in the long-term memory storage. This allows you to find Messages that are contextually similar to a given query, with the results sorted by a similarity or `distance`. See [Vector Search](/memory_search) for more details.
+Zep supports vector similarity search for Messages in the long-term memory storage. This allows you to find Messages that are contextually similar to a given query, with the results sorted by a similarity or `distance`.
 
 === ":fontawesome-brands-python: Python"
 
@@ -227,4 +227,4 @@ By default, Zep uses OpenAI's 1536-wide AdaV2 embeddings and cosine similarity f
 By default, Zep uses a built-in Sentence Transformers model, `all-MiniLM-L6-v2`, for message embedding. The model offers a very low latency
 search experience when deployed on suitable infrastructure. Cosine similarity is used for search ranking.
 
-Other embedding models and services, such as OpenAI, may be configured. See the [Zep NLP Service](../deployment/config.md) configuration.
+Other embedding models and services, such as OpenAI, may be configured. See the [Zep NLP Service](../../deployment/config.md) configuration.

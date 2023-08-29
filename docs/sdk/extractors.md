@@ -20,17 +20,17 @@ The Summarizer Extractor summarizes an unsummarized message history once it exce
 
     If the message window is set to 12, and the number of unsummarized memories exceeds 12, the summarizer will summarize any memories older than 6 messages. Retrieving the Zep message history at this stage will, by default, return the most recent 6 messages and the summary.
 
-The summarizer prioritizes context from newer messages and as a result offers the LLM model more information regarding recent coversations. To offer the LLM relevant context from older conversation, utilize Zep's [contextual vector search](/memory_search).
+The summarizer prioritizes context from newer messages and as a result offers the LLM model more information regarding recent coversations. To offer the LLM relevant context from older conversation, utilize Zep's vector similarity search.
 
 Zep stores a history of summaries and the point at which they were made. This provides flexibility for future summarization strategies you may want to implement.
 
 ### Configuring the Message Window
 
-The Message Window is defined in the [Zep config file](/deployment/config).
+The Message Window is defined in the [Zep config file](../deployment/config.md).
 
 ## Embedder Extractor
 
-The Embedder Extractor embeds new messages as they are persisted to the memory store. This makes them available for [semantic vector search](/memory_search). By default, we use OpenAI's 1536-wide AdaV2 embeddings.
+The Embedder Extractor [embeds new messages](../deployment/embeddings.md) as they are persisted to the memory store. This makes them available for semantic vector search. By default, we use OpenAI's 1536-wide AdaV2 embeddings.
 
 ## Named Entity Recognizer (NER)
 

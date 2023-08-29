@@ -1,6 +1,6 @@
 # Sessions
 
-`Sessions` represent a conversation. Sessions can be associated with [`Users`](../users.md) in a 1:M relationship. 
+`Sessions` represent a conversation. Sessions can be associated with [`Users`](users.md) in a 1:M relationship. 
 
 Chat messages are added to sessions in the form of [`Memories`](memories.md). Each session can have many messages associated with it. 
 

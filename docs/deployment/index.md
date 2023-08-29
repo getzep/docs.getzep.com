@@ -1,6 +1,6 @@
 # Deploying Zep
 
-1. Using [docker-compose](./quickstart.md).
+1. Using [docker-compose](quickstart.md).
 2. Deploying to the [Render platform](render.md).
 3. Deploying to [Kubernetes](kubernetes.md).
 3. Deploying to [production environments.](production.md)
@@ -10,5 +10,5 @@
 Next Steps:
 
 - [Configuring the Zep service](config.md).
-- Configuring OpenAI API and Azure [OpenAI API configuration](openai.md).
+- Configuring for OpenAI and Anthropic [LLM Services](llm_config.md).
 
