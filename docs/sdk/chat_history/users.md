@@ -1,121 +1,160 @@
 # Users
 
-The User API allows developers to manage users and their sessions. This includes adding, getting, updating, deleting, and listing users, as well as retrieving a user's sessions.
+Just like [`Sessions`](sessions.md), `Users` are a fundamental part of the Zep Memory Store. A `User` represents an individual interacting with your application. Each `User` can have multiple `Sessions` associated with them, allowing you to track and manage the interactions of a user over time.
+
+The `UserID` is a unique identifier for each user. This can be any string value - for example, it could be a username, an email address, or a UUID. You can also store additional data related to the user in the `metadata` field.
+
+The `User` object and its associated `Sessions` provide a powerful way to manage and understand the behavior of individuals using your application. By associating `Sessions` with `Users`, you can track the progression of conversations and interactions over time, providing valuable context and history.
+
+In the following sections, you will learn how to manage `Users` and their associated `Sessions`.
+
+## The `User` model
+
+You can associate rich business context with a `User`:
+
+- `user_id`: A unique identifier of the user that maps to your internal User ID.
+- `email`: The user's email.
+- `first_name`: The user's first name.
+- `last_name`: The user's last name.
+- `metadata`: Any additional data associated with the user.
+
 
 ## Adding a User
 
 You can add a new user by providing the user details.
 
 === ":fontawesome-brands-python: Python"
-    ```python title="Add a User"
-user = {
-"user_id": "user123",
 
+    ```python
+    user = {
+        "user_id": "user123",
         "metadata": {"foo": "bar"}
     }
-    new_user = await user_manager.add(user)
-    `
+    new_user = client.user.add(user)
+    ```
 
 === ":simple-typescript: TypeScript"
-`typescript title="Add a User"
+
+    ```typescript
     const user: ICreateUserRequest = {
         user_id: "user123",
         metadata: { foo: "bar" },
     };
     const newUser = await userManager.add(user);
-    `
+    ```
+
+> Learn how to associate [`Sessions` with Users](sessions.md)
 
 ## Getting a User
 
 You can retrieve a user by their ID.
 
 === ":fontawesome-brands-python: Python"
-`python title="Get a User"
-    user = await user_manager.get("user123")
-    `
+
+    ```python
+    user = client.user.get("user123")
+    ```
 
 === ":simple-typescript: TypeScript"
-`typescript title="Get a User"
+
+    ```typescript
     const user = await userManager.get("user123");
-    `
+    ```
 
 ## Updating a User
 
 You can update a user's details by providing the updated user details.
 
 === ":fontawesome-brands-python: Python"
-`python title="Update a User"
+
+    ```python
     user = {
         "user_id": "user123",
         "metadata": {"foo": "baz"}
     }
-    updated_user = await user_manager.update(user)
-    `
+    updated_user = client.user.update(user)
+    ```
 
 === ":simple-typescript: TypeScript"
-`typescript title="Update a User"
+
+    ```typescript
     const user: IUpdateUserRequest = {
         user_id: "user123",
         metadata: { foo: "baz" },
     };
     const updatedUser = await userManager.update(user);
-    `
+    ```
 
 ## Deleting a User
 
 You can delete a user by their ID.
 
 === ":fontawesome-brands-python: Python"
-`python title="Delete a User"
-    await user_manager.delete("user123")
-    `
+
+    ```python
+    client.user.delete("user123")
+    ```
 
 === ":simple-typescript: TypeScript"
-`typescript title="Delete a User"
+
+    ```typescript
     await userManager.delete("user123");
-    `
+    ```
+
+
+
+## Getting a User's Sessions
+
+You can retrieve all `Sessions` for a user by their ID.
+
+=== ":fontawesome-brands-python: Python"
+
+    ```python
+    # Get all sessions for user123
+    sessions = client.user.getSessions("user123")
+    ```
+
+=== ":simple-typescript: TypeScript"
+
+    ```typescript
+    // Get all sessions for user123
+    const sessions = await userManager.getSessions("user123");
+    ```
 
 ## Listing Users
 
 You can list all users, with optional limit and cursor parameters for pagination.
 
 === ":fontawesome-brands-python: Python"
-`python title="List Users"
-    users = await user_manager.list(limit=10, cursor=0)
-    `
+
+    ```python
+    # List the first 10 users
+    users = client.user.list(limit=10, cursor=0)
+    ```
 
 === ":simple-typescript: TypeScript"
-`typescript title="List Users"
+
+    ```typescript
+    // List the first 10 users
     const users = await userManager.list(10, 0);
-    `
-
-## Getting a User's Sessions
-
-You can retrieve all sessions for a user by their ID.
-
-=== ":fontawesome-brands-python: Python"
-`python title="Get User's Sessions"
-    sessions = await user_manager.getSessions("user123")
-    `
-
-=== ":simple-typescript: TypeScript"
-`typescript title="Get User's Sessions"
-    const sessions = await userManager.getSessions("user123");
-    `
+    ```
 
 ## Listing Users in Chunks
 
 You can retrieve users in chunks of a specified size. This is a generator function that yields each chunk of users as they are retrieved.
 
 === ":fontawesome-brands-python: Python"
-`python title="List Users in Chunks"
-    async for users in user_manager.listChunked(chunkSize=100):
+
+    ```python
+    for users in client.user.listChunked(chunkSize=100):
         process(users)
-    `
+    ```
 
 === ":simple-typescript: TypeScript"
-`typescript title="List Users in Chunks"
+
+    ```typescript
     for await (const users of userManager.listChunked(100)) {
         process(users);
     }
-    `
+    ```
+

@@ -15,6 +15,16 @@ There are two approaches to populating your prompt with chat history:
 Both of these approaches may be useful, with the first providing the LLM with context as to the most recent interactions with a human. The second approach enables you to look back further in the chat history and retrieve messages that are relevant to the current conversation in a token-efficient manner.
 
 
+## Initializing the Zep Client
+
+Please see the [SDK documentation](index.md) for more information on initializing the Zep client.
+
+!!! info "`zep-python` supports async use"
+
+        `zep-python` supports async use. All methods are available as both sync and async, with the async methods
+        prefixed with `a`. For example, `zep-python` has both `zep_client.memory.add_memory` 
+        and `zep_client.memory.aadd_memory` methods.
+
 ## Next Steps
 
 - Working with [Users](users.md) and [Sessions](sessions.md)

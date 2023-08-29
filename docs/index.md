@@ -31,7 +31,7 @@ Batteries Included Memory for LLM apps
 Zep is built for LLM apps from the ground up. Adding relevant documents, chat history memory & rich user data to your prompts is simple. 
 
 
-> Unlike other vector databases, *Users*, *Sessions*, *Memories*, and *Documents* are all first-class citizens in Zep.
+> Unlike other vector databases, `Users`, `Sessions`, `Memories`, and `Documents` are all first-class citizens in Zep.
 
 
 
