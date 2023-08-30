@@ -44,6 +44,8 @@ SessionIDs are arbitrary identifiers that you can map to relevant business objec
     await client.memory.addSession(session);
     ```
 
+> Looking to associate a `Session` with a `User`? Check out our [User Management](users.md) docs.
+
 ## Updating Session Metadata
 
 You can update a session's metadata by providing a Session object with new metadata. Note that
