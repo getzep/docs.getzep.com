@@ -26,11 +26,14 @@ You can add a new user by providing the user details.
 === ":fontawesome-brands-python: Python"
 
     ```python
-    user = {
-        "user_id": "user123",
-        "metadata": {"foo": "bar"}
-    }
-    new_user = client.user.add(user)
+    user_request = CreateUserRequest(
+        user_id=user_id,
+        email="user@example.com",
+        first_name="Jane",
+        last_name="Smith",
+        metadata={"foo": "bar"},
+    )
+    new_user = client.user.add(user_request)
     ```
 
 === ":simple-typescript: TypeScript"
@@ -68,11 +71,14 @@ You can update a user's details by providing the updated user details.
 === ":fontawesome-brands-python: Python"
 
     ```python
-    user = {
-        "user_id": "user123",
-        "metadata": {"foo": "baz"}
-    }
-    updated_user = client.user.update(user)
+    user_request = UpdateUserRequest(
+        user_id=user_id,
+        email="updated_user@example.com",
+        first_name="Jane",
+        last_name="Smith",
+        metadata={"foo": "updated_bar"},
+    )
+    updated_user = client.user.update(user_request)
     ```
 
 === ":simple-typescript: TypeScript"
