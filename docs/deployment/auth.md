@@ -46,7 +46,7 @@ For example, Render.com has a [environment and secrets management feature](https
 
 ### 3. Configure your client SDK to use JWT authentication
 
-You will need to configure your client SDK to use the JWT token you created in Step 1. See the [SDK docs](/sdk) for details.
+You will need to configure your client SDK to use the JWT token you created in Step 1. See the [SDK docs](../sdk/index.md) for details.
 
 !!! Warning "Implement TLS Encryption"
 

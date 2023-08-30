@@ -61,7 +61,7 @@ This will start a Zep server on port `8000`, an NLP server on port 8080, and a P
 !!! Warning "Configure Server Authentication"
 
     If you are deploying Zep to a production environemnt or where Zep APIs are exposed to the public internet, 
-    please ensure that you secure your Zep server by [configuring authentication](/deployment/auth).
+    please ensure that you secure your Zep server by [configuring authentication](auth.md).
     Failing to do so will leave your server open to the public.
 
 &nbsp;
@@ -69,7 +69,7 @@ This will start a Zep server on port `8000`, an NLP server on port 8080, and a P
 4\. Get started with the [Zep SDKs](../sdk/index.md)!
 
 - Install the **[Python](https://github.com/getzep/zep-python)** or **[Javascript](https://github.com/getzep/zep-js)**
-  SDKs by following the [SDK Guide](/sdk/).
+  SDKs by following the [SDK Guide](../sdk/index.md).
 - Looking to develop with LangChain or LlamaIndex? Check out Zep's [LangChain](../sdk/langchain.md) and [LlamaIndex](../sdk/llamaindex.md) support.
 
 ### Next Steps

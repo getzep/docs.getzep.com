@@ -1,43 +1,36 @@
 # Long-term Memory Persistence, Enrichment, and Search for Langchain Apps
 
-Langchain Python and LangchainJS ship with `ZepMemory` and `ZepRetriever` classes. There are also `ZepVectorStore` classes available for both Python and Javascript.
+Langchain Python and LangchainJS ship with `ZepMemory` and `ZepRetriever` classes. There are also `ZepVectorStore` classes available for both Python and typescript.
 
 ### Managing Chat History Memory
+
 Zep's `ZepMemory` class can be used to provide long-term memory for your Langchain chat apps or agents. Zep will store the entire historical message stream, automatically summarize messages, enrich them with token counts, timestamps, metadata and more.
 
 You can also provide your bot or agent with access to relevant messages in long-term storage by using Zep's built-in vector search.
 
 ### Building Retrieval Augmented Generation Apps (Q&A over Docs)
 
-Zep's `ZepVectorStore` class can be used to store a collection of documents, metadata, and related embeddings. Retrieval Augmented Generation (RAG) apps can then use Zep's vector search to surface documents relevant to a prompt. 
+Zep's `ZepVectorStore` class can be used to store a collection of documents, metadata, and related embeddings. Retrieval Augmented Generation (RAG) apps can then use Zep's vector search to surface documents relevant to a prompt.
 
 Zep will automatically embed the documents using low-latency local models, ensuring that your app is fast and responsive.
 
-
 !!! note "Installing Zep"
 
-    A Zep server install is required. You will also need to have the Zep Python SDK or Zep Javascript SDK installed in order to use the Langchain `ZepMemory` and `ZepRetriever` classes.
+    A Zep server install is required. You will also need to have the Zep Python SDK or Zep typescript SDK installed in order to use the Langchain `ZepMemory` and `ZepRetriever` classes.
 
     See the [Zep Quick Start Guide](../deployment/quickstart.md) for details.
 
-    [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](/deployment/render)
-
+    [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](../deployment/render.md)
 
 ## Using Zep as a VectorStore and Document Retriever
 
-:octicons-tag-24: **v0.9.0**
-
-See the examples in the inline [Document Vector Store documentation](/sdk/documents) and the [LangChain.js documentation](https://js.langchain.com/docs/modules/data_connection/vectorstores/integrations/zep). 
-
-
+See the examples in the inline [Document Vector Store documentation](documents.md) and the [LangChain.js documentation](https://js.langchain.com/docs/modules/data_connection/vectorstores/integrations/zep).
 
 ## Using Zep as a LangChain Memory Store
 
-:octicons-tag-24: **v0.8.1**  &nbsp; :octicons-tag-24: **v0.9.0**
+=== ":fontawesome-brands-python: Python"
 
-=== "Python"
-
-    Using Zep as your Langchain app's long-term memory simple: initialize the `ZepMemory` with your Zep instance URL, API key, and your user's session identifier (see [Zep Concepts](/about/concepts)).
+    Using Zep as your Langchain app's long-term memory simple: initialize the `ZepMemory` with your Zep instance URL, API key, and your user's [session identifier](chat_history/sessions.md).
 
     ```python title="ZepMemory instantiation"
     from langchain.memory import ZepMemory
@@ -57,10 +50,10 @@ See the examples in the inline [Document Vector Store documentation](/sdk/docume
     )
     ```
 
-=== "Javascript"
+=== ":simple-typescript: TypeScript"
     Using Zep as your Langchain app's long-term memory simple: initialize the ZepMemory with your Zep instance URL and your user's session identifier (see Zep Concepts) and then utilize it as the chat memory for a Langchain Conversation.
 
-    ```javascript title="ZepMemory instantiation"
+    ```typescript title="ZepMemory instantiation"
     import { ChatOpenAI } from "langchain/chat_models/openai";
     import { ConversationChain } from "langchain/chains";
     import { ZepMemory } from "langchain/memory/zep";
@@ -70,7 +63,7 @@ See the examples in the inline [Document Vector Store documentation](/sdk/docume
     const zepApiURL = "http://localhost:8000";
     const zepApiKey = "<your JWT token>"; // optional
     const sessionId = uuid4();  // This is a unique identifier for the user
-            
+
     // Set up Zep Memory
     const memory = new ZepMemory({
         sessionId,
@@ -81,8 +74,9 @@ See the examples in the inline [Document Vector Store documentation](/sdk/docume
 
 Once you've created the `memory`, use it in your chain or with your agent.
 
-=== "Python"
-    ```python  title="Running a chain with ZepMemory"
+=== ":fontawesome-brands-python: Python"
+
+    ```python title="Running a chain with ZepMemory"
 
     llm = ChatOpenAI(model_name="gpt-3.5-turbo")
     chain = ConversationChain(llm=llm, verbose=True, memory=memory)
@@ -91,6 +85,7 @@ Once you've created the `memory`, use it in your chain or with your agent.
     )
     ```
     ```text title="Output:"
+
     > Entering new AgentExecutor chain...
     AI: Parable of the Sower is a powerful exploration of the challenges facing contemporary society, such as environmental disasters, poverty, and violence. It examines how these issues can lead to the breakdown of society and how individuals can take action to create a better future. The novel also explores themes of faith, hope, and resilience in the face of adversity.
 
@@ -104,15 +99,15 @@ Once you've created the `memory`, use it in your chain or with your agent.
     def print_messages(messages):
         for m in messages:
             print(m.type, ":\n", m.dict())
-    
-    
+
+
     print(memory.chat_memory.zep_summary)
     print("\n")
     print_messages(memory.chat_memory.messages)
 
     The human inquires about Octavia Butler. The AI identifies her as an American science fiction author. The human then asks which books of hers were made into movies. The AI responds by mentioning the FX series Kindred, based on her novel of the same name. The human then asks about her contemporaries, and the AI lists Ursula K. Le Guin, Samuel R. Delany, and Joanna Russ.
-    
-    
+
+
     system :
      {'content': 'The human inquires about Octavia Butler. The AI identifies her as an American science fiction author. The human then asks which books of hers were made into movies. The AI responds by mentioning the FX series Kindred, based on her novel of the same name. The human then asks about her contemporaries, and the AI lists Ursula K. Le Guin, Samuel R. Delany, and Joanna Russ.', 'additional_kwargs': {}}
     human :
@@ -124,8 +119,9 @@ Once you've created the `memory`, use it in your chain or with your agent.
     <snip />
     ```
 
-=== "Javascript"
-    ```javascript  title="Running a chain with ZepMemory"
+=== ":simple-typescript: TypeScript"
+
+    ```typescript  title="Running a chain with ZepMemory"
     const chain = new ConversationChain({ llm: model, memory });
     const response = await chain.run(
         {
@@ -133,7 +129,7 @@ Once you've created the `memory`, use it in your chain or with your agent.
         },
     )
     ```
-    ```text title="Output:"
+    ```text title="Output:" 
     > Entering new AgentExecutor chain...
     AI: Parable of the Sower is a powerful exploration of the challenges facing contemporary society, such as environmental disasters, poverty, and violence. It examines how these issues can lead to the breakdown of society and how individuals can take action to create a better future. The novel also explores themes of faith, hope, and resilience in the face of adversity.
 
@@ -143,7 +139,7 @@ Once you've created the `memory`, use it in your chain or with your agent.
 
     Inspecting the `ZepMemory`, we see that a summary was automatically created, and that the history has been enriched with token counts, UUIDs, and timestamps.
 
-    ```javascript  title="Inspecting the Zep Memory"
+    ```typescript  title="Inspecting the Zep Memory"
     const memoryVariables = await zepMemory.loadMemoryVariables({});
     console.log(memoryVariables);
 
@@ -157,6 +153,7 @@ Once you've created the `memory`, use it in your chain or with your agent.
     ...
     {'uuid': '2d95ff94-b52d-49bd-ade4-5e1e553e8cac', 'created_at': '2023-05-10T23:28:02.704311Z', 'role': 'ai', 'content': 'Octavia Estelle Butler (June 22, 1947 – February 24, 2006) was an American science fiction author.', 'token_count': 31}
     ```
+
 ## Search Zep's message history from your Langchain app
 
 Zep supports both vector search using a Langchain `Retriever` as well as via an instance of `ZepMemory`.
@@ -165,7 +162,7 @@ Zep supports both vector search using a Langchain `Retriever` as well as via an 
 
 If you don't need to provide a `Retriever` to your chain or agent, you can search the long-term message history for a session directly from an instance of `ZepMemory`.
 
-=== "Python"
+=== ":fontawesome-brands-python: Python"
     ```python  title="Search for relevant historical messages"
     search_results = memory.chat_memory.search("who are some famous women sci-fi authors?")
     for r in search_results:
@@ -186,7 +183,8 @@ If you don't need to provide a `Retriever` to your chain or agent, you can searc
 
 You wouldn't ordinarily call the `Retriever` directly, but we've done so as a simple illustration as to how Langchain `documents` returned by the `ZepRetriever` are enriched with metadata from the Zep service. In particular, token countx are useful when constructing prompts.
 
-=== "Python"
+=== ":fontawesome-brands-python: Python"
+    
     ```python title="Use the ZepRetriever to search for relevant historical messages"
 
     from langchain.retrievers import ZepRetriever
@@ -207,8 +205,10 @@ You wouldn't ordinarily call the `Retriever` directly, but we've done so as a si
     Document(page_content="Octavia Butler's contemporaries included Ursula K. Le Guin, Samuel R. Delany, and Joanna Russ.", metadata={'source': 'aff1b45d-1e14-427d-a5a2-2b5a9dade294', 'score': 0.760286350496536, 'role': 'ai', 'token_count': 17, 'created_at': '2023-05-11T16:29:35.052896Z'}),
     Document(page_content='You might want to read Ursula K. Le Guin or Joanna Russ.', metadata={'source': '0dd8cde5-860e-4d8b-975f-50f55028177d', 'score': 0.7595191167162665, 'role': 'ai', 'token_count': 15, 'created_at': '2023-05-11T16:29:35.080817Z'})]
     ```
-=== "Javascript"
-    ```javascript title="Use the ZepRetriever to search for relevant historical messages"
+
+=== ":simple-typescript: TypeScript"
+
+    ```typescript title="Use the ZepRetriever to search for relevant historical messages"
 
     import { ZepRetriever } from "langchain/retrievers/zep";
 
@@ -220,7 +220,7 @@ You wouldn't ordinarily call the `Retriever` directly, but we've done so as a si
         const docs = await retriever.getRelevantDocuments(query);
 
         console.log(docs);
-    };        
+    };
     ```
 
     ```text title="Output:"
@@ -230,3 +230,4 @@ You wouldn't ordinarily call the `Retriever` directly, but we've done so as a si
     Document(page_content="Octavia Butler's contemporaries included Ursula K. Le Guin, Samuel R. Delany, and Joanna Russ.", metadata={'source': 'aff1b45d-1e14-427d-a5a2-2b5a9dade294', 'score': 0.760286350496536, 'role': 'ai', 'token_count': 17, 'created_at': '2023-05-11T16:29:35.052896Z'}),
     Document(page_content='You might want to read Ursula K. Le Guin or Joanna Russ.', metadata={'source': '0dd8cde5-860e-4d8b-975f-50f55028177d', 'score': 0.7595191167162665, 'role': 'ai', 'token_count': 15, 'created_at': '2023-05-11T16:29:35.080817Z'})]
     ```
+````

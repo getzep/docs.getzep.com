@@ -5,7 +5,7 @@
 </p>
 
 <h1 align="center">
-A long-term memory store for LLM applications
+Batteries Included Memory for LLM apps
 </h1>
 
 <p align="center">
@@ -25,30 +25,83 @@ A long-term memory store for LLM applications
 <a href="https://www.getzep.com">www.getzep.com</a>
 </p>
 
-<h2>Easily add relevant documents, chat history memory & rich user data to your LLM app's prompts.</h2>
 
-### Vector Database with Hybrid Search
-Populate your prompts with relevant documents and chat history. Rich metadata and JSONPath query filters offer a powerful hybrid search over texts.
+## Easily add relevant data to your LLM app's prompts.
 
-### Batteries Included Embedding & Enrichment
-- Automatically embed texts, or bring your own vectors. 
-- [Enrichment of chat histories](/sdk/extractors) with summaries, named entities, token counts. Use these as search filters. 
-- Associate your own metadata with documents & chat histories.
-- Support for OpenAI, Anthropic, and local LLMs
+Zep is built for LLM apps from the ground up. Adding relevant documents, chat history memory & rich user data to your prompts is simple. 
 
-### Fast, low-latency APIs and stateless deployments
-- Zep’s local embedding models and async enrichment ensure a snappy user experience. 
-- Storing documents and history in Zep and not in memory enables stateless deployment.
 
-## Getting Started
+> Unlike other vector databases, `Users`, `Sessions`, `Memories`, and `Documents` are all first-class citizens in Zep.
 
-### Docker Compose Deployment
 
-Follow the [Quick Start Guide](./deployment/quickstart.md) to deploy Zep with Docker Compose.
 
-### Prefer deploying to the cloud?
+<div class="grid cards" markdown>
 
-<p style="display: flex; align-items: center;">
+-   :material-clock-fast:{ .lg .middle } __Set up in 5 minutes__
+
+    ---
+
+    Install via `docker compose` or Render and get up
+    and running in minutes
+
+    [:octicons-arrow-right-24: Quick Start](deployment/quickstart.md)
+
+-   :material-magnify:{ .lg .middle } __Hybrid Vector Database__
+
+    ---
+
+    Populate your prompts with relevant documents and chat history
+
+    [:octicons-arrow-right-24: Vector Store](sdk/documents.md)
+
+-   :material-chat-outline:{ .lg .middle } __Persist Chat History__
+
+    ---
+
+    Store chat history, enrich it with metadata, and run semantic search over it
+
+    [:octicons-arrow-right-24: Chat History](sdk/chat_history/index.md)
+
+-   :octicons-rocket-16:{ .lg .middle } __Enrich it all__
+
+    ---
+
+    Embeddings, summaries, named entities, token counts, and more
+
+    [:octicons-arrow-right-24: Extractors](sdk/extractors.md)
+
+-   :black_heart:{ .lg .middle } __Use the tools you love__
+
+    ---
+
+    Python :fontawesome-brands-python:, TypeScript :simple-typescript:, LangChain 🦜⛓️, LlamaIndex 🦙, and more
+
+    [:octicons-arrow-right-24: SDKs](sdk/index.md)
+
+-   :material-scale-balance:{ .lg .middle } __Open Source__
+
+    ---
+
+    Zep is licensed under MIT and available on [GitHub](https://github.com/getzep/zep)
+
+    [:octicons-arrow-right-24: License](https://github.com/getzep/zep/blob/main/LICENSE)
+
+</div>
+
+----
+
+## What you can build with Zep
+
+1. **Chatbot Applications**: Zep's chat history storage enables context-aware chatbot applications.
+3. **Retrieval Augmented Generation (RAG) Applications**: Zep's vector store aids in building applications that answer questions based on a document set.
+2. **Agent Applications**: Zep's document vector store and enriched chat history store can be used as tools by agents, able to look up relevant information and past conversations.
+4. **Data Enrichment Applications**: Zep's extractors can be used for applications that need to analyze and understand the text data from human/bot conversations.
+
+----
+
+## Quick Start
+
+<p style="display: flex; align-items: center; margin-bottom: 80px">
     <a class="md-button" href="https://www.getzep.com/#join-waitlist" style="margin-right: 20px; padding: inherit 15px; border-radius: 7px;">
         Join the Zep Cloud Waitlist &nbsp;
         <span class="twemoji">
@@ -63,53 +116,3 @@ Follow the [Quick Start Guide](./deployment/quickstart.md) to deploy Zep with Do
         <img alt="Deploy to Render" src="https://render.com/images/deploy-to-render-button.svg">
     </a>
 </p>
-
-## Developing with Zep
-<table>
-<tr>
-<td>
-
-<h4>Document Vector Store</h4>
-
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.75 6.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z"></path><path d="M2.5 1h8.44a1.5 1.5 0 0 1 1.06.44l10.25 10.25a1.5 1.5 0 0 1 0 2.12l-8.44 8.44a1.5 1.5 0 0 1-2.12 0L1.44 12A1.497 1.497 0 0 1 1 10.94V2.5A1.5 1.5 0 0 1 2.5 1Zm0 1.5v8.44l10.25 10.25 8.44-8.44L10.94 2.5Z"></path></svg></span> <strong>1.9.0</strong></p>
-
-<p>With Zep's document vector store, you can build collections of documents useful for grounding your prompts. </p>
-<p>Run semantic search over a collection using either Zep's own SDKs, or with Langchain.</p>
-
-<a href="/sdk/documents" class="md-button md-button--primary">
-    Document API
-</a>
-
-</td>
-<td>
-
-
-<h4>Chat History Store</h4>
-
-<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.75 6.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z"></path><path d="M2.5 1h8.44a1.5 1.5 0 0 1 1.06.44l10.25 10.25a1.5 1.5 0 0 1 0 2.12l-8.44 8.44a1.5 1.5 0 0 1-2.12 0L1.44 12A1.497 1.497 0 0 1 1 10.94V2.5A1.5 1.5 0 0 1 2.5 1Zm0 1.5v8.44l10.25 10.25 8.44-8.44L10.94 2.5Z"></path></svg></span> <strong>1.8.1</strong>
-&nbsp;
-<span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.75 6.5a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5Z"></path><path d="M2.5 1h8.44a1.5 1.5 0 0 1 1.06.44l10.25 10.25a1.5 1.5 0 0 1 0 2.12l-8.44 8.44a1.5 1.5 0 0 1-2.12 0L1.44 12A1.497 1.497 0 0 1 1 10.94V2.5A1.5 1.5 0 0 1 2.5 1Zm0 1.5v8.44l10.25 10.25 8.44-8.44L10.94 2.5Z"></path></svg></span> <strong>1.9.0</strong></p>
-
-<p>
-    <p> With Zep's chat history store, you can capture your app's chat history, enrich it with metadata, and run semantic search over it.</p>
-<p> Ground your prompts with context from prior conversations, both recent and distant past. Use Zep's own SDKs, or with Langchain.
-</p>
-
-<a href="/sdk/chat_history" class="md-button md-button--primary">
-    Chat History API
-</a>
-
-
-</td>
-</tr>
-</table>
-
-
-
-
-
-## Next Steps
-
-- [Quick Start](deployment/quickstart.md): Run a Zep server locally and a primer on the Python or Javascript SDKs.
-- Using Zep's [Python and Javascript SDKs](/sdk)
-- Developing with [Langchain and Zep](/sdk/langchain)
