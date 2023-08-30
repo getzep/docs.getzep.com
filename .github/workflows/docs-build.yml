@@ -23,5 +23,5 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: pip install git+https://${{ secrets.secrets.GH_TOKEN }}@github.com/squidfunk/mkdocs-material-insiders.git
+      - run: pip install git+https://anything:${{ secrets.GH_TOKEN }}@github.com/squidfunk/mkdocs-material-insiders.git
       - run: mkdocs gh-deploy --force 
