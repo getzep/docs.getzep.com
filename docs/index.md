@@ -82,7 +82,7 @@ Zep is built for LLM apps from the ground up. Adding relevant documents, chat hi
 
     ---
 
-    Zep is licensed under MIT and available on [GitHub](https://github.com/getzep/zep)
+    Zep is licensed under the Apache Software License and available on [GitHub](https://github.com/getzep/zep)
 
     [:octicons-arrow-right-24: License](https://github.com/getzep/zep/blob/main/LICENSE)
 
