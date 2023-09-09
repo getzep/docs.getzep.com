@@ -43,7 +43,7 @@ You can add a new user by providing the user details.
         user_id: "user123",
         metadata: { foo: "bar" },
     };
-    const newUser = await userManager.add(user);
+    const newUser = await client.user.add(user);
     ```
 
 > Learn how to associate [`Sessions` with Users](sessions.md)
@@ -61,7 +61,7 @@ You can retrieve a user by their ID.
 === ":simple-typescript: TypeScript"
 
     ```typescript
-    const user = await userManager.get("user123");
+    const user = await client.user.get("user123");
     ```
 
 ## Updating a User
@@ -88,7 +88,7 @@ You can update a user's details by providing the updated user details.
         user_id: "user123",
         metadata: { foo: "baz" },
     };
-    const updatedUser = await userManager.update(user);
+    const updatedUser = await client.user.update(user);
     ```
 
 ## Deleting a User
@@ -104,7 +104,7 @@ You can delete a user by their ID.
 === ":simple-typescript: TypeScript"
 
     ```typescript
-    await userManager.delete("user123");
+    await client.user.delete("user123");
     ```
 
 
@@ -124,7 +124,7 @@ You can retrieve all `Sessions` for a user by their ID.
 
     ```typescript
     // Get all sessions for user123
-    const sessions = await userManager.getSessions("user123");
+    const sessions = await client.user.getSessions("user123");
     ```
 
 ## Listing Users
@@ -142,7 +142,7 @@ You can list all users, with optional limit and cursor parameters for pagination
 
     ```typescript
     // List the first 10 users
-    const users = await userManager.list(10, 0);
+    const users = await client.user.list(10, 0);
     ```
 
 ## Listing Users in Chunks
@@ -159,7 +159,7 @@ You can retrieve users in chunks of a specified size. This is a generator functi
 === ":simple-typescript: TypeScript"
 
     ```typescript
-    for await (const users of userManager.listChunked(100)) {
+    for await (const users of client.user.listChunked(100)) {
         process(users);
     }
     ```
