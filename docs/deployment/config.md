@@ -42,11 +42,14 @@ Note the defaults below for the embedding models and review the [Selecting Embed
 | extractors.messages.embeddings.service     | ZEP_EXTRACTORS_MESSAGES_EMBEDDINGS_SERVICE     | local                                                        |
 | store.type                                 | ZEP_STORE_TYPE                                 | postgres                                                     |
 | store.postgres.dsn                         | ZEP_STORE_POSTGRES_DSN                         | postgres://postgres:postgres@localhost:5432/?sslmode=disable |
+| server.host                                | ZEP_SERVER_HOST                                | 0.0.0.0
 | server.port                                | ZEP_SERVER_PORT                                | 8000                                                         |
+| server.web_enabled                                | ZEP_SERVER_WEB_ENABLED                                | true                                                         |
 | auth.required                              | ZEP_AUTH_REQUIRED                              | false                                                        |
 | auth.secret                                | ZEP_AUTH_SECRET                                | do-not-use-this-secret-in-production                         |
 | data.purge_every                           | ZEP_DATA_PURGE_EVERY                           | 60                                                           |
 | log.level                                  | ZEP_LOG_LEVEL                                  | info                                                         |
+| development                                  | ZEP_DEVELOPMENT                                  | false                                                         |
 
 ### Valid LLM Models
 

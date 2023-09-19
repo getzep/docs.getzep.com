@@ -56,7 +56,7 @@ ZEP_OPENAI_API_KEY=<your key here>
 docker-compose up
 ```
 
-This will start a Zep server on port `8000`, an NLP server on port 8080, and a Postgres database on port `5432`.
+This will start a Zep server on port `8000`, and NLP and database server backends.
 
 !!! Warning "Configure Server Authentication"
 
@@ -71,6 +71,13 @@ This will start a Zep server on port `8000`, an NLP server on port 8080, and a P
 - Install the **[Python](https://github.com/getzep/zep-python)** or **[Javascript](https://github.com/getzep/zep-js)**
   SDKs by following the [SDK Guide](../sdk/index.md).
 - Looking to develop with LangChain or LlamaIndex? Check out Zep's [LangChain](../sdk/langchain.md) and [LlamaIndex](../sdk/llamaindex.md) support.
+
+5\. Access the **Zep Web UI** at [http://localhost:8000](http://localhost:8000) (assuming you are running Zep locally)
+
+<figure markdown style="border: 1px solid lightgrey; transition: box-shadow 125ms; border-radius: 0.2rem; ">
+![Zep Web UI](../images/zep-web-ui.png "Zep Web UI"){ loading=lazy }
+  <figcaption>Zep Web UI</figcaption>
+</figure>
 
 ### Next Steps
 

@@ -5,6 +5,11 @@
     Ensure that you secure your Zep server by [configuring authentication](auth.md) after deploying.
     Failing to do so will leave your server open to the public.
 
+!!! question "Web UI disabled for Render deploys"
+
+    For security reasons, Zep deployments to Render default to disabling the web UI. The Zep web UI is not secured by 
+    JWT authentication and should only [be enabled](config.md) if you deploy Zep as a [private service](https://render.com/docs/private-services).
+
 #### 1. Click on the button below to deploy to Render using the Zep blueprint
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/getzep/zep){:target="\_blank"}

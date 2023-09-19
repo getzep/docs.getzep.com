@@ -1,6 +1,6 @@
-site_name: Zep - A long-term memory store for LLM applications
+site_name: Zep - Fast, scalable building blocks for LLM apps
 site_url: https://docs.getzep.com
-site_description: Zep stores, summarizes, embeds, indexes, and enriches LLM app / AI chatbot histories.
+site_description: Fast, scalable building blocks for chat history memory, vector search, data enrichment, and more..
 copyright: Copyright &copy; 2023 - Zep Software, Inc.
 repo_url: https://github.com/getzep/zep
 edit_uri: https://github.com/getzep/docs.getzep.com/blob/main/docs/
@@ -110,5 +110,6 @@ markdown_extensions:
 
 plugins:
   - typeset
+  - optimize
   - git-revision-date-localized:
       enable_creation_date: true

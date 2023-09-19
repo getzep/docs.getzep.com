@@ -1,14 +1,15 @@
-<p align="center">
+<p style="text-align:center;">
   <a href="https://squidfunk.github.io/mkdocs-material/">
     <img src="https://github.com/getzep/zep/blob/main/assets/zep-bot-square-200x200.png?raw=true" width="150" alt="Zep Logo">
   </a>
 </p>
 
-<h1 align="center">
-Batteries Included Memory for LLM apps
+<h1 style="text-align:center;">
+Fast, scalable building blocks for LLM Apps
 </h1>
+<h2 style="text-align:center;">Production-grade chat history memory, vector search, data enrichment, and more.</h2>
 
-<p align="center">
+<p style="text-align:center; margin-top: 20px;">
   <a href="https://discord.gg/W8Kw6bsgXQ"><img
     src="https://dcbadge.vercel.app/api/server/W8Kw6bsgXQ?style=flat"
     alt="Chat on Discord"
@@ -17,7 +18,7 @@ Batteries Included Memory for LLM apps
   <a href="https://www.npmjs.com/package/@getzep/zep-js"><img alt="@getzep/zep-js" src="https://img.shields.io/npm/dw/%40getzep/zep-js?label=npm%20downloads"></a>
 </p>
 
-<p align="center">
+<p style="text-align:center;">
 <a href="/deployment/quickstart/">Quick Start Guide</a> &nbsp; | &nbsp; 
 <a href="/sdk/langchain/">Zep X LangChain 🦜⛓</a> &nbsp; | &nbsp; 
 <a href="/sdk/llamaindex/">Zep X LlamaIndex 🦙</a> &nbsp; | &nbsp;
@@ -25,17 +26,16 @@ Batteries Included Memory for LLM apps
 <a href="https://www.getzep.com">www.getzep.com</a>
 </p>
 
+## What is Zep?
+Zep is an open source platform for productionizing LLM apps. Go from a prototype built in LangChain or LlamaIndex, or a custom app, to production in minutes without rewriting code.
 
-## Easily add relevant data to your LLM app's prompts.
+> Unlike vector databases, `Users`, `Sessions`, `Memories`, and `Documents` are all first-class citizens in Zep.
 
-Zep is built for LLM apps from the ground up. Adding relevant documents, chat history memory & rich user data to your prompts is simple. 
-
-
-> Unlike other vector databases, `Users`, `Sessions`, `Memories`, and `Documents` are all first-class citizens in Zep.
-
+<div style="padding:56.25% 0 0 0;position:relative; margin: 40px 0;"><iframe src="https://player.vimeo.com/video/865785086?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Zep Demo"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
 
-<div class="grid cards" markdown>
+
+<div class="grid cards" style="margin-top: 40px;" markdown>
 
 -   :material-clock-fast:{ .lg .middle } __Set up in 5 minutes__
 
