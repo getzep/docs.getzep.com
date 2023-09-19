@@ -117,7 +117,7 @@ You can retrieve all `Sessions` for a user by their ID.
 
     ```python
     # Get all sessions for user123
-    sessions = client.user.getSessions("user123")
+    sessions = client.user.get_sessions("user123")
     ```
 
 === ":simple-typescript: TypeScript"
@@ -152,7 +152,7 @@ You can retrieve users in chunks of a specified size. This is a generator functi
 === ":fontawesome-brands-python: Python"
 
     ```python
-    for users in client.user.listChunked(chunkSize=100):
+    for users in client.user.list_chunked(chunkSize=100):
         process(users)
     ```
 
