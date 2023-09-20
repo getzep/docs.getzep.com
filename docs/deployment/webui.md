@@ -29,6 +29,23 @@ The Web UI is **enabled** by default for local installs.
 
 To disable it, set the `ZEP_SERVER_WEB_ENABLED` environment variable to `false` or [modify your `config.yaml` file](config.md).
 
+### Upgrading from Zep v0.11.0 or earlier
+
+The Zep Web UI is only available in Zep v0.12.0 or later. If you're upgrading from a prior version, you will need to modify your `config.yaml` file to enable the Web UI.
+
+Add the highlighted `web_enabled` line to your `config.yaml` file:
+
+```yaml hl_lines="8"
+server:
+  # Specify the host to listen on. Defaults to 0.0.0.0
+  host: 0.0.0.0
+  port: 8000
+  # Is the Web UI enabled?
+  # Warning: The Web UI is not secured by authentication and should not be enabled if
+  # Zep is exposed to the public internet.
+  web_enabled: true
+```
+
 ## Accessing the Web UI
 
 Point your browser to:
