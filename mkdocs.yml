@@ -97,6 +97,8 @@ markdown_extensions:
   - abbr
   - def_list
   - tables
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
   - pymdownx.keys
   - pymdownx.highlight:
       anchor_linenums: true
