@@ -21,14 +21,11 @@ Prefer deploying to the cloud?
 
 ### Starting a Zep server locally is simple.
 
-!!! note "Docker on Macs: Embedding is slow!"
+!!! info "Docker install is developer-focused"
 
-    **For docker compose deployment we default to using OpenAI's embedding service.**
-    
-    Zep relies on PyTorch for embedding inference. On MacOS, Zep's NLP server runs in a Linux ARM64 container. PyTorch is not optimized to run on Linux ARM64 and does not have access to MacBook M-series acceleration hardware.
-    
-    
-    Want to use local embeddings? See [Selecting Embedding Models](embeddings.md).
+    Zep's docker-compose install is intended for development and testing. Persistent volumes are not mounted, and the database is ephemeral.
+
+    See the [docker documentation on Volumes](https://github.com/getzep/zep/blob/main/docker-compose.yaml) to ensure that your data persists across restarts.
 
 1\. Clone the [Zep repo](https://github.com/getzep/zep)
 
@@ -71,6 +68,15 @@ This will start a Zep server on port `8000`, and NLP and database server backend
 - Install the **[Python](https://github.com/getzep/zep-python)** or **[Javascript](https://github.com/getzep/zep-js)**
   SDKs by following the [SDK Guide](../sdk/index.md).
 - Looking to develop with LangChain or LlamaIndex? Check out Zep's [LangChain](../sdk/langchain.md) and [LlamaIndex](../sdk/llamaindex.md) support.
+
+!!! note "Docker on Macs: Embedding is slow!"
+
+    **For docker compose deployment we default to using OpenAI's embedding service.**
+    
+    Zep relies on PyTorch for embedding inference. On MacOS, Zep's NLP server runs in a Linux ARM64 container. PyTorch is not optimized to run on Linux ARM64 and does not have access to MacBook M-series acceleration hardware.
+    
+    
+    Want to use local embeddings? See [Selecting Embedding Models](embeddings.md).
 
 5\. Access the **Zep Web UI** at [http://localhost:8000/admin](http://localhost:8000/admin) (assuming you are running Zep locally)
 

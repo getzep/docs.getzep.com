@@ -41,7 +41,7 @@ Zep offers both [Python](https://github.com/getzep/zep-python) and [TypeScript](
 === ":simple-typescript: TypeScript"
 
     ```javascript
-    import { ZepClient } from "zep-js";
+    import { ZepClient } from "@getzep/zep-js";
 
     // Replace with Zep API URL and (optionally) API key
     const zep = ZepClient.init("http://localhost:8000", "optional_api_key");

@@ -49,7 +49,7 @@ Retrieve your Zep server URL from the Render web console.
 === "TypeScript/JS"
 
     ```javascript
-    import { ZepClient } from "zep-js";
+    import { ZepClient } from "@getzep/zep-js";
 
     const zep = new ZepClient.init("https://zepXXXXX.onrender.com", apiKey); // Replace with Zep API URL
     ```
