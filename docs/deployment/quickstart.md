@@ -21,12 +21,6 @@ Prefer deploying to the cloud?
 
 ### Starting a Zep server locally is simple.
 
-!!! info "Docker install is developer-focused"
-
-    Zep's docker-compose install is intended for development and testing. Persistent volumes are not mounted, and the database is ephemeral.
-
-    See the [docker documentation on Volumes](https://github.com/getzep/zep/blob/main/docker-compose.yaml) to ensure that your data persists across restarts.
-
 1\. Clone the [Zep repo](https://github.com/getzep/zep)
 
 ```bash
