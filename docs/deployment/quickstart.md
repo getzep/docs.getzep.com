@@ -44,7 +44,8 @@ ZEP_OPENAI_API_KEY=<your key here>
 3\. Start the Zep server:
 
 ```bash
-docker-compose up
+docker compose pull
+docker compose up
 ```
 
 This will start a Zep server on port `8000`, and NLP and database server backends.
