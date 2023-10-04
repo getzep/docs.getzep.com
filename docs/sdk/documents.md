@@ -28,6 +28,12 @@ Zep supports both _automatic_ and _manual_ embedding. When you add a document to
 
 > Want to learn more about embeddings? See *[Selecting Embedding Models](../deployment/embeddings.md)*
 
+### Indexes
+
+Where available, Zep will use a `pgvector v0.5`'s `HNSW` index for vector search over collections. Zep uses cosine distance for the distance function, which supports both normalized and unnormalized vectors.
+
+If you are using a version of `pgvector` prior to `v0.5`, Zep will fall back to using an exact nearest neighbor search over a collection until an `IVFFLAT` index is created. See [Indexing a Collection](#indexing-a-collection) below.
+
 ## Initializing the Zep Client
 
 Please see the [SDK documentation](index.md) for more information on initializing the Zep client.
@@ -429,6 +435,15 @@ Zep supports retrieving a list of documents by Zep UUID:
     ```
 
 ## Indexing a Collection
+
+
+!!! note "Collections with HNSW Indexes"
+
+    Zep supports approximate nearest neighbor search over collections using `pgvector v0.5`'s `HNSW` index. 
+    
+    If you are using a version of `pgvector` prior to `v0.5`, Zep will fall back to using an exact nearest neighbor search over a collection until an `IVFFLAT` index is created.
+
+    If you you are using `pgvector v0.5` or later, you do not need to manually create an index. The `index` method is a no-op in this case.
 
 By default, Zep performs exact _nearest neighbor search_ over a collection. Once a collection has a representative set of documents,
 you can create an index to improve search performance. After an index is created, Zep will perform an _approximate nearest neighbor search_ over the collection.

@@ -206,6 +206,21 @@ In addition to vector similarity search for Messages in the long-term memory sto
 
 ### Search Ranking and Limits
 
+#### Vector Indexes
+Where available, Zep will use a `pgvector v0.5`'s HNSW index for vector search over messages. Zep uses cosine distance for the distance function.
+
+If you are using a version of `pgvector` prior to `v0.5`, Zep will fall back to using an exact nearest neighbor search. 
+
+It is possible to manually create an `IVFFLAT` index on the `message_embedding` table's `embedding` column to improve search performance.
+
+```sql
+CREATE INDEX ON message_embedding USING ivfflat (embedding vector_cosine_ops) WITH (lists = 100);
+```
+
+Please see the [pgevector documentation](https://github.com/pgvector/pgvector#ivfflat) for information on selecting the size of the `lists` parameter.
+
+#### Limitations
+
 Zep returns all messages from a search, up to a default limit. This limit which can overridden by passing a `limit` querystring argument to the search API. Given the sparsity issue discussed below, we suggest only using the top 2-3 messages in your prompts. Alternatively, analyze your search results and use a distance threshold to filter out irrelevant messages.
 
 !!! note "Embedding short texts"
@@ -214,17 +229,23 @@ Zep returns all messages from a search, up to a default limit. This limit which 
 
     This vector sparsity results in many vectors appearing close to each other in the vectorspace. This may in turn result in many false positives when searching for relevant messages.
 
-    We're thinking of strategies to address this problem, including hybrid search and enriching messages with metadata.
 
-### Default Embedding Models
+### Embedding Models
+
 
 #### Docker Container Deployments
 
-By default, Zep uses OpenAI's 1536-wide AdaV2 embeddings and cosine similarity for search ranking.
+By default, Zep uses OpenAI's 1536-wide AdaV2 embeddings for docker deployments.
 
 #### All other deployments
 
-By default, Zep uses a built-in Sentence Transformers model, `all-MiniLM-L6-v2`, for message embedding. The model offers a very low latency
-search experience when deployed on suitable infrastructure. Cosine similarity is used for search ranking.
+By default, Zep uses a built-in Sentence Transformers model, `all-MiniLM-L6-v2`, for message embedding. The `all-MiniLM-L6-v2` model offers a very low latency search experience when deployed on suitable infrastructure.
+
+
+!!! note "`all-MiniLM-L6-v2` Model Limitations"
+
+    The `all-MiniLM-L6-v2` model has a 256 word piece limit. If your messages are likely to be larger, it is recommended you select an alternative model. 
+
+#### Selecting alternative models
 
 Other embedding models and services, such as OpenAI, may be configured. See the [Zep NLP Service](../../deployment/config.md) configuration.

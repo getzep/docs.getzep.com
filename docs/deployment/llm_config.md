@@ -40,7 +40,9 @@ To configure Zep to use the Anthropic LLM service:
 
 !!! warning "Zep's prompts are not optimized for all LLMs"
   
-    Your mileage may vary on how well Zep's summarization and entity extraction prompts work with LLMs other than those explicitly supported.
+    Your mileage may vary on how well Zep's default summarization and entity extraction prompts work with LLMs other than those explicitly supported. 
+
+    Zep can can be configured with custom prompts for summarization. See [Custom Prompts](prompts.md) for more information.
 
 
 The OpenAI API Endpoint URL can be customized to allow Zep to connect to alternative OpenAI-compatible APIs.
