@@ -26,8 +26,8 @@ Zep offers both [Python](https://github.com/getzep/zep-python) and [TypeScript](
 
 !!! note "Zep supports optional JWT authentication."
 
-        The examples below assume that you have enabled JWT authentication.
-        See the [Authentication Configuration Guide](../deployment/auth.md) for more information.
+    The examples below assume that you have enabled JWT authentication.
+    See the [Authentication Configuration Guide](../deployment/auth.md) for more information.
 
 === ":fontawesome-brands-python: Python"
 
@@ -49,9 +49,9 @@ Zep offers both [Python](https://github.com/getzep/zep-python) and [TypeScript](
 
 !!! info "`zep-python` supports async use"
 
-        `zep-python` supports async use. All methods are available as both sync and async, with the async methods
-        prefixed with `a`. For example, `zep-python` has both `zep_client.memory.add_memory` 
-        and `zep_client.memory.aadd_memory` methods.
+    `zep-python` supports async use. All methods are available as both sync and async, with the async methods
+    prefixed with `a`. For example, `zep-python` has both `zep_client.memory.add_memory` 
+    and `zep_client.memory.aadd_memory` methods.
 
 
 ## Next Steps
