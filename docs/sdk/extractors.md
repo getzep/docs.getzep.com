@@ -1,6 +1,6 @@
 # Message Extractors
 
-Zep Extractors extract information from messages. Currently, Zep has three extractors, with more planned:
+Zep Extractors extract information from messages. Currently, Zep has several extractors, with more planned:
 
 - A progressive summarizer
 - An embedding vectorizer
