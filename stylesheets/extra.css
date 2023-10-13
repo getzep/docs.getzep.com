@@ -1,0 +1,19 @@
+article p {
+  margin: 1em 0;
+}
+
+.language-text {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.language-text pre {
+  white-space: pre-wrap;
+  word-break: break-all;
+  overflow-x: hidden;
+}
+code {
+  white-space: pre-wrap;
+  font-size: small;
+}
