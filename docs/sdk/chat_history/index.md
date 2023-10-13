@@ -1,6 +1,6 @@
 # Chat History Memory API
 
-[Example Code](../examples.md) &nbsp; | &nbsp; [Python API](https://getzep.github.io/zep-python/zep_client/) &nbsp; | &nbsp; [TypeScript/JS API](https://getzep.github.io/zep-js/)
+[Example Code](../examples.md) &nbsp; | &nbsp; [Python API](https://getzep.github.io/zep-python/) &nbsp; | &nbsp; [TypeScript/JS API](https://getzep.github.io/zep-js/)
 
 
 ## Overview

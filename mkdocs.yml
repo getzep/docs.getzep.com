@@ -31,7 +31,7 @@ nav:
       - Examples:
           - sdk/examples.md
       - APIs:
-          - Python SDK API: https://getzep.github.io/zep-python/zep_client/
+          - Python SDK API: https://getzep.github.io/zep-python/
           - JavaScript SDK API: https://getzep.github.io/zep-js/
           - REST API: https://getzep.github.io/zep/
   - Deployment:
