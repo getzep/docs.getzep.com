@@ -13,7 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: sudo apt-get update && sudo apt-get install -y pngquant
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v4
         with:
           python-version: "3.11"
@@ -25,5 +27,5 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: pip install -r docs/requirements.txt
-      - run: pip install git+https://anything:${{ secrets.GH_TOKEN }}@github.com/squidfunk/mkdocs-material-insiders.git@9.3.2-insiders-4.42.0
+      - run: pip install git+https://anything:${{ secrets.GH_TOKEN }}@github.com/squidfunk/mkdocs-material-insiders.git@9.4.5-insiders-4.42.1
       - run: mkdocs gh-deploy --force 
