@@ -246,10 +246,7 @@ If you'd like to create the embedding vectors yourself and provide these to Zep,
 
     documents = SimpleDirectoryReader("documents/").load_data()
     storage_context = StorageContext.from_defaults(vector_store=vector_store)
-    index = VectorStoreIndex.from_documents(
-                                documents,
-                                storage_context=storage_context
-                            )
+    index = VectorStoreIndex.from_documents(documents, storage_context=storage_context)
     ```
 
 ### Chunking your documents
@@ -304,7 +301,7 @@ Either a text query or an embedding vector can be used to search a collection.
 
     Zep's Collection and Memory search support semantic search queries, JSONPath-based metadata filters, and a combination of both. Memory search also supports querying by message creation date.
 
-    Read more about [constructing search queries](../search_query.md).
+    Read more about [constructing search queries](search_query.md).
 
 === ":fontawesome-brands-python: Python"
 
