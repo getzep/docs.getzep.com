@@ -10,29 +10,31 @@
       
       
       
-        <link rel="canonical" href="https://docs.getzep.com/">
+        <link rel="canonical" href="https://docs.getzep.com/sdk/search_query/">
       
       
+        <link rel="prev" href="../chat_history/search/">
       
-        <link rel="next" href="deployment/quickstart/">
+      
+        <link rel="next" href="../extractors/">
       
       
         
       
       
-      <link rel="icon" href="images/favicon.png">
+      <link rel="icon" href="../../images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.5+insiders-4.42.1">
     
     
       
-        <title>Zep - Fast, scalable building blocks for LLM apps</title>
+        <title>Constructing Search Queries - Zep - Fast, scalable building blocks for LLM apps</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.13544b29.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.13544b29.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,9 +53,9 @@
       
     
     
-      <link rel="stylesheet" href="stylesheets/extra.css">
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -88,7 +90,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#what-is-zep" class="md-skip">
+        <a href="#constructing-search-queries" class="md-skip">
           Skip to content
         </a>
       
@@ -128,7 +130,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://www.getzep.com" title="Zep - Fast, scalable building blocks for LLM apps" class="md-header__button md-logo" aria-label="Zep - Fast, scalable building blocks for LLM apps" data-md-component="logo">
       
-  <img src="images/zep-bot-square-50x50.png" alt="logo">
+  <img src="../../images/zep-bot-square-50x50.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -145,7 +147,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Constructing Search Queries
             
           </span>
         </div>
@@ -207,11 +209,9 @@
         
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
         
   
     
@@ -228,7 +228,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="deployment/quickstart/" class="md-tabs__link">
+      <a href="../../deployment/quickstart/" class="md-tabs__link">
         
   
     
@@ -243,11 +243,13 @@
         
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="sdk/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
           
   
     
@@ -267,7 +269,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="deployment/" class="md-tabs__link">
+        <a href="../../deployment/" class="md-tabs__link">
           
   
     
@@ -287,7 +289,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="deployment/config/" class="md-tabs__link">
+        <a href="../../deployment/config/" class="md-tabs__link">
           
   
     
@@ -305,7 +307,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="support/" class="md-tabs__link">
+      <a href="../../support/" class="md-tabs__link">
         
   
     
@@ -347,7 +349,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://www.getzep.com" title="Zep - Fast, scalable building blocks for LLM apps" class="md-nav__button md-logo" aria-label="Zep - Fast, scalable building blocks for LLM apps" data-md-component="logo">
       
-  <img src="images/zep-bot-square-50x50.png" alt="logo">
+  <img src="../../images/zep-bot-square-50x50.png" alt="logo">
 
     </a>
     Zep - Fast, scalable building blocks for LLM apps
@@ -371,33 +373,9 @@
       
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    
-  
-    Home
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -412,63 +390,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what-is-zep" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        <span class="md-typeset">
-          What is Zep?
-        </span>
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-you-can-build-with-zep" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        <span class="md-typeset">
-          What you can build with Zep
-        </span>
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        <span class="md-typeset">
-          Quick Start
-        </span>
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -479,7 +400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="deployment/quickstart/" class="md-nav__link">
+      <a href="../../deployment/quickstart/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -502,6 +423,8 @@
       
   
   
+    
+  
   
     
     
@@ -531,17 +454,17 @@
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="sdk/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -564,7 +487,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -636,7 +559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sdk/documents/" class="md-nav__link">
+      <a href="../documents/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -703,7 +626,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="sdk/chat_history/" class="md-nav__link ">
+            <a href="../chat_history/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -745,7 +668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sdk/chat_history/users/" class="md-nav__link">
+      <a href="../chat_history/users/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -771,7 +694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sdk/chat_history/sessions/" class="md-nav__link">
+      <a href="../chat_history/sessions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -797,7 +720,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sdk/chat_history/memories/" class="md-nav__link">
+      <a href="../chat_history/memories/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -823,7 +746,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sdk/chat_history/search/" class="md-nav__link">
+      <a href="../chat_history/search/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -855,6 +778,8 @@
                 
   
   
+    
+  
   
     
     
@@ -868,12 +793,12 @@
       
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
         
           
           <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="">
@@ -893,7 +818,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -908,9 +833,37 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="sdk/search_query/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    
+  
+    <span class="md-typeset">
+      Constructing Search Queries
+    </span>
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -927,6 +880,123 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Introduction
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simple-text-based-semantic-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Simple, Text-based Semantic Queries
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filtering-using-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Filtering using Metadata
+        </span>
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Filtering using Metadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#useful-resources-for-building-and-testing-jsonpath-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Useful resources for building and testing JSONPath queries
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructing-a-jsonpath-query-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Constructing a JSONPath Query Filter
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#combining-multiple-jsonpath-filters-using-boolean-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Combining multiple JSONPath filters using boolean logic
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#querying-by-message-creation-date" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Querying by Message Creation Date
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -999,7 +1069,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sdk/extractors/" class="md-nav__link">
+      <a href="../extractors/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1090,7 +1160,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sdk/langchain/" class="md-nav__link">
+      <a href="../langchain/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1116,7 +1186,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sdk/llamaindex/" class="md-nav__link">
+      <a href="../llamaindex/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1203,7 +1273,7 @@
   
   
     <li class="md-nav__item">
-      <a href="sdk/examples/" class="md-nav__link">
+      <a href="../examples/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1422,7 +1492,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="deployment/" class="md-nav__link ">
+            <a href="../../deployment/" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -1464,7 +1534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="deployment/quickstart/" class="md-nav__link">
+      <a href="../../deployment/quickstart/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1490,7 +1560,7 @@
   
   
     <li class="md-nav__item">
-      <a href="deployment/webui/" class="md-nav__link">
+      <a href="../../deployment/webui/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1516,7 +1586,7 @@
   
   
     <li class="md-nav__item">
-      <a href="deployment/production/" class="md-nav__link">
+      <a href="../../deployment/production/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1542,7 +1612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="deployment/render/" class="md-nav__link">
+      <a href="../../deployment/render/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1568,7 +1638,7 @@
   
   
     <li class="md-nav__item">
-      <a href="deployment/kubernetes/" class="md-nav__link">
+      <a href="../../deployment/kubernetes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1664,7 +1734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="deployment/config/" class="md-nav__link">
+      <a href="../../deployment/config/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1692,7 +1762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="deployment/embeddings/" class="md-nav__link">
+      <a href="../../deployment/embeddings/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1718,7 +1788,7 @@
   
   
     <li class="md-nav__item">
-      <a href="deployment/auth/" class="md-nav__link">
+      <a href="../../deployment/auth/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1744,7 +1814,7 @@
   
   
     <li class="md-nav__item">
-      <a href="deployment/llm_config/" class="md-nav__link">
+      <a href="../../deployment/llm_config/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1770,7 +1840,7 @@
   
   
     <li class="md-nav__item">
-      <a href="deployment/prompts/" class="md-nav__link">
+      <a href="../../deployment/prompts/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1796,7 +1866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="deployment/data/" class="md-nav__link">
+      <a href="../../deployment/data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1829,7 +1899,7 @@
   
   
     <li class="md-nav__item">
-      <a href="support/" class="md-nav__link">
+      <a href="../../support/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1865,6 +1935,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -1873,11 +1945,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-zep" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
       
         <span class="md-typeset">
-          What is Zep?
+          Introduction
         </span>
       
     </span>
@@ -1886,11 +1958,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-you-can-build-with-zep" class="md-nav__link">
+  <a href="#simple-text-based-semantic-queries" class="md-nav__link">
     <span class="md-ellipsis">
       
         <span class="md-typeset">
-          What you can build with Zep
+          Simple, Text-based Semantic Queries
         </span>
       
     </span>
@@ -1899,11 +1971,69 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
+  <a href="#filtering-using-metadata" class="md-nav__link">
     <span class="md-ellipsis">
       
         <span class="md-typeset">
-          Quick Start
+          Filtering using Metadata
+        </span>
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Filtering using Metadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#useful-resources-for-building-and-testing-jsonpath-queries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Useful resources for building and testing JSONPath queries
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constructing-a-jsonpath-query-filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Constructing a JSONPath Query Filter
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#combining-multiple-jsonpath-filters-using-boolean-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Combining multiple JSONPath filters using boolean logic
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#querying-by-message-creation-date" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Querying by Message Creation Date
         </span>
       
     </span>
@@ -1929,13 +2059,68 @@
   
 
 
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    SDKs and API
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Zep Search
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
               
               <article class="md-content__inner md-typeset">
                 
                   
 
   
-    <a href="https://github.com/getzep/docs.getzep.com/blob/main/docs/index.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/getzep/docs.getzep.com/blob/main/docs/sdk/search_query.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -1943,108 +2128,108 @@
   
 
 
-<p style="text-align:center;">
-  <a href="https://squidfunk.github.io/mkdocs-material/">
-    <img src="https://github.com/getzep/zep/blob/main/assets/zep-bot-square-200x200.png?raw=true" width="150" alt="Zep Logo">
-  </a>
-</p>
-
-<h1 style="text-align:center;">
-Fast, scalable building blocks for LLM Apps
-</h1>
-<h2 style="text-align:center;">Production-grade chat history memory, vector search, data enrichment, and more.</h2>
-
-<p style="text-align:center; margin-top: 20px;">
-  <a href="https://discord.gg/W8Kw6bsgXQ"><img
-    src="https://dcbadge.vercel.app/api/server/W8Kw6bsgXQ?style=flat"
-    alt="Chat on Discord"
-  /></a>
-  <a href="https://pypi.org/project/zep-python"><img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dw/zep-python?label=pypi%20downloads"></a>
-  <a href="https://www.npmjs.com/package/@getzep/zep-js"><img alt="@getzep/zep-js" src="https://img.shields.io/npm/dw/%40getzep/zep-js?label=npm%20downloads"></a>
-</p>
-
-<p style="text-align:center;">
-<a href="/deployment/quickstart/">Quick Start Guide</a> &nbsp; | &nbsp; 
-<a href="/sdk/langchain/">Zep X LangChain 🦜⛓</a> &nbsp; | &nbsp; 
-<a href="/sdk/llamaindex/">Zep X LlamaIndex 🦙</a> &nbsp; | &nbsp;
-<a href="https://discord.gg/W8Kw6bsgXQ">Discord 💬</a><br />
-<a href="https://www.getzep.com">www.getzep.com</a>
-</p>
-
-<h2 id="what-is-zep">What is Zep?</h2>
-<p>Zep is an open source platform for productionizing LLM apps. Go from a prototype built in LangChain or LlamaIndex, or a custom app, to production in minutes without rewriting code.</p>
-<blockquote>
-<p>Unlike vector databases, <code>Users</code>, <code>Sessions</code>, <code>Memories</code>, and <code>Documents</code> are all first-class citizens in Zep.</p>
-</blockquote>
-<div style="padding:56.25% 0 0 0;position:relative; margin: 40px 0;"><iframe src="https://player.vimeo.com/video/865785086?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Zep Demo"></iframe></div>
-<script src="https://player.vimeo.com/api/player.js"></script>
-
-<div class="grid cards" style="margin-top: 40px;">
+<h1 id="constructing-search-queries">Constructing Search Queries</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Zep's Collection and Memory search support semantic search queries, JSONPath-based metadata filters, and a combination of both. Memory search also supports querying by message creation date.</p>
+<h2 id="simple-text-based-semantic-queries">Simple, Text-based Semantic Queries</h2>
+<p>The simplest form of search query is a text-based semantic query. No metadata filter is required, and the query is simply a string of text. Zep will convert the query into an embedding and find semantically similar documents or messages.</p>
+<p>Below is an example search against a chat session using only search text.</p>
+<div class="language-typescript highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">searchPayload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">MemorySearchPayload</span><span class="p">({</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nx">metadata</span><span class="o">:</span><span class="w"> </span><span class="p">{},</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="kt">searchText</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">});</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kd">const</span><span class="w"> </span><span class="nx">searchResults</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">zepClient</span><span class="p">.</span><span class="nx">memory</span><span class="p">.</span><span class="nx">searchMemory</span><span class="p">(</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nx">sessionID</span><span class="p">,</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="nx">searchPayload</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">);</span>
+</span></code></pre></div>
+<p>Read more about <a href="../chat_history/search/">chat message history search</a>.</p>
+<h2 id="filtering-using-metadata">Filtering using Metadata</h2>
+<p>Zep supports filtering search queries by metadata. Metadata filters are <a href="https://www.ietf.org/archive/id/draft-goessner-dispatch-jsonpath-00.html">JSONPath queries</a> augmented by a simple boolean logic overlay.</p>
+<p>JSONPath queries allow for building sophisticated filters that match on elements at any level of the JSON document. The boolean logic overlay allows for combining multiple JSONPath queries using <code>and</code> and <code>or</code> operators.</p>
+<h3 id="useful-resources-for-building-and-testing-jsonpath-queries">Useful resources for building and testing JSONPath queries</h3>
 <ul>
-<li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 4a8 8 0 0 1 8 8 8 8 0 0 1-8 8 8 8 0 0 1-8-8 8 8 0 0 1 8-8m0 2a6 6 0 0 0-6 6 6 6 0 0 0 6 6 6 6 0 0 0 6-6 6 6 0 0 0-6-6m-1 2h1.5v3.78l2.33 2.33-1.06 1.06L14 12.4V8M2 18a1 1 0 0 1-1-1 1 1 0 0 1 1-1h3.83c.31.71.71 1.38 1.17 2H2m1-5a1 1 0 0 1-1-1 1 1 0 0 1 1-1h2.05L5 12l.05 1H3m1-5a1 1 0 0 1-1-1 1 1 0 0 1 1-1h3c-.46.62-.86 1.29-1.17 2H4Z"/></svg></span> <strong>Set up in 5 minutes</strong></p>
-<hr />
-<p>Install via <code>docker compose</code> or Render and get up
-and running in minutes</p>
-<p><a href="deployment/quickstart/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/></svg></span> Quick Start</a></p>
-</li>
-<li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg></span> <strong>Hybrid Vector Database</strong></p>
-<hr />
-<p>Populate your prompts with relevant documents and chat history</p>
-<p><a href="sdk/documents/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/></svg></span> Vector Store</a></p>
-</li>
-<li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3C6.5 3 2 6.58 2 11a7.218 7.218 0 0 0 2.75 5.5c0 .6-.42 2.17-2.75 4.5 2.37-.11 4.64-1 6.47-2.5 1.14.33 2.34.5 3.53.5 5.5 0 10-3.58 10-8s-4.5-8-10-8m0 14c-4.42 0-8-2.69-8-6s3.58-6 8-6 8 2.69 8 6-3.58 6-8 6Z"/></svg></span> <strong>Persist Chat History</strong></p>
-<hr />
-<p>Store chat history, enrich it with metadata, and run semantic search over it</p>
-<p><a href="sdk/chat_history/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/></svg></span> Chat History</a></p>
-</li>
-<li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M14.064 0h.186C15.216 0 16 .784 16 1.75v.186a8.752 8.752 0 0 1-2.564 6.186l-.458.459c-.314.314-.641.616-.979.904v3.207c0 .608-.315 1.172-.833 1.49l-2.774 1.707a.749.749 0 0 1-1.11-.418l-.954-3.102a1.214 1.214 0 0 1-.145-.125L3.754 9.816a1.218 1.218 0 0 1-.124-.145L.528 8.717a.749.749 0 0 1-.418-1.11l1.71-2.774A1.748 1.748 0 0 1 3.31 4h3.204c.288-.338.59-.665.904-.979l.459-.458A8.749 8.749 0 0 1 14.064 0ZM8.938 3.623h-.002l-.458.458c-.76.76-1.437 1.598-2.02 2.5l-1.5 2.317 2.143 2.143 2.317-1.5c.902-.583 1.74-1.26 2.499-2.02l.459-.458a7.25 7.25 0 0 0 2.123-5.127V1.75a.25.25 0 0 0-.25-.25h-.186a7.249 7.249 0 0 0-5.125 2.123ZM3.56 14.56c-.732.732-2.334 1.045-3.005 1.148a.234.234 0 0 1-.201-.064.234.234 0 0 1-.064-.201c.103-.671.416-2.273 1.15-3.003a1.502 1.502 0 1 1 2.12 2.12Zm6.94-3.935c-.088.06-.177.118-.266.175l-2.35 1.521.548 1.783 1.949-1.2a.25.25 0 0 0 .119-.213ZM3.678 8.116 5.2 5.766c.058-.09.117-.178.176-.266H3.309a.25.25 0 0 0-.213.119l-1.2 1.95ZM12 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg></span> <strong>Enrich it all</strong></p>
-<hr />
-<p>Embeddings, summaries, named entities, token counts, and more</p>
-<p><a href="sdk/extractors/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/></svg></span> Extractors</a></p>
-</li>
-<li>
-<p><img alt="🖤" class="twemoji lg middle" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f5a4.svg" title=":black_heart:" /> <strong>Use the tools you love</strong></p>
-<hr />
-<p>Python <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/></svg></span>, TypeScript <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/></svg></span>, LangChain 🦜⛓️, LlamaIndex 🦙, and more</p>
-<p><a href="sdk/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/></svg></span> SDKs</a></p>
-</li>
-<li>
-<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3c-1.27 0-2.4.8-2.82 2H3v2h1.95L2 14c-.47 2 1 3 3.5 3s4.06-1 3.5-3L6.05 7h3.12c.33.85.98 1.5 1.83 1.83V20H2v2h20v-2h-9V8.82c.85-.32 1.5-.97 1.82-1.82h3.13L15 14c-.47 2 1 3 3.5 3s4.06-1 3.5-3l-2.95-7H21V5h-6.17C14.4 3.8 13.27 3 12 3m0 2a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-6.5 5.25L7 14H4l1.5-3.75m13 0L20 14h-3l1.5-3.75Z"/></svg></span> <strong>Open Source</strong></p>
-<hr />
-<p>Zep is licensed under the Apache Software License and available on <a href="https://github.com/getzep/zep">GitHub</a></p>
-<p><a href="https://github.com/getzep/zep/blob/main/LICENSE"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.22 19.03a.75.75 0 0 1 0-1.06L18.19 13H3.75a.75.75 0 0 1 0-1.5h14.44l-4.97-4.97a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"/></svg></span> License</a></p>
-</li>
+<li><a href="https://goessner.net/articles/JsonPath/">JSONPath Syntax</a></li>
+<li><a href="https://jsonpath.com/">JSONPath Online Evaluator</a></li>
+<li><a href="https://jsonpath.curiousconcept.com/#">JSONPath Expression Tester</a>.</li>
 </ul>
-</div>
-<hr />
-<h2 id="what-you-can-build-with-zep">What you can build with Zep</h2>
-<ol>
-<li><strong>Chatbot Applications</strong>: Zep's chat history storage enables context-aware chatbot applications.</li>
-<li><strong>Retrieval Augmented Generation (RAG) Applications</strong>: Zep's vector store aids in building applications that answer questions based on a document set.</li>
-<li><strong>Agent Applications</strong>: Zep's document vector store and enriched chat history store can be used as tools by agents, able to look up relevant information and past conversations.</li>
-<li><strong>Data Enrichment Applications</strong>: Zep's extractors can be used for applications that need to analyze and understand the text data from human/bot conversations.</li>
-</ol>
-<hr />
-<h2 id="quick-start">Quick Start</h2>
-<p style="display: flex; align-items: center; margin-bottom: 80px">
-    <a class="md-button" href="https://www.getzep.com/#join-waitlist" style="margin-right: 20px; padding: inherit 15px; border-radius: 7px;">
-        Join the Zep Cloud Waitlist &nbsp;
-        <span class="twemoji">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.-->
-                <path d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480v-83.6c0-4 1.5-7.8 4.2-10.7l167.6-182.9c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8l-88.3-44.2C7.1 311.3.3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"></path>
-            </svg>
-        </span>
-    </a>
-- or -
-    <a href="/deployment/render" style="display: flex; align-items: center; margin-left: 20px">
-        <img alt="Deploy to Render" src="https://render.com/images/deploy-to-render-button.svg">
-    </a>
-</p>
+<h3 id="constructing-a-jsonpath-query-filter">Constructing a JSONPath Query Filter</h3>
+<p>The simplest form of a metadata filter looks as follows:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;where&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;jsonpath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$[*] ? (@.foo == \&quot;bar\&quot;)&quot;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>If a metadata field <code>foo</code> is equal to the string <code>"bar"</code>, then the document or message will be returned in the search results.</p>
+<p>Executing the above query against a chat session looks as follows:</p>
+<div class="language-typescript highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">searchPayload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">MemorySearchPayload</span><span class="p">({</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Is Lauren Olamina a character in a book&quot;</span><span class="p">,</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nx">metadata</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nx">where</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">jsonpath</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;$[*] ? (@.author == &quot;Octavia Butler&quot;)&#39;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">});</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="kd">const</span><span class="w"> </span><span class="nx">searchResults</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">zepClient</span><span class="p">.</span><span class="nx">memory</span><span class="p">.</span><span class="nx">searchMemory</span><span class="p">(</span><span class="nx">sessionID</span><span class="p">,</span><span class="w"> </span><span class="nx">searchPayload</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Or, in the case of querying the MemoryStore using Python:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">search_payload</span> <span class="o">=</span> <span class="n">MemorySearchPayload</span><span class="p">(</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Is Lauren Olamina a character in a book&quot;</span><span class="p">,</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="n">metadata</span><span class="o">=</span><span class="p">{</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>        <span class="s2">&quot;where&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>            <span class="s2">&quot;jsonpath&quot;</span><span class="p">:</span> <span class="s1">&#39;$[*] ? (@.author == &quot;Octavia Butler&quot;)&#39;</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        <span class="p">}</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="p">}</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="p">)</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="n">search_results</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">memory</span><span class="o">.</span><span class="n">search_memory</span><span class="p">(</span><span class="n">session_id</span><span class="p">,</span> <span class="n">search_payload</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="combining-multiple-jsonpath-filters-using-boolean-logic">Combining multiple JSONPath filters using boolean logic</h3>
+<p>Multiple JSONPath queries can be combined using boolean logic. The following example will return documents or messages where the <code>author</code> field is equal to <code>"Octavia Butler"</code> <strong>and</strong> the <code>title</code> field is equal to <code>"Parable of the Sower"</code>.</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">&quot;where&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">&quot;and&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;jsonpath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$[*] ? (@.author == \&quot;Octavia Butler\&quot;)&quot;</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;jsonpath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$[*] ? (@.title == \&quot;Parable of the Sower\&quot;)&quot;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="p">]</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Similarly, the following example will return documents or messages where the <code>author</code> field is equal to <code>"Octavia Butler"</code> <strong>or</strong> the <code>title</code> field is equal to <code>"Parable of the Sower"</code>.</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;where&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nt">&quot;or&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;jsonpath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$[*] ? (@.author == \&quot;Octavia Butler\&quot;)&quot;</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;jsonpath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$[*] ? (@.title == \&quot;Parable of the Sower\&quot;)&quot;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="p">]</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Filter logic can be combined to create arbitrarily complex filters. For example, the following filter will return documents or messages where:</p>
+<ul>
+<li>the <code>author</code> field is equal to (<code>"Octavia Butler"</code> <strong>and</strong> the <code>title</code> field is equal to <code>"Parable of the Sower"</code>) </li>
+<li><strong>or</strong> the <code>title</code> field is equal to <code>"Parable of the Talents"</code>.</li>
+</ul>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">&quot;where&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="nt">&quot;or&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">      </span><span class="p">{</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">        </span><span class="nt">&quot;and&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">          </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;jsonpath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$[*] ? (@.author == \&quot;Octavia Butler\&quot;)&quot;</span><span class="w"> </span><span class="p">},</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">          </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;jsonpath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$[*] ? (@.title == \&quot;Parable of the Sower\&quot;)&quot;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">        </span><span class="p">]</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">      </span><span class="p">},</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;jsonpath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$[*] ? (@.title == \&quot;Parable of the Talents\&quot;)&quot;</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="p">]</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<h2 id="querying-by-message-creation-date">Querying by Message Creation Date</h2>
+<p>Memory search supports querying by message creation date. The following example will return documents or messages created between June 1, 2023 and June 31, 2023. </p>
+<p>Datetime strings must be in ISO 8601 format.</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">&quot;start_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-06-01&quot;</span><span class="p">,</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nt">&quot;end_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-06-31&quot;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="p">}</span>
+</span></code></pre></div>
 
   
     
@@ -2060,7 +2245,7 @@ and running in minutes</p>
         <span class="md-icon" title="Last update">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 19, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 14, 2023</span>
       </span>
     
     
@@ -2068,7 +2253,7 @@ and running in minutes</p>
         <span class="md-icon" title="Created">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">May 15, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 14, 2023</span>
       </span>
     
     
@@ -2106,15 +2291,31 @@ and running in minutes</p>
       
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
+          
+          <a href="../chat_history/search/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Search Chat History">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Search Chat History
+              </div>
+            </div>
+          </a>
+        
         
           
-          <a href="deployment/quickstart/" class="md-footer__link md-footer__link--next" aria-label="Next: Quick Start ⚡️">
+          <a href="../extractors/" class="md-footer__link md-footer__link--next" aria-label="Next: Message Extractors">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Quick Start ⚡️
+                Message Extractors
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2200,10 +2401,10 @@ and running in minutes</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["content.action.edit", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.footer", "toc.follow", "navigation.top", "search", "search.suggest", "content.tabs.link", "content.code.copy", "content.code.annotate", "announce.dismiss", "navigation.path", "navigation.instant", "navigation.instant.prefetch"], "search": "assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.footer", "toc.follow", "navigation.top", "search", "search.suggest", "content.tabs.link", "content.code.copy", "content.code.annotate", "announce.dismiss", "navigation.path", "navigation.instant", "navigation.instant.prefetch"], "search": "../../assets/javascripts/workers/search.1e90e0fb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.59e7e423.min.js"></script>
+      <script src="../../assets/javascripts/bundle.59e7e423.min.js"></script>
       
     
   </body>
