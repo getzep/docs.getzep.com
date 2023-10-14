@@ -14,11 +14,12 @@ nav:
   - Home: index.md
   - Quick Start ⚡️: deployment/quickstart.md
   - SDKs and API:
-      - sdk/index.md
+      - Installation: 
+          - sdk/index.md
       - Document Store: 
           - sdk/documents.md
       - Chat History:
-          - sdk/chat_history/index.md
+          - Overview: sdk/chat_history/index.md
           - Users: sdk/chat_history/users.md
           - Sessions: sdk/chat_history/sessions.md
           - Memories: sdk/chat_history/memories.md
