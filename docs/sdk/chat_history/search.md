@@ -6,12 +6,18 @@ Zep allows developers to search the long-term memory store for relevant historic
 
 Zep supports vector similarity search for Messages in the long-term memory storage. This allows you to find Messages that are contextually similar to a given query, with the results sorted by a similarity or `distance`.
 
+!!! info "Constructing Search Queries"
+
+    Zep's Collection and Memory search support semantic search queries, JSONPath-based metadata filters, and a combination of both. Memory search also supports querying by message creation date.
+
+    Read more about [constructing search queries](../search_query.md).
+
 === ":fontawesome-brands-python: Python"
 
     ```python title="Search Memory for Text"
     search_payload = MemorySearchPayload(text="Is Lauren Olamina a character in a book")
 
-    search_results = await client.asearch_memory(session_id, search_payload)
+    search_results = await client.memory.asearch_memory(session_id, search_payload)
 
     for search_result in search_results:
         print(search_result.message.dict())
@@ -58,8 +64,8 @@ Zep supports vector similarity search for Messages in the long-term memory stora
     ```javascript title="Search Memory for Text"
     const searchText = "Is Lauren Olamina a character in a book?";
 
-    const searchPayload = new MemorySearchPayload({ meta: {}, text: searchText });
-    const searchResults = await zepClient.searchMemory(
+    const searchPayload = new MemorySearchPayload({ metadata: {}, text: searchText });
+    const searchResults = await zepClient.memory.searchMemory(
         sessionID,
         searchPayload
     );

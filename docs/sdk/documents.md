@@ -300,6 +300,12 @@ Zep supports hybrid vector search over a collection. The most relevant documents
 
 Either a text query or an embedding vector can be used to search a collection.
 
+!!! info "Constructing Search Queries"
+
+    Zep's Collection and Memory search support semantic search queries, JSONPath-based metadata filters, and a combination of both. Memory search also supports querying by message creation date.
+
+    Read more about [constructing search queries](../search_query.md).
+
 === ":fontawesome-brands-python: Python"
 
     ```python
