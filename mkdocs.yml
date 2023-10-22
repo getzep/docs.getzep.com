@@ -53,8 +53,6 @@ nav:
       - Data Management: deployment/data.md
 
   - Support: support/index.md
-  # - Discord: https://discord.gg/W8Kw6bsgXQ
-
 theme:
   name: material
   custom_dir: overrides
