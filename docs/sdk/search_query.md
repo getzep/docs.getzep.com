@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Zep's Collection and Memory search supports semantic similarity search and similarity search re-ranked by Maximal Marginal Relevance. 
+Zep's Collection and Memory search supports semantic similarity search and similarity search re-ranked by Maximal Marginal Relevance.
 Both of these search types can be filtered by JSONPath-based metadata filters. Memory search also supports querying by message creation date.
 
 ## Simple, Text-based Semantic Queries
@@ -26,32 +26,93 @@ Read more about [chat message history search](chat_history/search.md).
 
 ## Maximal Marginal Relevance Re-Ranking
 
-Zep supports re-ranking search results using Maximal Marginal Relevance (MMR) over both chat history memory and document collections. 
+Zep supports re-ranking search results using Maximal Marginal Relevance (MMR) over both chat history memory and document collections.
 
-Maximal Marginal Relevance (MMR) helps balance relevance and diversity in results 
+Maximal Marginal Relevance (MMR) helps balance relevance and diversity in results
 returned during information retrieval, which is useful in vector similarity searches for Retrieval-Augmented Generation (RAG) type applications.
 
-A similarity search may return many highly ranked results that are very similar to each other. Since each subsequent result doesn't add much new information to a prompt, 
-adding these may not be very useful. 
+A similarity search may return many highly ranked results that are very similar to each other. Since each subsequent result doesn't add much new information to a prompt,
+adding these may not be very useful.
 
-MMR helps to reduce redundancy in the results by re-ranking the results to promote diversity, with very similar results 
+MMR helps to reduce redundancy in the results by re-ranking the results to promote diversity, with very similar results
 downranked in favor of different, but still relevant, results.
 
 ### How Zep's MMR Re-Ranking Works
 
-When you run a search re-ranked by MMR, Zep retrieves double the number of results, K, you requested. The entire resultset is then reranked using MMR, and the top K results are returned. 
+When you run a search re-ranked by MMR, Zep retrieves double the number of results, K, you requested. The entire resultset is then reranked using MMR, and the top K results are returned.
 
 If you request fewer than 10 results, Zep will return 10 results, but still return to you the top K results you requested.
 
 Zep's MMR algorithm is SIMD-hardware accelerated on `amd64` archicture CPUs, ensuring that MMR adds little overhead to your search.
 
-
-
 ### Constructing an MMR Re-Ranked Search Query
 
+#### Search over Chat History
 
+=== ":fontawesome-brands-python: Python"
+    ```python
+    from zep_python import (
+        MemorySearchPayload,
+        ZepClient,
+    )
+    search_payload = MemorySearchPayload(
+        text=query,
+        search_type="mmr",
+        mmr_lambda=0.5,
+    )
+
+    search_results = client.memory.search_memory(
+        session_id, search_payload, limit=3
+    )
+    ```
+=== ":simple-typescript: TypeScript"
+    ```typescript
+    import {
+      MemorySearchPayload,
+      ZepClient,
+    } from "@getzep/zep-js";
+
+    const searchPayload = new MemorySearchPayload({
+        text: searchText,
+        search_type: "mmr",
+        mmr_lambda: 0.6,
+    });
+    const searchResults = await client.memory.searchMemory(
+        sessionID,
+        searchPayload,
+        3,
+    );
+    ```
+
+#### Search over Document Collections
+
+=== ":fontawesome-brands-python: Python"
+    ```python
+    # This assumes you've created a collection and added documents to it
+    docs = collection.search(
+        text=query,
+        search_type="mmr",
+        mmr_lambda=0.5,
+        limit=3,
+    )
+    ```
+=== ":simple-typescript: TypeScript"
+    ```typescript
+    const mmrSearchQuery: ISearchQuery = {
+      text: query,
+      searchType: "mmr",
+      mmrLambda: 0.5,
+    };
+
+    // This assumes you've created a collection and added documents to it
+    const mmrSearchResults = await collection.search(mmrSearchQuery, 3);
+    ```
 
 ### LangChain and MMR
+
+#### Search over Chat History
+
+Zep's LangChain `ZepRetriever` supports MMR re-ranking of search results over historical chat messages.
 
 === ":parrot: :chains: LangChain.js"
     ```typescript title="Search relevant historical chat messages using MMR"
@@ -82,7 +143,8 @@ Zep's MMR algorithm is SIMD-hardware accelerated on `amd64` archicture CPUs, ens
 
     docs = await zep_retriever.aget_relevant_documents("Who wrote Parable of the Sower?")
     ```
-
+#### Search over Document Collections
+MMR re-ranking is also supported for document collections via the `ZepVectorStore`. Currently, we utilize LangChain's MMR implementation for this, but we plan to add a native implementation in the future.
 
 
 ## Filtering using Metadata
@@ -91,7 +153,7 @@ Zep supports filtering search queries by metadata. Metadata filters are [JSONPat
 
 JSONPath queries allow for building sophisticated filters that match on elements at any level of the JSON document. The boolean logic overlay allows for combining multiple JSONPath queries using `and` and `or` operators.
 
-### Useful resources for building and testing JSONPath queries 
+### Useful resources for building and testing JSONPath queries
 - [JSONPath Syntax](https://goessner.net/articles/JsonPath/)
 - [JSONPath Online Evaluator](https://jsonpath.com/)
 - [JSONPath Expression Tester](https://jsonpath.curiousconcept.com/#).
@@ -104,7 +166,7 @@ The simplest form of a metadata filter looks as follows:
 {
   "where": { "jsonpath": "$[*] ? (@.foo == \"bar\")" }
 }
-```
+````
 
 If a metadata field `foo` is equal to the string `"bar"`, then the document or message will be returned in the search results.
 
@@ -114,11 +176,14 @@ Executing the above query against a chat session looks as follows:
 const searchPayload = new MemorySearchPayload({
   text: "Is Lauren Olamina a character in a book",
   metadata: {
-    where: { jsonpath: '$[*] ? (@.author == "Octavia Butler")' }
-  }
+    where: { jsonpath: '$[*] ? (@.author == "Octavia Butler")' },
+  },
 });
 
-const searchResults = await zepClient.memory.searchMemory(sessionID, searchPayload);
+const searchResults = await zepClient.memory.searchMemory(
+  sessionID,
+  searchPayload
+);
 ```
 
 Or, in the case of querying the MemoryStore using Python:
@@ -166,7 +231,7 @@ Similarly, the following example will return documents or messages where the `au
 
 Filter logic can be combined to create arbitrarily complex filters. For example, the following filter will return documents or messages where:
 
-- the `author` field is equal to (`"Octavia Butler"` **and** the `title` field is equal to `"Parable of the Sower"`) 
+- the `author` field is equal to (`"Octavia Butler"` **and** the `title` field is equal to `"Parable of the Sower"`)
 - **or** the `title` field is equal to `"Parable of the Talents"`.
 
 ```json
@@ -187,7 +252,7 @@ Filter logic can be combined to create arbitrarily complex filters. For example,
 
 ## Querying by Message Creation Date
 
-Memory search supports querying by message creation date. The following example will return documents or messages created between June 1, 2023 and June 31, 2023. 
+Memory search supports querying by message creation date. The following example will return documents or messages created between June 1, 2023 and June 31, 2023.
 
 Datetime strings must be in ISO 8601 format.
 
