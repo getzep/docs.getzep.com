@@ -166,7 +166,7 @@ The simplest form of a metadata filter looks as follows:
 {
   "where": { "jsonpath": "$[*] ? (@.foo == \"bar\")" }
 }
-````
+```
 
 If a metadata field `foo` is equal to the string `"bar"`, then the document or message will be returned in the search results.
 
