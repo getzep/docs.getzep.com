@@ -19,9 +19,6 @@ The Zep server can be configured via environment variables, a `.env` file, or th
 
 Note the defaults below for the embedding models and review the [Selecting Embedding Models](#selecting-embedding-models) section below for more information.
 
-!!! info "Anthropic does not support embeddings"
-
-    If configuring Zep to use the Anthropic LLM service, you must configure Zep to use the local embeddings service.
 
 ### Server Config
 
@@ -50,6 +47,10 @@ Please see the [Authentication](auth.md) documentation for more information on c
 ### LLMs
 
 See the [LLM Configuration](llm_config.md) for more information on configuring LLMs.
+
+!!! info "Anthropic does not support embeddings"
+
+    If configuring Zep to use the Anthropic LLM service, you must configure Zep to use the local embeddings service.
 
 | Config Key                                  | Environment Variable                            | Default                                                      |
 |---------------------------------------------|-------------------------------------------------|--------------------------------------------------------------|
