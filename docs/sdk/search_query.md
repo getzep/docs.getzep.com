@@ -3,11 +3,11 @@
 ## Introduction
 
 Zep's Collection and Memory search supports semantic similarity search and similarity search re-ranked by Maximal Marginal Relevance.
-Both of these search types can be filtered by JSONPath-based metadata filters. Memory search also supports querying by message creation date.
+Both of these search types can be filtered by JSONPath-based metadata filters. Memory search also supports querying by message or summary creation date.
 
 ## Simple, Text-based Semantic Queries
 
-The simplest form of search query is a text-based semantic simailrity query. No metadata filter is required, and the query is simply a string of text. Zep will convert the query into an embedding and find semantically similar documents or messages.
+The simplest form of search query is a text-based semantic simailrity query. No metadata filter is required, and the query is simply a string of text. Zep will convert the query into an embedding and find semantically similar documents, chat history summaries, or chat messages.
 
 Below is an example search against a chat session using only search text.
 
@@ -57,8 +57,9 @@ Zep's MMR algorithm is SIMD-hardware accelerated on `amd64` archicture CPUs, ens
     )
     search_payload = MemorySearchPayload(
         text=query,
+        search_scope="summary", # This could be messages or summary
         search_type="mmr",
-        mmr_lambda=0.5,
+        mmr_lambda=0.5, # tune diversity vs relevance
     )
 
     search_results = client.memory.search_memory(
@@ -74,8 +75,9 @@ Zep's MMR algorithm is SIMD-hardware accelerated on `amd64` archicture CPUs, ens
 
     const searchPayload = new MemorySearchPayload({
         text: searchText,
+        search_scope: "summary", // This could be messages or summary
         search_type: "mmr",
-        mmr_lambda: 0.6,
+        mmr_lambda: 0.5, // tune diversity vs relevance
     });
     const searchResults = await client.memory.searchMemory(
         sessionID,
@@ -112,7 +114,7 @@ Zep's MMR algorithm is SIMD-hardware accelerated on `amd64` archicture CPUs, ens
 
 #### Search over Chat History
 
-Zep's LangChain `ZepRetriever` supports MMR re-ranking of search results over historical chat messages.
+Zep's LangChain `ZepRetriever` supports MMR re-ranking of search results over historical chat summaries or messages.
 
 === ":parrot: :chains: LangChain.js"
     ```typescript title="Search relevant historical chat messages using MMR"
@@ -123,6 +125,7 @@ Zep's LangChain `ZepRetriever` supports MMR re-ranking of search results over hi
       sessionId: sessionID,
       topK: 3,
       searchType: "mmr",
+      searchScope: "summary",
       mmrLambda: 0.5,
     });
     const mmrDocs = await mmrRetriever.getRelevantDocuments(query);
@@ -130,19 +133,21 @@ Zep's LangChain `ZepRetriever` supports MMR re-ranking of search results over hi
 === ":parrot: :chains: LangChain"
     ```python title="Search relevant historical chat messages using MMR"
     from langchain.retrievers import ZepRetriever
-    from langchain.retrievers.zep import SearchType
+    from langchain.retrievers.zep import SearchType, SearchScope
 
     zep_retriever = ZepRetriever(
         session_id=session_id,
         url=ZEP_API_URL,
         api_key=zep_api_key,
         top_k=3,
+        search_scope=SearchScope.summary,
         search_type=SearchType.mmr,
         mmr_lambda=0.5,
     )
 
     docs = await zep_retriever.aget_relevant_documents("Who wrote Parable of the Sower?")
     ```
+    
 #### Search over Document Collections
 MMR re-ranking is also supported for document collections via the `ZepVectorStore`. Currently, we utilize LangChain's MMR implementation for this, but we plan to add a native implementation in the future.
 
