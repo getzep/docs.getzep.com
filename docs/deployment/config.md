@@ -23,6 +23,34 @@ Note the defaults below for the embedding models and review the [Selecting Embed
 
     If configuring Zep to use the Anthropic LLM service, you must configure Zep to use the local embeddings service.
 
+### Server Config
+
+| Config Key                                  | Environment Variable                            | Default                                                      |
+|---------------------------------------------|-------------------------------------------------|--------------------------------------------------------------|
+| store.type                                  | ZEP_STORE_TYPE                                  | postgres                                                     |
+| store.postgres.dsn                          | ZEP_STORE_POSTGRES_DSN                          | Installation dependent.                                      |
+| server.host                                 | ZEP_SERVER_HOST                                 | 0.0.0.0                                                      |
+| server.port                                 | ZEP_SERVER_PORT                                 | 8000                                                         |
+| server.web_enabled                          | ZEP_SERVER_WEB_ENABLED                          | true                                                         |
+| server.max_request_size                     | ZEP_SERVER_MAX_REQUEST_SIZE                     | 5242880                                                      |
+| nlp.server_url                              | ZEP_NLP_SERVER_URL                              | Installation dependent.                                      |
+| development                                 | ZEP_DEVELOPMENT                                 | false                                                        |
+| log.level                                   | ZEP_LOG_LEVEL                                   | info                                                         |
+
+### Authentication Config
+
+Please see the [Authentication](auth.md) documentation for more information on configuring authentication.
+
+| Config Key                                  | Environment Variable                            | Default                                                      |
+|---------------------------------------------|-------------------------------------------------|--------------------------------------------------------------|
+| auth.required                               | ZEP_AUTH_REQUIRED                               | false                                                        |
+| auth.secret                                 | ZEP_AUTH_SECRET                                 | do-not-use-this-secret-in-production                         |
+| data.purge_every                            | ZEP_DATA_PURGE_EVERY                            | 60                                                           |
+
+### LLMs
+
+See the [LLM Configuration](llm_config.md) for more information on configuring LLMs.
+
 | Config Key                                  | Environment Variable                            | Default                                                      |
 |---------------------------------------------|-------------------------------------------------|--------------------------------------------------------------|
 | llm.service                                 | ZEP_LLM_SERVICE                                 | openai                                                       |
@@ -32,32 +60,37 @@ Note the defaults below for the embedding models and review the [Selecting Embed
 | llm.openai_org_id                           | ZEP_LLM_OPENAI_ORG_ID                           | undefined                                                    |
 | llm.azure_openai                            | ZEP_LLM_AZURE_OPENAI                            | undefined                                                    |
 | llm.azure_openai_endpoint                   | ZEP_LLM_AZURE_OPENAI_ENDPOINT                   | undefined                                                    |
-| nlp.server_url                              | ZEP_NLP_SERVER_URL                              | undefined                                                    |
+
+### Enrichment and Extraction
+
+See the [Enrichment and Extraction](../sdk/extractors.md) documentation for more information on configuring enrichment and extraction.
+
+| Config Key                                  | Environment Variable                            | Default                                                      |
+|---------------------------------------------|-------------------------------------------------|--------------------------------------------------------------|
 | memory.message_window                       | ZEP_MEMORY_MESSAGE_WINDOW                       | 12                                                           |
 | extractors.documents.embeddings.enabled     | ZEP_EXTRACTORS_DOCUMENTS_EMBEDDINGS_ENABLED     | true                                                         |
 | extractors.documents.embeddings.dimensions  | ZEP_EXTRACTORS_DOCUMENTS_EMBEDDINGS_DIMENSIONS  | 384                                                          |
 | extractors.documents.embeddings.service     | ZEP_EXTRACTORS_DOCUMENTS_EMBEDDINGS_SERVICE     | local                                                        |
-| extractors.documents.embeddings.max_procs   | ZEP_EXTRACTORS_DOCUMENTS_EMBEDDINGS_MAX_PROCS   | 2                                                            |
 | extractors.documents.embeddings.chunk_size  | ZEP_EXTRACTORS_DOCUMENTS_EMBEDDINGS_CHUNK_SIZE  | 1000                                                         |
-| extractors.documents.embeddings.buffer_size | ZEP_EXTRACTORS_DOCUMENTS_EMBEDDINGS_BUFFER_SIZE | 1000                                                         |
 | extractors.messages.summarizer.enabled      | ZEP_EXTRACTORS_MESSAGES_SUMMARIZER_ENABLED      | true                                                         |
 | extractors.messages.entities.enabled        | ZEP_EXTRACTORS_MESSAGES_ENTITIES_ENABLED        | true                                                         |
 | extractors.messages.intent.enabled          | ZEP_EXTRACTORS_MESSAGES_INTENT_ENABLED          | false                                                        |
 | extractors.messages.embeddings.enabled      | ZEP_EXTRACTORS_MESSAGES_EMBEDDINGS_ENABLED      | true                                                         |
 | extractors.messages.embeddings.dimensions   | ZEP_EXTRACTORS_MESSAGES_EMBEDDINGS_DIMENSIONS   | 384                                                          |
 | extractors.messages.embeddings.service      | ZEP_EXTRACTORS_MESSAGES_EMBEDDINGS_SERVICE      | local                                                        |
-| store.type                                  | ZEP_STORE_TYPE                                  | postgres                                                     |
-| store.postgres.dsn                          | ZEP_STORE_POSTGRES_DSN                          | postgres://postgres:postgres@localhost:5432/?sslmode=disable |
-| server.host                                 | ZEP_SERVER_HOST                                 | 0.0.0.0                                                      |
-| server.port                                 | ZEP_SERVER_PORT                                 | 8000                                                         |
-| server.web_enabled                          | ZEP_SERVER_WEB_ENABLED                          | true                                                         |
-| auth.required                               | ZEP_AUTH_REQUIRED                               | false                                                        |
-| auth.secret                                 | ZEP_AUTH_SECRET                                 | do-not-use-this-secret-in-production                         |
-| data.purge_every                            | ZEP_DATA_PURGE_EVERY                            | 60                                                           |
-| log.level                                   | ZEP_LOG_LEVEL                                   | info                                                         |
+| extractors.messages.summarizer.embeddings.enabled   | ZEP_EXTRACTORS_MESSAGES_SUMMARIZER_EMBEDDINGS_ENABLED   | true                                         |
+| extractors.messages.summarizer.embeddings.dimensions| ZEP_EXTRACTORS_MESSAGES_SUMMARIZER_EMBEDDINGS_DIMENSIONS| 384                                          |
+| extractors.messages.summarizer.embeddings.service   | ZEP_EXTRACTORS_MESSAGES_SUMMARIZER_EMBEDDINGS_SERVICE   | local                                        |
 | custom_prompts.summarizer_prompts.openai    | ZEP_CUSTOM_PROMPTS_SUMMARIZER_PROMPTS_OPENAI    | See Zep's source code for details                            |
 | custom_prompts.summarizer_prompts.anthropic | ZEP_CUSTOM_PROMPTS_SUMMARIZER_PROMPTS_ANTHROPIC | See Zep's source code for details                            |
-| development                                 | ZEP_DEVELOPMENT                                 | false                                                        |
+
+### Data Management
+
+See the [Data Management](data.md) documentation for more information on configuring data management.
+
+| Config Key                                  | Environment Variable                            | Default                                                      |
+|---------------------------------------------|-------------------------------------------------|--------------------------------------------------------------|
+| data.purge_every                            | ZEP_DATA_PURGE_EVERY                            | 60                                                           |
 
 ### Valid LLM Models
 
