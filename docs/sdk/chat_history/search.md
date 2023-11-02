@@ -1,10 +1,19 @@
 # Vector Search over Chat History
 
-Zep allows developers to search the long-term memory store for relevant historical conversations.
+Zep allows developers to search the Zep long-term memory store for relevant historical conversations.
 
-## Searching for Messages
+## Searching for Messages or Summaries
 
-Zep supports vector similarity search for Messages in the long-term memory storage. This allows you to find Messages that are contextually similar to a given query, with the results sorted by a similarity or `distance`.
+Zep supports vector similarity search for Messages or Summaries of messages stored by Zep. This allows you to populate prompts with past conversations contextually similar to a given query, with the results sorted by a similarity score or `distance`.
+
+### When to use Summaries versus Messages
+
+Zep supports searching for both Messages and Summaries. Given that individual messages may lack conversational context, Summaries are often a better choice for search. See the discussion about [message limitations](http://localhost:8001/sdk/chat_history/search/#limitations) below.
+
+Messages, however, can contain specific details that may be useful for your application. It is possible to execute both types of searches within your app.
+
+### MMR Reranking Summaries
+Since summaries often share information, particualrly when the Message Window is set to a lower threshold, it is often useful to use [Maximum Marginal Relevance (MMR)](../search_query.md) reranking of search results. Zep has build-in, hardware accelerated support for MMR and enabling it is simple.
 
 !!! info "Constructing Search Queries"
 
@@ -14,106 +23,88 @@ Zep supports vector similarity search for Messages in the long-term memory stora
 
 === ":fontawesome-brands-python: Python"
 
-    ```python title="Search Memory for Text"
-    search_payload = MemorySearchPayload(text="Is Lauren Olamina a character in a book")
+    ```python title="Search Summaries"
+    from zep_python import (
+        MemorySearchPayload,
+        ZepClient,
+    )
+
+    # This uniquely identifies the user's session
+    session_id = "my_session_id"
+
+    # Initialize the Zep client before running this code
+    search_payload = MemorySearchPayload(
+        text="Is Lauren Olamina a character in a book?",
+        search_scope="summary", # This could be messages or summary
+        search_type="mmr", # remove this if you'd prefer not to rerank results
+        mmr_lambda=0.5, # tune diversity vs relevance
+    )
 
     search_results = await client.memory.asearch_memory(session_id, search_payload)
 
     for search_result in search_results:
-        print(search_result.message.dict())
+        # Uncomment for message search
+        # print(search_result.messsage.dict())
+        print(search_result.summary.dict())
     ```
-    ```json title="Output:"
+    ```json title="Abridged Output:"
     {
-        "message": {
-            "uuid": "377ba3dd-d95c-4692-8713-888a2c48d90a",
-            "created_at": "2023-05-16T22:35:56.734814Z",
-            "role": "ai",
-            "content": "Parable of the Sower is a science fiction novel by Octavia Butler, published in 1993. It follows the story of Lauren Olamina, a young woman living in a dystopian future where society has collapsed due to environmental disasters, poverty, and violence.",
-            "token_count": 56
+        "summary": {
+            "uuid": "b47b83da-16ae-49c8-bacb-f7d049f9df99",
+            "created_at": "2023-11-02T18:22:10.103867Z",
+            "content": "The human asks the AI to explain the book Parable of the Sower by Octavia Butler. The AI responds by explaining that Parable of the Sower is a science fiction novel by Octavia Butler. The book follows the story of Lauren Olamina, a young woman living in a dystopian future where society has collapsed due to environmental disasters, poverty, and violence.",
+            "token_count": 66
         },
-        "meta": {},
-        "summary": null,
-        "dist": 0.8006004947773657
-    } {
-        "message": {
-            "uuid": "d30094de-f667-43a7-a5d3-d0114bdbed69",
-            "created_at": "2023-05-16T22:35:56.734814Z",
-            "role": "human",
-            "content": "Who was Octavia Butler?",
-            "token_count": 8
-        },
-        "meta": {},
-        "summary": null,
-        "dist": 0.7847872122464123
-    } {
-        "message": {
-            "uuid": "7683218a-5a8e-49c6-9451-a0543a7129b2",
-            "created_at": "2023-05-16T22:35:56.734814Z",
-            "role": "human",
-            "content": "Which books of hers were made into movies?",
-            "token_count": 11
-        },
-        "meta": {},
-        "summary": null,
-        "dist": 0.7816032755893209
+        "metadata": null,
+        "dist": 0.8440576791763306
     }
     ```
 
 === ":simple-typescript: TypeScript"
 
-    ```javascript title="Search Memory for Text"
+    ```typescript title="Search Messages"
+    import {
+        MemorySearchPayload,
+        ZepClient,
+    } from '@getzep/zep-js';
+
+    // This uniquely identifies the user's session
+    const sessionID = "my_session_id";
     const searchText = "Is Lauren Olamina a character in a book?";
 
-    const searchPayload = new MemorySearchPayload({ metadata: {}, text: searchText });
-    const searchResults = await zepClient.memory.searchMemory(
-        sessionID,
-        searchPayload
-    );
+    // Initialize the ZepClient before running this code
+
+    // Create a new MemorySearchPayload with the search text, scope, type, and MMR lambda
+    const searchPayload = new MemorySearchPayload({
+        text: searchText,
+        search_scope: "summary", // This could be messages or summary
+        search_type: "mmr", // remove this if you'd prefer not to rerank results
+        mmr_lambda: 0.5, // tune diversity vs relevance
+    });
+
+    // Perform the memory search with the session ID, search payload, and a limit of 3 results
+    const searchResults = await client.memory.searchMemory(sessionID, searchPayload, 3);
 
     searchResults.forEach((searchResult) => {
         console.debug(JSON.stringify(searchResult));
     });
     ```
-    ```json title="Output:"
+    ```json title="Abridged Output:"
     {
-        "message": {
-            "uuid": "377ba3dd-d95c-4692-8713-888a2c48d90a",
-            "created_at": "2023-05-16T22:35:56.734814Z",
-            "role": "ai",
-            "content": "Parable of the Sower is a science fiction novel by Octavia Butler, published in 1993. It follows the story of Lauren Olamina, a young woman living in a dystopian future where society has collapsed due to environmental disasters, poverty, and violence.",
-            "token_count": 56
+        "summary": {
+            "uuid": "b47b83da-16ae-49c8-bacb-f7d049f9df99",
+            "created_at": "2023-11-02T18:22:10.103867Z",
+            "content": "The human asks the AI to explain the book Parable of the Sower by Octavia Butler. The AI responds by explaining that Parable of the Sower is a science fiction novel by Octavia Butler. The book follows the story of Lauren Olamina, a young woman living in a dystopian future where society has collapsed due to environmental disasters, poverty, and violence.",
+            "token_count": 66
         },
-        "meta": {},
-        "summary": null,
-        "dist": 0.8006004947773657
-    } {
-        "message": {
-            "uuid": "d30094de-f667-43a7-a5d3-d0114bdbed69",
-            "created_at": "2023-05-16T22:35:56.734814Z",
-            "role": "human",
-            "content": "Who was Octavia Butler?",
-            "token_count": 8
-        },
-        "meta": {},
-        "summary": null,
-        "dist": 0.7847872122464123
-    } {
-        "message": {
-            "uuid": "7683218a-5a8e-49c6-9451-a0543a7129b2",
-            "created_at": "2023-05-16T22:35:56.734814Z",
-            "role": "human",
-            "content": "Which books of hers were made into movies?",
-            "token_count": 11
-        },
-        "meta": {},
-        "summary": null,
-        "dist": 0.7816032755893209
+        "metadata": null,
+        "dist": 0.8440576791763306
     }
     ```
 
-## Hybrid Search for Messages using Message Metadata
+## Hybrid Search for Chat History using Metadata Filters
 
-In addition to vector similarity search for Messages in the long-term memory storage, Zep also allows you to search for Messages based on a metadata filter. This allows you to find Messages that match a combination of Message text and metadata filter. You can also query solely by specifying Message metadata.
+In addition to vector similarity search for Messages and Summaries in stored in Zep, Zep also allows you to search using metadata filters. This allows you to find Messages or Summaries that match a combination of text and metadata filter. You can also query solely by specifying metadata.
 
 === ":fontawesome-brands-python: Python"
 
@@ -213,14 +204,15 @@ In addition to vector similarity search for Messages in the long-term memory sto
 ### Search Ranking and Limits
 
 #### Vector Indexes
-Where available, Zep will use a `pgvector v0.5`'s HNSW index for vector search over messages. Zep uses cosine distance for the distance function.
+Where available, Zep will use a `pgvector v0.5`'s HNSW index for vector search over messages and summaries. Zep uses cosine distance for the distance function.
 
 If you are using a version of `pgvector` prior to `v0.5`, Zep will fall back to using an exact nearest neighbor search. 
 
-It is possible to manually create an `IVFFLAT` index on the `message_embedding` table's `embedding` column to improve search performance.
+If you don't have access to `pgvector v0.5`, is possible to manually create `IVFFLAT` indexes to improve search performance.
 
 ```sql
 CREATE INDEX ON message_embedding USING ivfflat (embedding vector_cosine_ops) WITH (lists = 100);
+CREATE INDEX ON summary_embedding USING ivfflat (embedding vector_cosine_ops) WITH (lists = 100);
 ```
 
 Please see the [pgevector documentation](https://github.com/pgvector/pgvector#ivfflat) for information on selecting the size of the `lists` parameter.
