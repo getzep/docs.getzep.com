@@ -23,15 +23,15 @@
       
       
       <link rel="icon" href="../../images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.5+insiders-4.42.1">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7+insiders-4.42.3">
     
     
       
-        <title>Message Extractors - Zep - Fast, scalable building blocks for LLM apps</title>
+        <title>Enrichment and Extraction - Zep - Fast, scalable building blocks for LLM apps</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.13544b29.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.382dd0b9.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -90,7 +90,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#message-extractors" class="md-skip">
+        <a href="#enrichment-and-extraction" class="md-skip">
           Skip to content
         </a>
       
@@ -147,7 +147,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Message Extractors
+              Enrichment and Extraction
             
           </span>
         </div>
@@ -1007,7 +1007,7 @@
     
   
     <span class="md-typeset">
-      Message Extractors
+      Enrichment and Extraction
     </span>
   
 
@@ -1026,7 +1026,7 @@
     
   
     <span class="md-typeset">
-      Message Extractors
+      Enrichment and Extraction
     </span>
   
 
@@ -1053,18 +1053,31 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#summarizer-extractor" class="md-nav__link">
+  <a href="#summarizer" class="md-nav__link">
     <span class="md-ellipsis">
       
         <span class="md-typeset">
-          Summarizer Extractor
+          Summarizer
         </span>
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Summarizer Extractor">
+    <nav class="md-nav" aria-label="Summarizer">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#searching-over-summaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Searching over Summaries
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#configuring-the-message-window" class="md-nav__link">
@@ -1129,19 +1142,6 @@
       
         <span class="md-typeset">
           Intent Extractor
-        </span>
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#extending-zep-with-new-extractors" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        <span class="md-typeset">
-          Extending Zep with new Extractors
         </span>
       
     </span>
@@ -2012,18 +2012,31 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#summarizer-extractor" class="md-nav__link">
+  <a href="#summarizer" class="md-nav__link">
     <span class="md-ellipsis">
       
         <span class="md-typeset">
-          Summarizer Extractor
+          Summarizer
         </span>
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Summarizer Extractor">
+    <nav class="md-nav" aria-label="Summarizer">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#searching-over-summaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Searching over Summaries
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#configuring-the-message-window" class="md-nav__link">
@@ -2088,19 +2101,6 @@
       
         <span class="md-typeset">
           Intent Extractor
-        </span>
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#extending-zep-with-new-extractors" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        <span class="md-typeset">
-          Extending Zep with new Extractors
         </span>
       
     </span>
@@ -2202,8 +2202,8 @@
   
 
 
-<h1 id="message-extractors">Message Extractors</h1>
-<p>Zep Extractors extract information from messages. Currently, Zep has several extractors, with more planned:</p>
+<h1 id="enrichment-and-extraction">Enrichment and Extraction</h1>
+<p>Zep automatically enriches and extracts information from chat messages. This capability includes:</p>
 <ul>
 <li>A progressive summarizer</li>
 <li>An embedding vectorizer</li>
@@ -2213,22 +2213,24 @@
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Extractors run asycronously. This ensures that the chat experience is not impacted by the time it takes to extract information from messages. Howeever, this does mean that the extracted information may not be immediately available after message persistence.</p>
+<p>Enrichment and extraction runs asycronously. This ensures that the chat experience is not impacted by the time it takes to extract information from messages. Howeever, this does mean that the extracted information may not be immediately available after message persistence.</p>
 </div>
-<h2 id="summarizer-extractor">Summarizer Extractor</h2>
-<p>The Summarizer Extractor summarizes an unsummarized message history once it exceeds the Message Window. Once the history exceeds this window, the summarizer will summarize any old memories over half the message window size. This is intended to limit significant LLM usage.</p>
+<h2 id="summarizer">Summarizer</h2>
+<p>Message histories are summarized once they exceed the Message Window. Once the history exceeds this window, the summarizer will summarize any old memories over half the message window size. This is intended to limit significant LLM usage.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p>If the message window is set to 12, and the number of unsummarized memories exceeds 12, the summarizer will summarize any memories older than 6 messages. Retrieving the Zep message history at this stage will, by default, return the most recent 6 messages and the summary.</p>
 </div>
 <p>The summarizer prioritizes context from newer messages and as a result offers the LLM model more information regarding recent coversations. To offer the LLM relevant context from older conversation, utilize Zep's vector similarity search.</p>
-<p>Zep stores a history of summaries and the point at which they were made. This provides flexibility for future summarization strategies you may want to implement.</p>
+<p>Zep stores a history of summaries and the point at which they were made.</p>
+<h3 id="searching-over-summaries">Searching over Summaries</h3>
+<p>Zep provides a <a href="../chat_history/search/">vector similarity search</a> over the summaries. This allows you to ground the LLM with rich, concise context from past conversations.</p>
 <h3 id="configuring-the-message-window">Configuring the Message Window</h3>
 <p>The Message Window is defined in the <a href="../../deployment/config/">Zep config file</a>.</p>
 <h2 id="embedder-extractor">Embedder Extractor</h2>
-<p>The Embedder Extractor <a href="../../deployment/embeddings/">embeds new messages</a> as they are persisted to the memory store. This makes them available for semantic vector search. By default, we use OpenAI's 1536-wide AdaV2 embeddings.</p>
+<p>The Embedder Extractor <a href="../../deployment/embeddings/">embeds new messages</a> as they are persisted to the memory store. Summaries, when created, are also embedded. This makes them available for semantic vector search. By default, we use OpenAI's 1536-wide AdaV2 embeddings.</p>
 <h2 id="named-entity-recognizer-ner">Named Entity Recognizer (NER)</h2>
-<p>The Entity Extractor extracts named entities from messages and stores them in the message metadata. Zep uses state-of-the-art NLP toolkit, <a href="https://spacy.io/">spaCy</a>, with entity extraction running locally, with no need for LLM access. With the Entity Extractor, developers can:</p>
+<p>The Entity Extractor extracts named entities from messages and summaries and stores them in the Message and Summary metadata, respectively. Zep uses state-of-the-art NLP toolkit, <a href="https://spacy.io/">spaCy</a>, with entity extraction running locally, with no need for LLM access. With the Entity Extractor, developers can:</p>
 <ul>
 <li>Trigger the use of custom prompts or agent branching;</li>
 <li>Annotate the chat history, enhancing the experience for users with links to additional information, services, or products.</li>
@@ -2277,7 +2279,8 @@
 <p>We're currently using spaCy's smallest English language model, <code>en_core_web_sm</code>, for entity extraction. This provides a good balance between accuracy and inference time, with the latter being important for low-latency chat applications. </p>
 <p>The <a href="https://github.com/explosion/spaCy/blob/9b7a59c325c85f49f8e978c9d9b8b29b42e577cb/spacy/glossary.py#L328">spaCy source code</a> has list of entity labels and their descriptions.</p>
 <h2 id="token-count-extractor">Token Count Extractor</h2>
-<p>The Token Count Extractor counts the number of tokens in a message, and stores the count in the message metadata. This allows for finer-grained control over prompt assembly.</p>
+<p>The Token Count Extractor counts the number of tokens in a message and summary, and stores the count in metadata. This allows for finer-grained control over prompt assembly. </p>
+<p>This is currently only supported for OpenAI LLMs.</p>
 <h2 id="intent-extractor">Intent Extractor</h2>
 <p>The Intent Extractor passes the conversational messages to an LLM and extracts the Intents which are then stored as system metadata along with the Messages. For example,</p>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span><span class="p">{</span>
@@ -2296,21 +2299,6 @@
 </span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="nt">&quot;token_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span>
 </span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="p">},</span>
 </span></code></pre></div>
-<h2 id="extending-zep-with-new-extractors">Extending Zep with new Extractors</h2>
-<p>Zep's Extractor model is easily extensible, with a simple, clean interface available to build new enrichment functionality, such as summarizers, entity extractors, embedders, and more.</p>
-<p>New Extractors can be added by implementing the <code>Extractor</code> interface:</p>
-<div class="language-go highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">type</span><span class="w"> </span><span class="nx">Extractor</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nx">Extract</span><span class="p">(</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">        </span><span class="nx">ctx</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="nx">appState</span><span class="w"> </span><span class="o">*</span><span class="nx">AppState</span><span class="p">,</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">        </span><span class="nx">messageEvents</span><span class="w"> </span><span class="o">*</span><span class="nx">MessageEvent</span><span class="p">,</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="kt">error</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="nx">Notify</span><span class="p">(</span><span class="nx">ctx</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span><span class="w"> </span><span class="nx">appState</span><span class="w"> </span><span class="o">*</span><span class="nx">AppState</span><span class="p">,</span><span class="w"> </span><span class="nx">messageEvents</span><span class="w"> </span><span class="o">*</span><span class="nx">MessageEvent</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">}</span>
-</span></code></pre></div>
-<p>Zep uses an observor pattern to notify extractors of new messages. Extractors register with the Zep <code>MemoryStore</code> to receive notifications when new messages are persisted to the store.</p>
-<p>The <code>MemoryStore</code> calls the <code>Notify</code> method on each registered extractor, passing the new messages in a <code>MessageEvent</code>. The <code>Notify</code> method then calls the <code>Extract</code> method, which performs the actual extraction asyncronously in a go routine.</p>
-<p>See the Zep repo for more details on building <a href="https://github.com/getzep/zep/tree/main/pkg/extractors">Extractors</a>.</p>
 
   
     
@@ -2326,7 +2314,7 @@
         <span class="md-icon" title="Last update">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 13, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 2, 2023</span>
       </span>
     
     

@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.5+insiders-4.42.1">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.7+insiders-4.42.3">
     
     
       
@@ -31,7 +31,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.13544b29.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.382dd0b9.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -992,7 +992,7 @@
     
   
     <span class="md-typeset">
-      Message Extractors
+      Enrichment and Extraction
     </span>
   
 
@@ -1728,6 +1728,71 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#server-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Server Config
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Authentication Config
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#llms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          LLMs
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enrichment-and-extraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Enrichment and Extraction
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Data Management
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#valid-llm-models" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1970,6 +2035,71 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#server-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Server Config
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Authentication Config
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#llms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          LLMs
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enrichment-and-extraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Enrichment and Extraction
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Data Management
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#valid-llm-models" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2084,6 +2214,93 @@ below should be set. These can also be configured in a <code>.env</code> file in
 <h2 id="zep-server">Zep Server</h2>
 <p>The Zep server can be configured via environment variables, a <code>.env</code> file, or the <code>config.yaml</code> file. The following table lists the available configuration options.</p>
 <p>Note the defaults below for the embedding models and review the <a href="#selecting-embedding-models">Selecting Embedding Models</a> section below for more information.</p>
+<h3 id="server-config">Server Config</h3>
+<table>
+<thead>
+<tr>
+<th>Config Key</th>
+<th>Environment Variable</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>store.type</td>
+<td>ZEP_STORE_TYPE</td>
+<td>postgres</td>
+</tr>
+<tr>
+<td>store.postgres.dsn</td>
+<td>ZEP_STORE_POSTGRES_DSN</td>
+<td>Installation dependent.</td>
+</tr>
+<tr>
+<td>server.host</td>
+<td>ZEP_SERVER_HOST</td>
+<td>0.0.0.0</td>
+</tr>
+<tr>
+<td>server.port</td>
+<td>ZEP_SERVER_PORT</td>
+<td>8000</td>
+</tr>
+<tr>
+<td>server.web_enabled</td>
+<td>ZEP_SERVER_WEB_ENABLED</td>
+<td>true</td>
+</tr>
+<tr>
+<td>server.max_request_size</td>
+<td>ZEP_SERVER_MAX_REQUEST_SIZE</td>
+<td>5242880</td>
+</tr>
+<tr>
+<td>nlp.server_url</td>
+<td>ZEP_NLP_SERVER_URL</td>
+<td>Installation dependent.</td>
+</tr>
+<tr>
+<td>development</td>
+<td>ZEP_DEVELOPMENT</td>
+<td>false</td>
+</tr>
+<tr>
+<td>log.level</td>
+<td>ZEP_LOG_LEVEL</td>
+<td>info</td>
+</tr>
+</tbody>
+</table>
+<h3 id="authentication-config">Authentication Config</h3>
+<p>Please see the <a href="../auth/">Authentication</a> documentation for more information on configuring authentication.</p>
+<table>
+<thead>
+<tr>
+<th>Config Key</th>
+<th>Environment Variable</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>auth.required</td>
+<td>ZEP_AUTH_REQUIRED</td>
+<td>false</td>
+</tr>
+<tr>
+<td>auth.secret</td>
+<td>ZEP_AUTH_SECRET</td>
+<td>do-not-use-this-secret-in-production</td>
+</tr>
+<tr>
+<td>data.purge_every</td>
+<td>ZEP_DATA_PURGE_EVERY</td>
+<td>60</td>
+</tr>
+</tbody>
+</table>
+<h3 id="llms">LLMs</h3>
+<p>See the <a href="../llm_config/">LLM Configuration</a> for more information on configuring LLMs.</p>
 <div class="admonition info">
 <p class="admonition-title">Anthropic does not support embeddings</p>
 <p>If configuring Zep to use the Anthropic LLM service, you must configure Zep to use the local embeddings service.</p>
@@ -2132,11 +2349,19 @@ below should be set. These can also be configured in a <code>.env</code> file in
 <td>ZEP_LLM_AZURE_OPENAI_ENDPOINT</td>
 <td>undefined</td>
 </tr>
+</tbody>
+</table>
+<h3 id="enrichment-and-extraction">Enrichment and Extraction</h3>
+<p>See the <a href="../../sdk/extractors/">Enrichment and Extraction</a> documentation for more information on configuring enrichment and extraction.</p>
+<table>
+<thead>
 <tr>
-<td>nlp.server_url</td>
-<td>ZEP_NLP_SERVER_URL</td>
-<td>undefined</td>
+<th>Config Key</th>
+<th>Environment Variable</th>
+<th>Default</th>
 </tr>
+</thead>
+<tbody>
 <tr>
 <td>memory.message_window</td>
 <td>ZEP_MEMORY_MESSAGE_WINDOW</td>
@@ -2158,18 +2383,8 @@ below should be set. These can also be configured in a <code>.env</code> file in
 <td>local</td>
 </tr>
 <tr>
-<td>extractors.documents.embeddings.max_procs</td>
-<td>ZEP_EXTRACTORS_DOCUMENTS_EMBEDDINGS_MAX_PROCS</td>
-<td>2</td>
-</tr>
-<tr>
 <td>extractors.documents.embeddings.chunk_size</td>
 <td>ZEP_EXTRACTORS_DOCUMENTS_EMBEDDINGS_CHUNK_SIZE</td>
-<td>1000</td>
-</tr>
-<tr>
-<td>extractors.documents.embeddings.buffer_size</td>
-<td>ZEP_EXTRACTORS_DOCUMENTS_EMBEDDINGS_BUFFER_SIZE</td>
 <td>1000</td>
 </tr>
 <tr>
@@ -2203,49 +2418,19 @@ below should be set. These can also be configured in a <code>.env</code> file in
 <td>local</td>
 </tr>
 <tr>
-<td>store.type</td>
-<td>ZEP_STORE_TYPE</td>
-<td>postgres</td>
-</tr>
-<tr>
-<td>store.postgres.dsn</td>
-<td>ZEP_STORE_POSTGRES_DSN</td>
-<td>postgres://postgres:postgres@localhost:5432/?sslmode=disable</td>
-</tr>
-<tr>
-<td>server.host</td>
-<td>ZEP_SERVER_HOST</td>
-<td>0.0.0.0</td>
-</tr>
-<tr>
-<td>server.port</td>
-<td>ZEP_SERVER_PORT</td>
-<td>8000</td>
-</tr>
-<tr>
-<td>server.web_enabled</td>
-<td>ZEP_SERVER_WEB_ENABLED</td>
+<td>extractors.messages.summarizer.embeddings.enabled</td>
+<td>ZEP_EXTRACTORS_MESSAGES_SUMMARIZER_EMBEDDINGS_ENABLED</td>
 <td>true</td>
 </tr>
 <tr>
-<td>auth.required</td>
-<td>ZEP_AUTH_REQUIRED</td>
-<td>false</td>
+<td>extractors.messages.summarizer.embeddings.dimensions</td>
+<td>ZEP_EXTRACTORS_MESSAGES_SUMMARIZER_EMBEDDINGS_DIMENSIONS</td>
+<td>384</td>
 </tr>
 <tr>
-<td>auth.secret</td>
-<td>ZEP_AUTH_SECRET</td>
-<td>do-not-use-this-secret-in-production</td>
-</tr>
-<tr>
-<td>data.purge_every</td>
-<td>ZEP_DATA_PURGE_EVERY</td>
-<td>60</td>
-</tr>
-<tr>
-<td>log.level</td>
-<td>ZEP_LOG_LEVEL</td>
-<td>info</td>
+<td>extractors.messages.summarizer.embeddings.service</td>
+<td>ZEP_EXTRACTORS_MESSAGES_SUMMARIZER_EMBEDDINGS_SERVICE</td>
+<td>local</td>
 </tr>
 <tr>
 <td>custom_prompts.summarizer_prompts.openai</td>
@@ -2257,10 +2442,23 @@ below should be set. These can also be configured in a <code>.env</code> file in
 <td>ZEP_CUSTOM_PROMPTS_SUMMARIZER_PROMPTS_ANTHROPIC</td>
 <td>See Zep's source code for details</td>
 </tr>
+</tbody>
+</table>
+<h3 id="data-management">Data Management</h3>
+<p>See the <a href="../data/">Data Management</a> documentation for more information on configuring data management.</p>
+<table>
+<thead>
 <tr>
-<td>development</td>
-<td>ZEP_DEVELOPMENT</td>
-<td>false</td>
+<th>Config Key</th>
+<th>Environment Variable</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>data.purge_every</td>
+<td>ZEP_DATA_PURGE_EVERY</td>
+<td>60</td>
 </tr>
 </tbody>
 </table>
@@ -2371,7 +2569,7 @@ Note that the NLP server's container is not shipped with CUDA nor configured to 
         <span class="md-icon" title="Last update">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 4, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 2, 2023</span>
       </span>
     
     
