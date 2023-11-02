@@ -1,6 +1,6 @@
-# Message Extractors
+# Enrichment and Extraction
 
-Zep Extractors extract information from messages. Currently, Zep has several extractors, with more planned:
+Zep automatically enriches and extracts information from chat messages. This capability includes:
 
 - A progressive summarizer
 - An embedding vectorizer
@@ -10,11 +10,11 @@ Zep Extractors extract information from messages. Currently, Zep has several ext
 
 !!! note
 
-    Extractors run asycronously. This ensures that the chat experience is not impacted by the time it takes to extract information from messages. Howeever, this does mean that the extracted information may not be immediately available after message persistence.
+    Enrichment and extraction runs asycronously. This ensures that the chat experience is not impacted by the time it takes to extract information from messages. Howeever, this does mean that the extracted information may not be immediately available after message persistence.
 
-## Summarizer Extractor
+## Summarizer
 
-The Summarizer Extractor summarizes an unsummarized message history once it exceeds the Message Window. Once the history exceeds this window, the summarizer will summarize any old memories over half the message window size. This is intended to limit significant LLM usage.
+Message histories are summarized once they exceed the Message Window. Once the history exceeds this window, the summarizer will summarize any old memories over half the message window size. This is intended to limit significant LLM usage.
 
 !!! Example
 
@@ -22,7 +22,11 @@ The Summarizer Extractor summarizes an unsummarized message history once it exce
 
 The summarizer prioritizes context from newer messages and as a result offers the LLM model more information regarding recent coversations. To offer the LLM relevant context from older conversation, utilize Zep's vector similarity search.
 
-Zep stores a history of summaries and the point at which they were made. This provides flexibility for future summarization strategies you may want to implement.
+Zep stores a history of summaries and the point at which they were made.
+
+### Searching over Summaries
+
+Zep provides a [vector similarity search](chat_history/search.md) over the summaries. This allows you to ground the LLM with rich, concise context from past conversations.
 
 ### Configuring the Message Window
 
@@ -30,11 +34,11 @@ The Message Window is defined in the [Zep config file](../deployment/config.md).
 
 ## Embedder Extractor
 
-The Embedder Extractor [embeds new messages](../deployment/embeddings.md) as they are persisted to the memory store. This makes them available for semantic vector search. By default, we use OpenAI's 1536-wide AdaV2 embeddings.
+The Embedder Extractor [embeds new messages](../deployment/embeddings.md) as they are persisted to the memory store. Summaries, when created, are also embedded. This makes them available for semantic vector search. By default, we use OpenAI's 1536-wide AdaV2 embeddings.
 
 ## Named Entity Recognizer (NER)
 
-The Entity Extractor extracts named entities from messages and stores them in the message metadata. Zep uses state-of-the-art NLP toolkit, [spaCy](https://spacy.io/), with entity extraction running locally, with no need for LLM access. With the Entity Extractor, developers can:
+The Entity Extractor extracts named entities from messages and summaries and stores them in the Message and Summary metadata, respectively. Zep uses state-of-the-art NLP toolkit, [spaCy](https://spacy.io/), with entity extraction running locally, with no need for LLM access. With the Entity Extractor, developers can:
 
 - Trigger the use of custom prompts or agent branching;
 - Annotate the chat history, enhancing the experience for users with links to additional information, services, or products.
@@ -89,7 +93,9 @@ The [spaCy source code](https://github.com/explosion/spaCy/blob/9b7a59c325c85f49
 
 ## Token Count Extractor
 
-The Token Count Extractor counts the number of tokens in a message, and stores the count in the message metadata. This allows for finer-grained control over prompt assembly.
+The Token Count Extractor counts the number of tokens in a message and summary, and stores the count in metadata. This allows for finer-grained control over prompt assembly. 
+
+This is currently only supported for OpenAI LLMs.
 
 ## Intent Extractor
 
@@ -112,26 +118,3 @@ The Intent Extractor passes the conversational messages to an LLM and extracts t
         "token_count": 11
     },
 ```
-
-## Extending Zep with new Extractors
-
-Zep's Extractor model is easily extensible, with a simple, clean interface available to build new enrichment functionality, such as summarizers, entity extractors, embedders, and more.
-
-New Extractors can be added by implementing the `Extractor` interface:
-
-```go
-type Extractor interface {
-	Extract(
-		ctx context.Context,
-		appState *AppState,
-		messageEvents *MessageEvent,
-	) error
-	Notify(ctx context.Context, appState *AppState, messageEvents *MessageEvent) error
-}
-```
-
-Zep uses an observor pattern to notify extractors of new messages. Extractors register with the Zep `MemoryStore` to receive notifications when new messages are persisted to the store.
-
-The `MemoryStore` calls the `Notify` method on each registered extractor, passing the new messages in a `MessageEvent`. The `Notify` method then calls the `Extract` method, which performs the actual extraction asyncronously in a go routine.
-
-See the Zep repo for more details on building [Extractors](https://github.com/getzep/zep/tree/main/pkg/extractors).
