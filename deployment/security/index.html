@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://docs.getzep.com/deployment/production/">
+        <link rel="canonical" href="https://docs.getzep.com/deployment/security/">
       
       
-        <link rel="prev" href="../security/">
+        <link rel="prev" href="../webui/">
       
       
-        <link rel="next" href="../render/">
+        <link rel="next" href="../production/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Production - Zep - Fast, scalable building blocks for LLM apps</title>
+        <title>Securing Zep - Zep - Fast, scalable building blocks for LLM apps</title>
       
     
     
@@ -90,7 +90,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#production-deployment" class="md-skip">
+        <a href="#securing-zep" class="md-skip">
           Skip to content
         </a>
       
@@ -147,7 +147,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Production
+              Securing Zep
             
           </span>
         </div>
@@ -1504,32 +1504,6 @@
                 
   
   
-  
-    <li class="md-nav__item">
-      <a href="../security/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    
-  
-    Securing Zep
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -1547,7 +1521,7 @@
   <span class="md-ellipsis">
     
   
-    Production
+    Securing Zep
   
 
     
@@ -1564,7 +1538,7 @@
   <span class="md-ellipsis">
     
   
-    Production
+    Securing Zep
   
 
     
@@ -1590,25 +1564,25 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#hardware-requirements" class="md-nav__link">
+  <a href="#deploying-with-docker-compose" class="md-nav__link">
     <span class="md-ellipsis">
       
         <span class="md-typeset">
-          Hardware Requirements
+          Deploying with Docker Compose
         </span>
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Hardware Requirements">
+    <nav class="md-nav" aria-label="Deploying with Docker Compose">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#memory-requirements" class="md-nav__link">
+  <a href="#authentication" class="md-nav__link">
     <span class="md-ellipsis">
       
         <span class="md-typeset">
-          Memory requirements
+          Authentication
         </span>
       
     </span>
@@ -1617,25 +1591,11 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#database-requirements" class="md-nav__link">
+  <a href="#disable-the-zep-webui" class="md-nav__link">
     <span class="md-ellipsis">
       
         <span class="md-typeset">
-          Database requirements
-        </span>
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Database requirements">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        <span class="md-typeset">
-          Configuration
+          Disable the Zep WebUI
         </span>
       
     </span>
@@ -1644,11 +1604,24 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#storage" class="md-nav__link">
+  <a href="#firewall" class="md-nav__link">
     <span class="md-ellipsis">
       
         <span class="md-typeset">
-          Storage
+          Firewall
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tlsssl-termination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          TLS/SSL Termination
         </span>
       
     </span>
@@ -1660,9 +1633,75 @@
     </nav>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#deploying-with-rendercom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Deploying with Render.com
+        </span>
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deploying with Render.com">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authentication_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Authentication
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#firewall_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Firewall
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tlsssl-termination_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          TLS/SSL Termination
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-deployments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Custom Deployments
+        </span>
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1670,6 +1709,32 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Production
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -2014,25 +2079,25 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#hardware-requirements" class="md-nav__link">
+  <a href="#deploying-with-docker-compose" class="md-nav__link">
     <span class="md-ellipsis">
       
         <span class="md-typeset">
-          Hardware Requirements
+          Deploying with Docker Compose
         </span>
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Hardware Requirements">
+    <nav class="md-nav" aria-label="Deploying with Docker Compose">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#memory-requirements" class="md-nav__link">
+  <a href="#authentication" class="md-nav__link">
     <span class="md-ellipsis">
       
         <span class="md-typeset">
-          Memory requirements
+          Authentication
         </span>
       
     </span>
@@ -2041,25 +2106,11 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#database-requirements" class="md-nav__link">
+  <a href="#disable-the-zep-webui" class="md-nav__link">
     <span class="md-ellipsis">
       
         <span class="md-typeset">
-          Database requirements
-        </span>
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Database requirements">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        <span class="md-typeset">
-          Configuration
+          Disable the Zep WebUI
         </span>
       
     </span>
@@ -2068,11 +2119,24 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#storage" class="md-nav__link">
+  <a href="#firewall" class="md-nav__link">
     <span class="md-ellipsis">
       
         <span class="md-typeset">
-          Storage
+          Firewall
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tlsssl-termination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          TLS/SSL Termination
         </span>
       
     </span>
@@ -2084,9 +2148,75 @@
     </nav>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#deploying-with-rendercom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Deploying with Render.com
+        </span>
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deploying with Render.com">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authentication_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Authentication
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#firewall_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Firewall
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tlsssl-termination_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          TLS/SSL Termination
+        </span>
+      
+    </span>
+  </a>
+  
+</li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-deployments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        <span class="md-typeset">
+          Custom Deployments
+        </span>
+      
+    </span>
+  </a>
   
 </li>
       
@@ -2152,7 +2282,7 @@
                   
 
   
-    <a href="https://github.com/getzep/docs.getzep.com/blob/main/docs/deployment/production.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/getzep/docs.getzep.com/blob/main/docs/deployment/security.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
     </a>
@@ -2160,28 +2290,38 @@
   
 
 
-<h1 id="production-deployment">Production Deployment</h1>
-<p>Dockerfiles and Kubernetes configs for the Zep server, Zep NLP server, and a Postgres database with <code>pgvector</code> installed may be found in the <a href="https://github.com/getzep/zep">Zep repo</a>.</p>
-<p>Many cloud providers, including AWS, now offer managed Postgres services with <code>pgvector</code> installed.</p>
-<p>The <a href="https://github.com/getzep/zep/blob/main/docker-compose.yaml">Zep docker-compose file</a> may be used as a deployment template for other container environments.</p>
-<p>Prebuilt containers for both <code>amd64</code> and <code>arm64</code> architectures may be found on the <a href="https://github.com/orgs/getzep/packages?repo_name=zep">Zep Package Repo</a>.</p>
-<h2 id="hardware-requirements">Hardware Requirements</h2>
-<p>For production deployment planning, please be mindful of the following.</p>
-<h3 id="memory-requirements">Memory requirements</h3>
-<p>You will need adequate memory for Zep's NLP and Postgres containers. The amount of memory required will be dictated by:</p>
-<ul>
-<li><strong>NLP Server</strong>: The number of different embedding models you will be using and the size of these models. See <a href="../embeddings/">Selecting Embedding Models</a>.</li>
-<li><strong>Postgres</strong> As the number of documents in your Collections grow and you create indexes over these collections, you will need to ensure that you have adequate memory available. Please see Postgres best practice deployment guides for more information.</li>
-</ul>
-<h3 id="database-requirements">Database requirements</h3>
-<h4 id="configuration">Configuration</h4>
-<p>Zep's Postgres container ships with a default configuration that is suitable for development and testing. For production deployments, you will need to tune your Postgres configuration to your use case. Please see Postgres best practice deployment guides for more information. In particular, you may need to increase <code>maintenance_work_mem</code> and <code>max_parallel_maintenance_workers</code> to ensure that your indexes are created correctly and without timeouts. Other settings may also need to be adjusted in order to provide Postgres with adequate resources to execute vector search queries.</p>
-<div class="admonition note">
-<p class="admonition-title">Database Timeouts</p>
-<p>Zep limits queries to 10 minutes. If you're experiencing timeouts building IVFFLAT indexes, you may need to increase the <code>maintenance_work_mem</code> and <code>max_parallel_maintenance_workers</code> settings in your Postgres configuration.</p>
+<h1 id="securing-zep">Securing Zep</h1>
+<p>This document describes how to secure Zep in production environments. Given the varying platforms and configurations that Zep can be deployed to, we will describe the general principles of securing Zep. The responsibility for implementing these principles in your deployment environment is left to you.</p>
+<div class="admonition warning">
+<p class="admonition-title">Zep is not secure out of the box</p>
+<p>Zep is not secure out of the box. You must configure authentication to secure your deployment. See <a href="../auth/">Configuring Authentication</a> for details.</p>
+<p>Depending on your deployment environment, you may also need to configure TLS/SSL termination, disable Zep's WebUI, and secure Zep's microservices and database.</p>
 </div>
-<h4 id="storage">Storage</h4>
-<p>Zep's Postgres database will require adequate storage for your documents, document vectors, chat message histories, and chat message history vectors. The amount of storage required will be dictated by your use case, the width of your embedding vectors, and other variables.</p>
+<h2 id="deploying-with-docker-compose">Deploying with Docker Compose</h2>
+<p>Zep's default Docker Compose deployment is not secure out of the box. You must secure it if you intend to deploy to a production environment.</p>
+<h3 id="authentication">Authentication</h3>
+<p>You must configure authentication to secure your Zep deployment. See <a href="../auth/">Configuring Authentication</a> for details.</p>
+<h3 id="disable-the-zep-webui">Disable the Zep WebUI</h3>
+<p>The Zep WebUI is not secured by JWT security. It is enabled by default on Dokcer Compose deployments and must be disabled for production use. To disable or enable the Zep WebUI, you can set the <code>ZEP_SERVER_WEB_ENABLED</code> environment variable or modify your <code>config.yaml</code> file. For more details, please refer to <a href="../webui/">Zep's Web Interface</a>.</p>
+<h3 id="firewall">Firewall</h3>
+<p>Zep's docker compose deployment is configured to only accept traffic to the Zep API service. No action is required to enable this. However, you should ensure that you're not relying solely on the Docker service to secure your deployment. Ensure that your deployment environment is configured to only allow traffic to the Zep API service.</p>
+<div class="admonition note">
+<p class="admonition-title">Earlier versions of Zep's Docker Compose deployment</p>
+<p>Earlier versions of Zep's Docker Compose deployment were designed for development purposes only and exposed Postgres and Zep's microservices. If you're upgrading from an earlier version of Zep, you should ensure that these are not exposed to the public internet. </p>
+<p>You can modify your <code>docker-compose.yaml</code> file to disable the exposed ports. You should also ensure that you're not relying solely on the Docker service to secure your deployment. Use your deployment environment's firewall to ensure that you're only allowing traffic to the Zep API service.</p>
+</div>
+<h3 id="tlsssl-termination">TLS/SSL Termination</h3>
+<p>You must configure TLS/SSL termination to secure your Zep deployment. Failing to do so will result in your connections to Zep being sent in plaintext, including your JWT API Key. Please see your provider's documentation for details.</p>
+<h2 id="deploying-with-rendercom">Deploying with Render.com</h2>
+<p>Out of the box, Zep can be deployed to Render.com with minimal configuration. However, you must configure authentication to secure your deployment. </p>
+<h3 id="authentication_1">Authentication</h3>
+<p>You must configure authentication to secure your Zep deployment. See <a href="../auth/">Configuring Authentication</a> for details.</p>
+<h3 id="firewall_1">Firewall</h3>
+<p>The Zep deployment on Render.com is configured to only accept traffic to the Zep API service. No action is required to enable this.</p>
+<h3 id="tlsssl-termination_1">TLS/SSL Termination</h3>
+<p>Zep uses Render's built-in TLS/SSL termination to ensure that all traffic to and from Zep is encrypted. No action is required on your part to enable this.</p>
+<h2 id="custom-deployments">Custom Deployments</h2>
+<p>Zep can be deployed to a variety of platforms, including Kubernetes, AWS, GCP, and Azure. The same principles described above apply to these deployments. You must configure authentication, TLS/SSL termination, disable the WebUI, and use firewall rules to secure your deployment.</p>
 
   
     
@@ -2197,7 +2337,7 @@
         <span class="md-icon" title="Last update">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 4, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 6, 2023</span>
       </span>
     
     
@@ -2205,7 +2345,7 @@
         <span class="md-icon" title="Created">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 8, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 6, 2023</span>
       </span>
     
     
@@ -2244,7 +2384,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../security/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Securing Zep">
+          <a href="../webui/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Web UI">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -2254,20 +2394,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Securing Zep
+                Web UI
               </div>
             </div>
           </a>
         
         
           
-          <a href="../render/" class="md-footer__link md-footer__link--next" aria-label="Next: Render">
+          <a href="../production/" class="md-footer__link md-footer__link--next" aria-label="Next: Production">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Render
+                Production
               </div>
             </div>
             <div class="md-footer__button md-icon">

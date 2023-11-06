@@ -1393,6 +1393,8 @@
       
         
       
+        
+      
     
     
     
@@ -1485,6 +1487,32 @@
     
   
     Web UI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Securing Zep
   
 
     
@@ -2162,14 +2190,11 @@
 
 <h1 id="deploying-to-render">Deploying to Render</h1>
 <div class="admonition warning">
-<p class="admonition-title">Configure Server Authentication</p>
-<p>Ensure that you secure your Zep server by <a href="../auth/">configuring authentication</a> after deploying.
+<p class="admonition-title">Secure Your Zep Deployment</p>
+<p>If you are deploying Zep to a production environemnt or where Zep APIs are exposed to the public internet, 
+please ensure that you secure your Zep server. </p>
+<p>Review the <a href="../security/">Security Guidelines</a> and <a href="../auth/">configure authentication</a>.
 Failing to do so will leave your server open to the public.</p>
-</div>
-<div class="admonition question">
-<p class="admonition-title">Web UI disabled for Render deploys</p>
-<p>For security reasons, Zep deployments to Render default to disabling the web UI. The Zep web UI is not secured by 
-JWT authentication and should only <a href="../config/">be enabled</a> if you deploy Zep as a <a href="https://render.com/docs/private-services">private service</a>.</p>
 </div>
 <h4 id="1-click-on-the-button-below-to-deploy-to-render-using-the-zep-blueprint">1. Click on the button below to deploy to Render using the Zep blueprint</h4>
 <p><a href="https://render.com/deploy?repo=https://github.com/getzep/zep" target="_blank"><img alt="Deploy to Render" src="https://render.com/images/deploy-to-render-button.svg" /></a></p>
@@ -2177,8 +2202,8 @@ JWT authentication and should only <a href="../config/">be enabled</a> if you de
 <p>Enter a <strong>Blueprint Name</strong> (we suggest <code>zep</code>) and provide your OpenAI API key, which will be stored as a secret.</p>
 <p>Click <code>Apply</code>.</p>
 <div class="admonition note">
-<p class="admonition-title">OpenAI API Key Required</p>
-<p>An OpenAI API key is required to run Zep. Please ensure that you enter it in the step above.</p>
+<p class="admonition-title">OpenAI or Anthropic API Key Required</p>
+<p>An OpenAI API key is required to run Zep. Please ensure that you enter it in the step above. To configure Zep to use Anthropic or other LLM services, please see <a href="../llm_config/">Configuring LLM Services</a>.</p>
 </div>
 <h4 id="3-wait-for-your-deploy-to-complete">3. Wait for your deploy to complete</h4>
 <p>This takes a few minutes.</p>
@@ -2204,6 +2229,11 @@ JWT authentication and should only <a href="../config/">be enabled</a> if you de
 </div>
 </div>
 <p>Next steps: <a href="../../sdk/">Using Zep's Python and TypeScript/JS SDKs</a></p>
+<div class="admonition question">
+<p class="admonition-title">Web UI disabled for Render deploys</p>
+<p>For security reasons, Zep deployments to Render default to disabling the web UI. The Zep web UI is not secured by 
+JWT authentication and should only <a href="../config/">be enabled</a> if you deploy Zep as a <a href="https://render.com/docs/private-services">private service</a>.</p>
+</div>
 <h4 id="what-this-blueprint-does">What this blueprint does</h4>
 <p>Three services are deployed:</p>
 <ul>
@@ -2241,7 +2271,7 @@ JWT authentication and should only <a href="../config/">be enabled</a> if you de
         <span class="md-icon" title="Last update">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
         </span>
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 23, 2023</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 6, 2023</span>
       </span>
     
     
