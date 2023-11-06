@@ -2,6 +2,16 @@
 
 Zep supports JWT authentication. Carefully follow the instructions below to enable it.
 
+## Terminology
+
+### JWT
+
+A JWT Token, also known as the Zep API Key, is a JSON Web Token used to authenticate with Zep. Provide this to the Zep SDK when you create a `ZepClient` instance.
+
+### Secret
+
+A cryptographically secure secret is required to sign Zep's JWT tokens. This secret should be kept safe as access to it may allow access to the Zep API.
+
 ## Using the `zepcli` command line utility
 
 ### 1. Download the `zepcli` CLI tool
@@ -29,6 +39,11 @@ zepcli.exe -i
 ```
 
 Carefully copy the secret and JWT token to a safe place. You will need them in the next step.
+
+!!! note "Do not mix up the secret and the JWT token"
+
+        The secret is used to sign the JWT token. The JWT token is used to authenticate with Zep. 
+        Do not mix up the two! Keep the secret safe. Anyone with access to your JWT token will be able to access your Zep server.
 
 ### 2. Configure Auth environment variables
 Set the following environment variables in your Zep server environment:
