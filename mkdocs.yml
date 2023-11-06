@@ -41,6 +41,7 @@ nav:
       - deployment/index.md
       - Quick Start: deployment/quickstart.md
       - Web UI: deployment/webui.md
+      - Securing Zep: deployment/security.md
       - Production: deployment/production.md
       - Render: deployment/render.md
       - Kubernetes: deployment/kubernetes.md
