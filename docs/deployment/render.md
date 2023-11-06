@@ -1,14 +1,12 @@
 # Deploying to Render
 
-!!! Warning "Configure Server Authentication"
+!!! Warning "Secure Your Zep Deployment"
 
-    Ensure that you secure your Zep server by [configuring authentication](auth.md) after deploying.
+    If you are deploying Zep to a production environemnt or where Zep APIs are exposed to the public internet, 
+    please ensure that you secure your Zep server. 
+    
+    Review the [Security Guidelines](security.md) and [configure authentication](auth.md).
     Failing to do so will leave your server open to the public.
-
-!!! question "Web UI disabled for Render deploys"
-
-    For security reasons, Zep deployments to Render default to disabling the web UI. The Zep web UI is not secured by 
-    JWT authentication and should only [be enabled](config.md) if you deploy Zep as a [private service](https://render.com/docs/private-services).
 
 #### 1. Click on the button below to deploy to Render using the Zep blueprint
 
@@ -20,9 +18,9 @@ Enter a **Blueprint Name** (we suggest `zep`) and provide your OpenAI API key, w
 
 Click `Apply`.
 
-!!! note "OpenAI API Key Required"
+!!! note "OpenAI or Anthropic API Key Required"
 
-    An OpenAI API key is required to run Zep. Please ensure that you enter it in the step above.
+    An OpenAI API key is required to run Zep. Please ensure that you enter it in the step above. To configure Zep to use Anthropic or other LLM services, please see [Configuring LLM Services](llm_config.md).
 
 #### 3. Wait for your deploy to complete
 
@@ -55,6 +53,11 @@ Retrieve your Zep server URL from the Render web console.
     ```
 
 Next steps: [Using Zep's Python and TypeScript/JS SDKs](../sdk/index.md)
+
+!!! question "Web UI disabled for Render deploys"
+
+    For security reasons, Zep deployments to Render default to disabling the web UI. The Zep web UI is not secured by 
+    JWT authentication and should only [be enabled](config.md) if you deploy Zep as a [private service](https://render.com/docs/private-services).
 
 #### What this blueprint does
 

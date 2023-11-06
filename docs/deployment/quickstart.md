@@ -50,10 +50,12 @@ docker compose up
 
 This will start a Zep server on port `8000`, and NLP and database server backends.
 
-!!! Warning "Configure Server Authentication"
+!!! Warning "Secure Your Zep Deployment"
 
     If you are deploying Zep to a production environemnt or where Zep APIs are exposed to the public internet, 
-    please ensure that you secure your Zep server by [configuring authentication](auth.md).
+    please ensure that you secure your Zep server. 
+    
+    Review the [Security Guidelines](security.md) and [configure authentication](auth.md).
     Failing to do so will leave your server open to the public.
 
 &nbsp;

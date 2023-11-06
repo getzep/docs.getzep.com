@@ -4,7 +4,7 @@
 2. Deploying to the [Render platform](render.md).
 3. Deploying to [Kubernetes](kubernetes.md).
 3. Deploying to [production environments.](production.md)
-4. [Configuring authentication.](auth.md)
+4. [Securing Zep](security.md) and [Configuring authentication.](auth.md)
 5. [Data management](data.md) with Zep.
 
 Next Steps:
