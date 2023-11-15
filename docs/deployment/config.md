@@ -30,9 +30,10 @@ Note the defaults below for the embedding models and review the [Selecting Embed
 | server.port                                 | ZEP_SERVER_PORT                                 | 8000                                                         |
 | server.web_enabled                          | ZEP_SERVER_WEB_ENABLED                          | true                                                         |
 | server.max_request_size                     | ZEP_SERVER_MAX_REQUEST_SIZE                     | 5242880                                                      |
-| nlp.server_url                              | ZEP_NLP_SERVER_URL                              | Installation dependent.                                      |
-| development                                 | ZEP_DEVELOPMENT                                 | false                                                        |
-| log.level                                   | ZEP_LOG_LEVEL                                   | info                                                         |
+ nlp.server_url                              | ZEP_NLP_SERVER_URL                              | Installation dependent.                                      |
+ opentelemetry.enabled                       | ZEP_OPENTELEMETRY_ENABLED                       | false                                                        |
+ development                                 | ZEP_DEVELOPMENT                                 | false                                                        |
+ log.level                                   | ZEP_LOG_LEVEL                                   | info                                                         |
 
 ### Authentication Config
 
