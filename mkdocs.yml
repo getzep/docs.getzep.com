@@ -51,6 +51,7 @@ nav:
       - Authentication: deployment/auth.md
       - LLM API Config: deployment/llm_config.md
       - Custom Prompts: deployment/prompts.md
+      - OpenTelemetry: deployment/otel.md
       - Data Management: deployment/data.md
 
   - Support: support/index.md

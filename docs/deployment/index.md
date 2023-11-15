@@ -5,7 +5,8 @@
 3. Deploying to [Kubernetes](kubernetes.md).
 3. Deploying to [production environments.](production.md)
 4. [Securing Zep](security.md) and [Configuring authentication.](auth.md)
-5. [Data management](data.md) with Zep.
+5. Configuring [OpenTelemetry](otel.md) tracing.
+6. [Data management](data.md) with Zep.
 
 Next Steps:
 
