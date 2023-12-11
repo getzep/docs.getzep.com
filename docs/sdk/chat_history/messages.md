@@ -69,7 +69,6 @@ To retrieve a specific message from a session, you can use the `get_session_mess
     }
     ```
 
-
 ## Getting all Messages from a Session
 
 === ":fontawesome-brands-python: Python"
@@ -119,8 +118,6 @@ To retrieve a specific message from a session, you can use the `get_session_mess
     } catch (error) {
         console.error("An error occurred:", error);
     }
-
-
     ```
     ```json title="Output"
     {
@@ -157,7 +154,6 @@ The metadata should be provided in the following format:
     "foo": "bar"
   }
 }
-
 ```
 
 === ":fontawesome-brands-python: Python"
@@ -227,4 +223,3 @@ The metadata should be provided in the following format:
       }
     }
     ```
-
