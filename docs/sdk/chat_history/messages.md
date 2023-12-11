@@ -8,7 +8,6 @@ Messages must be added to sessions using [`Memories`](memories.md).
 
 You may not update the content of messages, and can only change the metadata.
 
-
 ## Get a Specific Message from a Session
 
 To retrieve a specific message from a session, you can use the `get_session_message` method. Here are examples in Python and TypeScript:
@@ -115,7 +114,7 @@ To retrieve a specific message from a session, you can use the `get_session_mess
     try {
         const sessionID = "3e0e4af9-71ff-4541-b206-6133574bbbc6";  // Replace with the actual session ID
         const messagesForSession = await zepClient.message.getSessionMessages(sessionID);
-        
+
         messagesForSession.messages.forEach((message) => {
             console.debug(JSON.stringify(message));
         });
