@@ -41,6 +41,7 @@ To retrieve a specific message from a session, you can use the `get_session_mess
     ```
 
 === ":simple-typescript: TypeScript"
+
     ```javascript title="Get message from Session"
     const sessionID = "3e0e4af9-71ff-4541-b206-6133574bbbc6";  // Replace with the actual session ID
     const messageID = "3e0e4af9-71ff-4541-b206-6133574bbbc7";  // Replace with the actual message ID
@@ -81,10 +82,7 @@ To retrieve a specific message from a session, you can use the `get_session_mess
                 print(message.to_dict())
         except NotFoundError:
             print("Sesssion not found")
-
-
     ```
-
     ```json title="Output"
     {
       "messages": [
