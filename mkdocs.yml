@@ -24,6 +24,7 @@ nav:
           - Sessions: sdk/chat_history/sessions.md
           - Memories: sdk/chat_history/memories.md
           - Search Chat History: sdk/chat_history/search.md
+          - Messages: sdk/chat_history/messages.md
       - Zep Search: 
           - sdk/search_query.md
       - Enrichments: 
@@ -119,7 +120,7 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 plugins:
-  - typeset
-  - optimize
+  #- typeset
+  #- optimize
   - git-revision-date-localized:
       enable_creation_date: true
