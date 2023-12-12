@@ -2,8 +2,6 @@
 
 `Messages` represent individual messages in a conversation. Messages are associated with [`Sessions`](sessions.md) in a M:1 relationship.
 
-The `SessionID` is a string key that access arbritrary identifies. Related data you'd like to store can be persisted as metadata.
-
 Messages must be added to sessions using [`Memories`](memories.md).
 
 You may not update the content of messages, and can only change the metadata.
@@ -144,8 +142,7 @@ To retrieve a specific message from a session, you can use the `get_session_mess
 ## Update Session Message Metadata
 
 Below are examples on how to update the metadata on a message.
-You cannot update metadata under the protected `system` keyword.
-If there are keys of the same name, they will be replaced with the new metadata provided.
+Currently, updating message content is not supported. You may, however, update a message's metadata.
 The metadata should be provided in the following format:
 
 ```json title="metadata"
