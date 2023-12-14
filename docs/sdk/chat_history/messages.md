@@ -4,7 +4,7 @@
 
 Messages must be added to sessions using [`Memories`](memories.md).
 
-You may not update the content of messages, and can only change the metadata.
+Currently, updating message content is not supported. You may, however, update a message's metadata.
 
 ## Get a Specific Message from a Session
 
