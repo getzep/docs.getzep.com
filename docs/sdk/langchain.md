@@ -28,6 +28,77 @@ See the examples in the inline [Document Vector Store documentation](documents.m
 
 ## Using Zep as a LangChain Memory Store
 
+
+### Using Zep with the LangChain's Python LangChain Expression Language (LCEL)
+
+The `ZepChatMessageHistory` class is used to provide long-term memory to LangChain apps built using the LangChain Expression Language (LCEL).
+
+First we'll create a `ChatPromptTemplate` that includes a placeholder for the message history. Then we'll create a `ChatOpenAI` model and chain it to the prompt. 
+```python 
+from langchain.chat_models import ChatOpenAI
+from langchain.memory.chat_message_histories import ZepChatMessageHistory
+from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
+from langchain_core.runnables.history import RunnableWithMessageHistory
+
+prompt = ChatPromptTemplate.from_messages(
+    [
+        ("system", "You're an assistant who's good at {ability}"),
+        MessagesPlaceholder(variable_name="history"),
+        ("human", "{question}"),
+    ]
+)
+
+chain = prompt | ChatOpenAI(model="gpt-3.5-turbo-1106", api_key=openai_api_key)
+
+session_id = "your-users-unique-session-id"
+```
+
+Now we'll instantiate a `ZepChatMessageHistory`, provide it with a unique session ID, and the Zep server URL and API key (if required). We'll also create a `RunnableWithMessageHistory` that will provide the message history to the chain. We'll specify the input and history message keys. The input messages key is the key that the chain will use to access the input messages. The history messages key is the key that the chain will use to access the message history. Ensure that these match your prompt template.
+
+```python
+zep_chat_history = ZepChatMessageHistory(
+    session_id=session_id,
+    url="http://localhost:8000",
+    # api_key=<your_api_key>,
+)
+
+chain_with_history = RunnableWithMessageHistory(
+    chain,
+    lambda session_id: zep_chat_history,
+    input_messages_key="question",
+    history_messages_key="history",
+)
+
+chain_with_history.invoke(
+    {"ability": "math", "question": "What does cosine mean?"},
+    config={"configurable": {"session_id": session_id}},
+)
+```
+```text
+AIMessage(content='Cosine is a trigonometric function that relates the angle of a right-angled triangle to the ratio of the length of the adjacent side to the length of the hypotenuse. In simpler terms, cosine is a way to calculate the ratio of the length of one side of a right-angled triangle to the length of the hypotenuse, given an angle. This function is widely used in mathematics, physics, engineering, and many other fields.')
+```
+Let's invoke the chain again, this time with a different question. We'll also print the message history to see what's been stored.
+
+```python
+chain_with_history.invoke(
+    {"ability": "math", "question": "What's its inverse"},
+    config={"configurable": {"session_id": session_id}},
+)
+```
+The prior message context was used to answer the question. Zep [automatically generates summaries](extractors.md) of the message history. These will be added to the message history sent to LAngChain and can be used to provide long-term context to the chain.
+
+```text
+AIMessage(content='The inverse of the cosine function is called arccosine or inverse cosine. It is denoted as "arccos" or "cos^(-1)". The arccosine function takes a value between -1 and 1 as input and returns the angle in radians whose cosine is the input value. In other words, if y = arccos(x), then x = cos(y). The arccosine function is the inverse of the cosine function, allowing us to find the angle given the cosine value.')
+```
+
+### Using LangChain's ZepMemory class
+
+!!! note "`ZepMemory` is used with the legacy LangChain Python API"
+    
+    The following examples illustrate using Zep as a Langchain memory store. In Python, the `ZepMemory` class is 
+    used when building LangChain app's with the legacy API. See above for details on building apps with the 
+    LangChain Expression Language (LCEL).
+
 === ":fontawesome-brands-python: Python"
 
     Using Zep as your Langchain app's long-term memory simple: initialize the `ZepMemory` with your Zep instance URL, API key, and your user's [session identifier](chat_history/sessions.md).
