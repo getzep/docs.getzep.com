@@ -126,6 +126,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.getzep.com/sdk/chat_history/messages/</loc>
+         <lastmod>2023-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.getzep.com/sdk/chat_history/search/</loc>
          <lastmod>2023-12-14</lastmod>
          <changefreq>daily</changefreq>
