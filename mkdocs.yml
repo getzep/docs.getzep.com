@@ -24,6 +24,7 @@ nav:
           - Sessions: sdk/chat_history/sessions.md
           - Memories: sdk/chat_history/memories.md
           - Search Chat History: sdk/chat_history/search.md
+          - Messages: sdk/chat_history/messages.md
       - Zep Search: 
           - sdk/search_query.md
       - Enrichments: 
