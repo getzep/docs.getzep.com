@@ -4,8 +4,6 @@
 
 Messages must be added to sessions using [`Memories`](memories.md).
 
-Currently, updating message content is not supported. You may, however, update a message's metadata.
-
 ## Get a Specific Message from a Session
 
 To retrieve a specific message from a session, you can use the `get_session_message` method. Here are examples in Python and TypeScript:
