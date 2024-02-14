@@ -2,152 +2,152 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.getzep.com/</loc>
-         <lastmod>2023-12-14</lastmod>
+         <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.getzep.com/zep-versus/</loc>
-         <lastmod>2023-12-14</lastmod>
+         <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.getzep.com/deployment/</loc>
-         <lastmod>2023-12-14</lastmod>
+         <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.getzep.com/deployment/auth/</loc>
-         <lastmod>2023-12-14</lastmod>
+         <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.getzep.com/deployment/config/</loc>
-         <lastmod>2023-12-14</lastmod>
+         <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.getzep.com/deployment/data/</loc>
-         <lastmod>2023-12-14</lastmod>
+         <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.getzep.com/deployment/embeddings/</loc>
-         <lastmod>2023-12-14</lastmod>
+         <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.getzep.com/deployment/kubernetes/</loc>
-         <lastmod>2023-12-14</lastmod>
+         <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.getzep.com/deployment/llm_config/</loc>
-         <lastmod>2023-12-14</lastmod>
+         <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.getzep.com/deployment/otel/</loc>
-         <lastmod>2023-12-14</lastmod>
+         <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.getzep.com/deployment/production/</loc>
-         <lastmod>2023-12-14</lastmod>
+         <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.getzep.com/deployment/prompts/</loc>
-         <lastmod>2023-12-14</lastmod>
+         <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.getzep.com/deployment/quickstart/</loc>
-         <lastmod>2023-12-14</lastmod>
+         <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.getzep.com/deployment/render/</loc>
-         <lastmod>2023-12-14</lastmod>
+         <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.getzep.com/deployment/security/</loc>
-         <lastmod>2023-12-14</lastmod>
+         <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.getzep.com/deployment/webui/</loc>
-         <lastmod>2023-12-14</lastmod>
+         <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.getzep.com/sdk/</loc>
-         <lastmod>2023-12-14</lastmod>
+         <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.getzep.com/sdk/documents/</loc>
-         <lastmod>2023-12-14</lastmod>
+         <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.getzep.com/sdk/examples/</loc>
-         <lastmod>2023-12-14</lastmod>
+         <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.getzep.com/sdk/extractors/</loc>
-         <lastmod>2023-12-14</lastmod>
+         <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.getzep.com/sdk/langchain/</loc>
-         <lastmod>2023-12-14</lastmod>
+         <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.getzep.com/sdk/llamaindex/</loc>
-         <lastmod>2023-12-14</lastmod>
+         <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.getzep.com/sdk/search_query/</loc>
-         <lastmod>2023-12-14</lastmod>
+         <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.getzep.com/sdk/chat_history/</loc>
-         <lastmod>2023-12-14</lastmod>
+         <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.getzep.com/sdk/chat_history/memories/</loc>
-         <lastmod>2023-12-14</lastmod>
+         <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.getzep.com/sdk/chat_history/messages/</loc>
-         <lastmod>2023-12-14</lastmod>
+         <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.getzep.com/sdk/chat_history/search/</loc>
-         <lastmod>2023-12-14</lastmod>
+         <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.getzep.com/sdk/chat_history/sessions/</loc>
-         <lastmod>2023-12-14</lastmod>
+         <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.getzep.com/sdk/chat_history/users/</loc>
-         <lastmod>2023-12-14</lastmod>
+         <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.getzep.com/support/</loc>
-         <lastmod>2023-12-14</lastmod>
+         <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
