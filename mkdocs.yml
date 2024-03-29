@@ -1,7 +1,7 @@
-site_name: Zep - Fast, scalable building blocks for LLM apps
+site_name: Zep - Long-Term Memory for AI Assistants.
 site_url: https://docs.getzep.com
-site_description: Fast, scalable building blocks for chat history memory, vector search, data enrichment, and more..
-copyright: Copyright &copy; 2023 - Zep Software, Inc.
+site_description: Recall, understand, and extract data from chat histories. Power personalized AI experiences.
+copyright: Copyright &copy; 2024 - Zep Software, Inc.
 repo_url: https://github.com/getzep/zep
 edit_uri: https://github.com/getzep/docs.getzep.com/blob/main/docs/
 extra_css:
