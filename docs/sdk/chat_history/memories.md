@@ -21,22 +21,22 @@ Additionally, you can even store custom metadata with each Message.
     session_id = uuid.uuid4().hex # A new session identifier
 
     history = [
-         { role: "human", content: "Who was Octavia Butler?" },
+         { "role": "human", "content": "Who was Octavia Butler?" },
          {
-            role: "ai",
-            content:
+            "role": "ai",
+            "content":
                "Octavia Estelle Butler (June 22, 1947 – February 24, 2006) was an American" +
                " science fiction author.",
          },
          {
-            role: "human",
-            content: "Which books of hers were made into movies?",
-            metadata={"foo": "bar"},
+            "role": "human",
+            "content": "Which books of hers were made into movies?",
+            "metadata":{"foo": "bar"},
          }
     ]
 
 
-    messages = [Message(role=m.role, content=m.content) for m in history]
+    messages = [Message(role=m["role"], content=m["content"]) for m in history]
     memory = Memory(messages=messages)
     result = await client.memory.aadd_memory(session_id, memory)
     ```
@@ -57,7 +57,7 @@ Additionally, you can even store custom metadata with each Message.
          {
             role: "human",
             content: "Which books of hers were made into movies?",
-            metadata={"foo": "bar"},
+            metadata:{"foo": "bar"},
          }
     ];
 
