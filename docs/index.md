@@ -4,11 +4,11 @@
   </a>
 </p>
 
-<h1 style="text-align:center;">
-Fast, scalable building blocks for LLM Apps
+<h1 align="center">
+Zep: Long-Term Memory for ‍AI Assistants.
 </h1>
-<h2 style="text-align:center;">Production-grade chat history memory, vector search, data enrichment, and more.</h2>
-
+<h2 align="center">Recall, understand, and extract data from chat histories. Power personalized AI experiences.</h2>
+<br />
 <p style="text-align:center; margin-top: 20px;">
   <a href="https://discord.gg/W8Kw6bsgXQ"><img
     src="https://dcbadge.vercel.app/api/server/W8Kw6bsgXQ?style=flat"
@@ -26,8 +26,8 @@ Fast, scalable building blocks for LLM Apps
 <a href="https://www.getzep.com">www.getzep.com</a>
 </p>
 
-## What is Zep?
-Zep is an open source platform for productionizing LLM apps. Go from a prototype built in LangChain or LlamaIndex, or a custom app, to production in minutes without rewriting code.
+## What is Zep? 💬
+Zep is a long-term memory service for AI Assistant apps. With Zep, you can provide AI assistants with the ability to recall past conversations, no matter how distant, while also reducing hallucinations, latency, and cost.
 
 > Unlike vector databases, `Users`, `Sessions`, `Memories`, and `Documents` are all first-class citizens in Zep.
 
