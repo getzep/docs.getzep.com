@@ -1,6 +1,6 @@
 <p style="text-align:center;">
-  <a href="https://squidfunk.github.io/mkdocs-material/">
-    <img src="https://github.com/getzep/zep/blob/main/assets/zep-bot-square-200x200.png?raw=true" width="150" alt="Zep Logo">
+  <a href="https://www.getzep.com/">
+    <img src="https://raw.githubusercontent.com/getzep/zep/main/assets/zep-logo-icon-gradient-rgb.svg" width="150" alt="Zep Logo">
   </a>
 </p>
 
