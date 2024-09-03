@@ -5,9 +5,9 @@
 </p>
 
 <h1 align="center">
-Zep: Long-Term Memory for ‍AI Assistants.
+Zep: The Memory Foundation For Your AI Stack
 </h1>
-<h2 align="center">Recall, understand, and extract data from chat histories. Power personalized AI experiences.</h2>
+<h2 align="center">Build AI assistants that continually learn and delight users with personalized and accurate experiences.</h2>
 <br />
 <p style="text-align:center; margin-top: 20px;">
   <a href="https://discord.gg/W8Kw6bsgXQ"><img
@@ -27,76 +27,75 @@ Zep: Long-Term Memory for ‍AI Assistants.
 </p>
 
 ## What is Zep? 💬
+
 Zep is a long-term memory service for AI Assistant apps. With Zep, you can provide AI assistants with the ability to recall past conversations, no matter how distant, while also reducing hallucinations, latency, and cost.
 
 > Unlike vector databases, `Users`, `Sessions`, `Memories`, and `Documents` are all first-class citizens in Zep.
 
 <div style="padding:56.25% 0 0 0;position:relative; margin: 40px 0;"><iframe src="https://player.vimeo.com/video/865785086?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Zep Demo"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
 
-
-
 <div class="grid cards" style="margin-top: 40px;" markdown>
 
--   :material-clock-fast:{ .lg .middle } __Set up in 5 minutes__
+- :material-clock-fast:{ .lg .middle } **Set up in 5 minutes**
 
-    ---
+  ***
 
-    Install via `docker compose` or sign up for Zep Cloud
+  Install via `docker compose` or sign up for Zep Cloud
 
-    [:octicons-arrow-right-24: Quick Start](deployment/quickstart.md)
+  [:octicons-arrow-right-24: Quick Start](deployment/quickstart.md)
 
--   :material-magnify:{ .lg .middle } __Hybrid Vector Database__
+- :material-magnify:{ .lg .middle } **Hybrid Vector Database**
 
-    ---
+  ***
 
-    Populate your prompts with relevant documents and chat history
+  Populate your prompts with relevant documents and chat history
 
-    [:octicons-arrow-right-24: Vector Store](sdk/documents.md)
+  [:octicons-arrow-right-24: Vector Store](sdk/documents.md)
 
--   :material-chat-outline:{ .lg .middle } __Persist Chat History__
+- :material-chat-outline:{ .lg .middle } **Persist Chat History**
 
-    ---
+  ***
 
-    Store chat history, enrich it with metadata, and run semantic search over it
+  Store chat history, enrich it with metadata, and run semantic search over it
 
-    [:octicons-arrow-right-24: Chat History](sdk/chat_history/index.md)
+  [:octicons-arrow-right-24: Chat History](sdk/chat_history/index.md)
 
--   :octicons-rocket-16:{ .lg .middle } __Enrich it all__
+- :octicons-rocket-16:{ .lg .middle } **Enrich it all**
 
-    ---
+  ***
 
-    Embeddings, summaries, named entities, token counts, and more
+  Embeddings, summaries, named entities, token counts, and more
 
-    [:octicons-arrow-right-24: Extractors](sdk/extractors.md)
+  [:octicons-arrow-right-24: Extractors](sdk/extractors.md)
 
--   :black_heart:{ .lg .middle } __Use the tools you love__
+- :black_heart:{ .lg .middle } **Use the tools you love**
 
-    ---
+  ***
 
-    Python :fontawesome-brands-python:, TypeScript :simple-typescript:, LangChain 🦜⛓️, LlamaIndex 🦙, and more
+  Python :fontawesome-brands-python:, TypeScript :simple-typescript:, LangChain 🦜⛓️, LlamaIndex 🦙, and more
 
-    [:octicons-arrow-right-24: SDKs](sdk/index.md)
+  [:octicons-arrow-right-24: SDKs](sdk/index.md)
 
--   :material-scale-balance:{ .lg .middle } __Open Source__
+- :material-scale-balance:{ .lg .middle } **Open Source**
 
-    ---
+  ***
 
-    Zep is licensed under the Apache Software License and available on [GitHub](https://github.com/getzep/zep)
+  Zep is licensed under the Apache Software License and available on [GitHub](https://github.com/getzep/zep)
 
-    [:octicons-arrow-right-24: License](https://github.com/getzep/zep/blob/main/LICENSE)
+  [:octicons-arrow-right-24: License](https://github.com/getzep/zep/blob/main/LICENSE)
 
 </div>
 
-----
+---
 
 ## What you can build with Zep
 
 1. **Chatbot Applications**: Zep's chat history storage enables context-aware chatbot applications.
-3. **Retrieval Augmented Generation (RAG) Applications**: Zep's vector store aids in building applications that answer questions based on a document set.
-2. **Agent Applications**: Zep's document vector store and enriched chat history store can be used as tools by agents, able to look up relevant information and past conversations.
+2. **Retrieval Augmented Generation (RAG) Applications**: Zep's vector store aids in building applications that answer questions based on a document set.
+3. **Agent Applications**: Zep's document vector store and enriched chat history store can be used as tools by agents, able to look up relevant information and past conversations.
 4. **Data Enrichment Applications**: Zep's extractors can be used for applications that need to analyze and understand the text data from human/bot conversations.
 
-----
+---
 
 ## Quick Start
 

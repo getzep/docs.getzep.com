@@ -1,6 +1,6 @@
 # Quick Start
 
-Prefer deploying to the cloud?
+Prefer not to manage Zep yourself?
 
 <p style="display: flex; align-items: center;">
     <a class="md-button" href="https://www.getzep.com/" style="margin-right: 20px; padding: inherit 15px; border-radius: 7px;">
@@ -13,7 +13,6 @@ Prefer deploying to the cloud?
         </span>
     </a>
 </p>
-
 
 ### Starting a Zep server locally is simple.
 
@@ -48,9 +47,9 @@ This will start a Zep server on port `8000`, and NLP and database server backend
 
 !!! Warning "Secure Your Zep Deployment"
 
-    If you are deploying Zep to a production environemnt or where Zep APIs are exposed to the public internet, 
-    please ensure that you secure your Zep server. 
-    
+    If you are deploying Zep to a production environemnt or where Zep APIs are exposed to the public internet,
+    please ensure that you secure your Zep server.
+
     Review the [Security Guidelines](security.md) and [configure authentication](auth.md).
     Failing to do so will leave your server open to the public.
 
@@ -65,10 +64,10 @@ This will start a Zep server on port `8000`, and NLP and database server backend
 !!! note "Docker on Macs: Embedding is slow!"
 
     **For docker compose deployment we default to using OpenAI's embedding service.**
-    
+
     Zep relies on PyTorch for embedding inference. On MacOS, Zep's NLP server runs in a Linux ARM64 container. PyTorch is not optimized to run on Linux ARM64 and does not have access to MacBook M-series acceleration hardware.
-    
-    
+
+
     Want to use local embeddings? See [Selecting Embedding Models](embeddings.md).
 
 5\. Access the **Zep Web UI** at [http://localhost:8000/admin](http://localhost:8000/admin) (assuming you are running Zep locally)
